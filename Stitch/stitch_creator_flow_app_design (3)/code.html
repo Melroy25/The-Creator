@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>
+  @layer base {
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #F0F2F8;
+      color: #1E2337;
+    }
+    body {
+      overscroll-behavior: none;
+    }
+    main > :first-child {
+      margin-top: 0 !important;
+    }
+    main > :last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Silk Neomorphic Custom Shadows */
+  .silk-card {
+    background: #F5F7FB;
+    box-shadow: 6px 6px 14px rgba(166, 175, 195, 0.45), -6px -6px 14px rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  .silk-card-sm {
+    background: #F5F7FB;
+    box-shadow: 4px 4px 10px rgba(166, 175, 195, 0.4), -4px -4px 10px rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
+  .silk-inset {
+    background: #EDEFF6;
+    box-shadow: inset 3px 3px 6px rgba(166, 175, 195, 0.45), inset -3px -3px 6px rgba(255, 255, 255, 0.95);
+  }
+  .silk-inset-deep {
+    background: #E8EBF3;
+    box-shadow: inset 4px 4px 8px rgba(166, 175, 195, 0.5), inset -4px -4px 8px rgba(255, 255, 255, 1);
+  }
+  .silk-btn-primary {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    box-shadow: 4px 4px 12px rgba(99, 102, 241, 0.38), -2px -2px 6px rgba(255, 255, 255, 0.8);
+  }
+  .silk-btn-primary:active {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.25);
+  }
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        background: "#F0F2F8",
+        surface: "#F5F7FB",
+        "surface-container": "#EDEFF6",
+        "surface-container-low": "#F2F4FA",
+        "surface-container-high": "#E5E8F2",
+        "surface-container-highest": "#DCDEE8",
+        primary: "#6366F1",
+        "primary-container": "#818cf8",
+        "on-primary": "#FFFFFF",
+        secondary: "#7C3AED",
+        "on-surface": "#1E2337",
+        "on-surface-variant": "#64748B",
+        outline: "#94A3B8",
+        "outline-variant": "#CBD5E1",
+        tertiary: "#0284C7",
+        error: "#EF4444"
+      },
+      borderRadius: {
+        DEFAULT: "0.5rem",
+        lg: "1rem",
+        xl: "1.25rem",
+        "2xl": "1.25rem",
+        full: "9999px"
+      },
+      fontFamily: {
+        headline: ["Plus Jakarta Sans", "sans-serif"],
+        display: ["Plus Jakarta Sans", "sans-serif"],
+        body: ["Plus Jakarta Sans", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"]
+      }
+    }
+  }
+};</script></head><body class="bg-[#F0F2F8] font-body text-[#1E2337] antialiased min-h-screen overflow-x-hidden selection:bg-indigo-100 selection:text-indigo-900"><aside class="fixed left-0 top-0 bottom-0 w-72 bg-[#F3F5FA] z-50 flex flex-col justify-between border-r border-[#E2E6F0] shadow-[4px_0_20px_rgba(166,175,195,0.2)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="h-16 px-6 flex items-center gap-3 border-b border-[#E2E6F0]/80 bg-[#F5F7FC]"><img alt="Creator Flow Logo Mark" class="h-8 w-auto object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1WBP1EWCpQmf9vFOCf5Zi2Fm1aZ9OwNCmp2fHdPrqtvJZY_li-AndPH8tA903l0koPUYWWHybitxqDz1UvTOdr8p-m8WI8LWFAO_Me9Q-b3Nfpsr1nC_NNTGgUnp52EeyVSSA6WyVuwfXZXcKP0vzjXyKgmI5zNyw0bbeJ7G-oJfCT4swL4UprSgd_kNFpgXaKLCwfWY0xqhD91VrU2lIrn2MncpPVJDh-l_J5NUjSPtzRAqCZXh-7gfg"/><div class="flex items-center gap-1.5"><span class="font-headline text-[15px] tracking-tight text-[#1E2337] uppercase font-bold">CREATOR FLOW</span><span class="text-[11px] font-semibold bg-[#E8EBF5] text-indigo-600 px-2 py-0.5 rounded-full uppercase tracking-wider border border-white/80 shadow-[inset_1px_1px_2px_rgba(166,175,195,0.3)]">PRO</span></div></div><div class="flex-1 overflow-y-auto px-4 py-5"><div class="px-3 pb-2 text-[#94A3B8] font-mono text-[11px] uppercase tracking-wider font-semibold">Primary Modules</div><nav class="space-y-1.5 mb-6"><a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#1E2337] font-semibold silk-inset transition-all" data-path="dashboard" href="#"><div class="flex flex-col"><span class="text-sm leading-tight text-indigo-600 font-bold">Dashboard</span><span class="text-[11px] text-[#64748B] font-normal">Command center telemetry</span></div><span class="text-[11px] font-mono font-bold text-indigo-600 bg-white/80 px-2 py-0.5 rounded-md shadow-sm">01</span></a><a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="campaigns" href="#"><div class="flex flex-col"><span class="text-sm leading-tight font-medium">Campaigns</span><span class="text-[11px] text-[#94A3B8]">Brand deals &amp; deliverables</span></div><span class="text-[11px] font-mono text-[#94A3B8]">02</span></a><a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="workflow" href="#"><div class="flex flex-col"><span class="text-sm leading-tight font-medium">Workflow</span><span class="text-[11px] text-[#94A3B8]">Interactive node graph</span></div><span class="text-[11px] font-mono text-[#94A3B8]">03</span></a><a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="simulator" href="#"><div class="flex flex-col"><span class="text-sm leading-tight font-medium">Simulator</span><span class="text-[11px] text-[#94A3B8]">What-if impact engine</span></div><span class="text-[11px] font-mono text-[#94A3B8]">04</span></a><a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="risks" href="#"><div class="flex flex-col"><span class="text-sm leading-tight font-medium">Risks</span><span class="text-[11px] text-[#94A3B8]">Bottlenecks &amp; critical radar</span></div><span class="text-[11px] font-mono text-rose-500 font-semibold">05</span></a><a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="copilot" href="#"><div class="flex flex-col"><span class="text-sm leading-tight font-medium">Copilot</span><span class="text-[11px] text-[#94A3B8]">Autonomous pipeline reasoning</span></div><span class="text-[11px] font-mono text-indigo-500 font-semibold">06</span></a></nav><div class="px-1"><details class="group silk-card-sm rounded-xl overflow-hidden"><summary class="flex items-center justify-between px-3.5 py-2.5 cursor-pointer list-none text-[#64748B] hover:text-[#1E2337] transition-colors"><div class="flex items-center gap-2"><span class="text-xs font-semibold">More Operations</span><span class="text-[10px] font-mono px-1.5 py-0.5 rounded-md bg-[#E8EBF5] text-[#64748B] font-bold">4</span></div><span class="text-xs text-[#94A3B8] group-open:rotate-180 transition-transform">↓</span></summary><div class="px-2 py-2 space-y-1 bg-[#EEF1F8] border-t border-[#E2E6F0]"><a class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="brief-analyzer" href="#"><span>Brief Analyzer</span><span class="text-[10px] font-mono text-[#94A3B8]">AI Parser</span></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="finances" href="#"><span>Finances</span><span class="text-[10px] font-mono text-[#94A3B8]">Ledger</span></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="audit-trail" href="#"><span>Audit Trail</span><span class="text-[10px] font-mono text-[#94A3B8]">Logs</span></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="settings" href="#"><span>Settings</span><span class="text-[10px] font-mono text-[#94A3B8]">System</span></a></div></details></div></div></div><div class="p-3.5 m-3.5 silk-card rounded-2xl space-y-3"><div class="flex items-center justify-between"><span class="text-xs font-bold truncate text-[#1E2337]">Apex Media Studio</span><span class="text-[10px] bg-indigo-50 text-indigo-600 border border-indigo-200/60 px-1.5 py-0.5 rounded font-mono font-bold">PRO HUD</span></div><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span><span class="text-[11px] text-[#64748B] leading-none truncate">Telemetry sync (0ms jitter)</span></div><div class="space-y-1.5"><div class="flex justify-between items-center text-[11px]"><span class="text-[#94A3B8]">Bandwidth</span><span class="text-indigo-600 font-bold font-mono">84% utilized</span></div><div class="w-full h-2 bg-[#E2E6F2] rounded-full overflow-hidden silk-inset"><div class="h-full bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full w-[84%]"></div></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-[#F3F5FA]/90 backdrop-blur-xl z-40 px-8 flex items-center justify-between gap-6 border-b border-[#E2E6F0] shadow-[0_4px_16px_rgba(166,175,195,0.15)]"><div class="flex items-center gap-4 flex-1 max-w-md"><div class="relative w-full flex items-center silk-inset rounded-xl px-3.5 py-2 focus-within:border-indigo-400 border border-transparent transition-all"><span class="text-[11px] font-mono uppercase text-[#94A3B8] mr-2 font-bold">FIND</span><input class="bg-transparent text-sm text-[#1E2337] placeholder-[#94A3B8] focus:outline-none w-full font-medium" placeholder="Search campaigns, briefs, assets..." type="text"/><kbd class="text-[11px] font-mono bg-white text-[#64748B] px-1.5 py-0.5 rounded-md shadow-sm border border-slate-200">⌘K</kbd></div></div><div class="flex items-center gap-5"><div class="flex items-center gap-2.5 silk-card-sm px-3.5 py-1.5 rounded-full"><span class="text-xs text-[#64748B] font-medium">What-if Simulation</span><button class="relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full bg-indigo-500/20 p-0.5 transition-colors" type="button"><span class="translate-x-4 inline-block h-4 w-4 transform rounded-full bg-indigo-600 shadow-md transition-transform"></span></button></div><button class="relative p-2 rounded-xl text-[#64748B] hover:text-[#1E2337] silk-card-sm transition-all" type="button"><span class="font-mono text-xs font-bold tracking-wider uppercase text-[#64748B]">NOTIF</span><span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-indigo-500 ring-2 ring-white"></span></button><div class="flex items-center gap-3 pl-1"><div class="relative"><img alt="Marcus Vance Creator Avatar" class="w-8 h-8 rounded-full object-cover ring-2 ring-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf0UPwBWWzgAlNhdUoA7tPDGyflnUQ9U4Fr5dVCkgvXkboms5Ch6dRg3QP9xkhD35T4iNO0ThjHVYbS2JhzjwFHwt1u6hz0qwyBPvgwM95YZI8kIWengCmDqMOjHCqJYeqJztBq4-eNAQCBGsom6ZhYFXI0CpG0m36vGlWpNRbr31fQiiKR-2XLCw_o8DAJNLW3KQHvUO261zYgZJcS8QteevSWda3ZXNTUpXfkJjE9_T9h4QDbBEK"/><span class="absolute bottom-0 right-0 h-2 w-2 rounded-full bg-emerald-500 ring-2 ring-white"></span></div><div class="hidden xl:flex flex-col text-left"><span class="text-xs font-bold text-[#1E2337] leading-tight">Marcus Vance</span><span class="text-[10px] text-[#94A3B8] font-medium leading-none">Executive Creator</span></div></div></div></header><main class="relative pt-16 min-h-screen bg-[#F0F2F8] bg-[radial-gradient(circle_at_top_left,rgba(99,102,241,0.06),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(167,139,250,0.06),transparent_40%)] w-full px-8 py-8"><div class="flex flex-col w-full pb-16 space-y-8">
+<!-- Header Block: Tactile & Crisp Typography -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1.5">
+<span class="text-[11px] font-mono uppercase tracking-widest text-primary font-bold bg-surface-container-high px-2 py-0.5 rounded-full shadow-[inset_1px_1px_2px_rgba(0,0,0,0.06),inset_-1px_-1px_2px_rgba(255,255,255,0.8)]">SYSTEM CONFIG</span>
+<span class="text-xs text-on-surface-variant font-medium">/ Workspace v3.4.1</span>
+</div>
+<h1 class="text-3xl font-display font-bold text-on-surface tracking-tight">Settings</h1>
+<p class="text-sm text-on-surface-variant mt-1 font-medium">Manage workspace preferences, team capacity, and visual appearance.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface shadow-[inset_2px_2px_5px_rgba(0,0,0,0.05),inset_-2px_-2px_5px_rgba(255,255,255,0.7)] text-xs text-on-surface-variant">
+<span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-mono text-[11px] font-semibold">CLOUD SYNC: ACTIVE</span>
+</div>
+<button class="px-4 py-2 rounded-xl bg-surface text-xs font-semibold text-on-surface shadow-[4px_4px_10px_rgba(0,0,0,0.07),-4px_-4px_10px_rgba(255,255,255,0.8)] hover:shadow-[2px_2px_6px_rgba(0,0,0,0.05),-2px_-2px_6px_rgba(255,255,255,0.7)] active:shadow-[inset_2px_2px_5px_rgba(0,0,0,0.08),inset_-2px_-2px_5px_rgba(255,255,255,0.6)] transition-all flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">history</span>
+<span>Audit Log</span>
+</button>
+</div>
+</div>
+<!-- Neomorphic Segmented Tabs Navigation -->
+<div class="w-full overflow-x-auto pb-2 scrollbar-none">
+<div class="inline-flex items-center p-1.5 rounded-2xl bg-surface shadow-[inset_4px_4px_8px_rgba(0,0,0,0.06),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] gap-1.5 min-w-max">
+<button class="px-4 py-2 rounded-xl text-xs font-bold text-primary bg-surface shadow-[4px_4px_10px_rgba(0,0,0,0.08),-4px_-4px_10px_rgba(255,255,255,0.9)] flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">palette</span>
+<span>Appearance &amp; Display</span>
+</button>
+<button class="px-4 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">account_circle</span>
+<span>Profile &amp; Account</span>
+</button>
+<button class="px-4 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Working Hours &amp; Capacity</span>
+</button>
+<button class="px-4 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">hub</span>
+<span>Integrations</span>
+</button>
+<button class="px-4 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">notifications</span>
+<span>Notifications</span>
+</button>
+</div>
+</div>
+<!-- SECTION 1: HERO - Appearance & Theme -->
+<div class="p-8 rounded-2xl bg-surface shadow-[6px_6px_14px_rgba(0,0,0,0.07),-6px_-6px_14px_rgba(255,255,255,0.85)] space-y-7 relative overflow-hidden">
+<!-- Subtle Ambient Glow -->
+<div class="absolute -right-16 -top-16 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 relative z-10">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">palette</span>
+<h2 class="text-lg font-bold text-on-surface tracking-tight">Interface Theme</h2>
+</div>
+<p class="text-xs text-on-surface-variant mt-0.5">Choose between Silk Light Neomorphic and Deep Space Orbital Dark Mode, or sync with your system.</p>
+</div>
+<span class="text-[11px] font-mono text-primary font-bold px-2.5 py-1 rounded-lg bg-surface-container shadow-[inset_2px_2px_4px_rgba(0,0,0,0.05),inset_-2px_-2px_4px_rgba(255,255,255,0.8)] self-start sm:self-auto">
+        LIVE PREVIEW READY
+      </span>
+</div>
+<!-- Theme Cards (Interactive Picker) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-1">
+<!-- Card 1: Silk Light (ACTIVE) -->
+<div class="group cursor-pointer rounded-2xl p-5 bg-surface shadow-[6px_6px_12px_rgba(0,0,0,0.08),-6px_-6px_12px_rgba(255,255,255,0.9)] relative transition-all duration-300" id="theme-silk-card" onclick="selectTheme('silk')">
+<!-- Selected Indicator Bar -->
+<div class="absolute top-4 right-4 flex items-center gap-1 bg-primary text-white text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full shadow-[2px_2px_6px_rgba(99,102,241,0.4)]" id="badge-silk">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>ACTIVE</span>
+</div>
+<!-- Graphic Preview: Silk Light UI Mini-Mockup -->
+<div class="w-full h-32 rounded-xl bg-surface-container p-3 flex flex-col justify-between shadow-[inset_3px_3px_6px_rgba(0,0,0,0.07),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] mb-4 overflow-hidden relative">
+<!-- Mini Header -->
+<div class="flex items-center justify-between pb-2">
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-primary shadow-sm"></div>
+<div class="w-12 h-2 rounded bg-surface-container-highest shadow-[inset_1px_1px_2px_rgba(0,0,0,0.08)]"></div>
+</div>
+<div class="w-5 h-5 rounded-lg bg-surface shadow-[2px_2px_4px_rgba(0,0,0,0.08),-2px_-2px_4px_rgba(255,255,255,0.8)] flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary/70"></div>
+</div>
+</div>
+<!-- Mini UI Elements -->
+<div class="grid grid-cols-2 gap-2 my-auto">
+<div class="p-2 rounded-lg bg-surface shadow-[2px_2px_5px_rgba(0,0,0,0.08),-2px_-2px_5px_rgba(255,255,255,0.9)] space-y-1">
+<div class="w-7 h-1.5 rounded bg-surface-container-highest"></div>
+<div class="w-10 h-2.5 rounded bg-primary/20"></div>
+</div>
+<div class="p-2 rounded-lg bg-surface shadow-[2px_2px_5px_rgba(0,0,0,0.08),-2px_-2px_5px_rgba(255,255,255,0.9)] space-y-1">
+<div class="w-6 h-1.5 rounded bg-surface-container-highest"></div>
+<div class="w-8 h-2.5 rounded bg-tertiary/20"></div>
+</div>
+</div>
+<!-- Mini Bottom Inset Bar -->
+<div class="w-full h-3 rounded-full bg-surface-container-highest shadow-[inset_1px_1px_2px_rgba(0,0,0,0.1)] p-0.5">
+<div class="w-2/3 h-full rounded-full bg-primary"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-1.5">
+<h3 class="text-sm font-bold text-on-surface">Silk Light</h3>
+<span class="text-[10px] font-mono text-primary font-semibold">DEFAULT</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Extruded clay tactile surfaces, soft shadows, warm natural lighting balance.</p>
+</div>
+</div>
+<!-- Card 2: Orbital Dark -->
+<div class="group cursor-pointer rounded-2xl p-5 bg-surface shadow-[4px_4px_10px_rgba(0,0,0,0.05),-4px_-4px_10px_rgba(255,255,255,0.7)] hover:shadow-[6px_6px_14px_rgba(0,0,0,0.09),-6px_-6px_14px_rgba(255,255,255,0.9)] relative transition-all duration-300" id="theme-dark-card" onclick="selectTheme('dark')">
+<!-- Selected Indicator Bar (Hidden initially) -->
+<div class="hidden absolute top-4 right-4 items-center gap-1 bg-primary text-white text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full shadow-[2px_2px_6px_rgba(99,102,241,0.4)]" id="badge-dark">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>ACTIVE</span>
+</div>
+<!-- Graphic Preview: Orbital Dark UI Mockup -->
+<div class="w-full h-32 rounded-xl bg-surface-container-highest p-3 flex flex-col justify-between shadow-[inset_3px_3px_6px_rgba(0,0,0,0.15)] mb-4 overflow-hidden relative">
+<!-- Dark background overlay -->
+<div class="absolute inset-0 bg-[#090D1A] z-0"></div>
+<!-- Mini Dark Header -->
+<div class="flex items-center justify-between pb-2 relative z-10">
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-[#6366F1] shadow-[0_0_8px_#6366F1]"></div>
+<div class="w-12 h-2 rounded bg-white/10"></div>
+</div>
+<div class="w-5 h-5 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-cyan-400"></div>
+</div>
+</div>
+<!-- Mini Dark UI Cards -->
+<div class="grid grid-cols-2 gap-2 my-auto relative z-10">
+<div class="p-2 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm space-y-1">
+<div class="w-7 h-1.5 rounded bg-white/20"></div>
+<div class="w-10 h-2.5 rounded bg-indigo-500/50"></div>
+</div>
+<div class="p-2 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm space-y-1">
+<div class="w-6 h-1.5 rounded bg-white/20"></div>
+<div class="w-8 h-2.5 rounded bg-violet-500/50"></div>
+</div>
+</div>
+<!-- Mini Dark Glow Bar -->
+<div class="w-full h-3 rounded-full bg-white/5 p-0.5 relative z-10">
+<div class="w-3/4 h-full rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 shadow-[0_0_8px_rgba(99,102,241,0.5)]"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-1.5">
+<h3 class="text-sm font-bold text-on-surface">Orbital Dark</h3>
+<span class="text-[10px] font-mono text-on-surface-variant font-medium">DEEP SPACE</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">High-contrast obsidian base, luminescent node links, low glare studio editing.</p>
+</div>
+</div>
+<!-- Card 3: System Sync -->
+<div class="group cursor-pointer rounded-2xl p-5 bg-surface shadow-[4px_4px_10px_rgba(0,0,0,0.05),-4px_-4px_10px_rgba(255,255,255,0.7)] hover:shadow-[6px_6px_14px_rgba(0,0,0,0.09),-6px_-6px_14px_rgba(255,255,255,0.9)] relative transition-all duration-300" id="theme-system-card" onclick="selectTheme('system')">
+<!-- Selected Indicator Bar (Hidden initially) -->
+<div class="hidden absolute top-4 right-4 items-center gap-1 bg-primary text-white text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full shadow-[2px_2px_6px_rgba(99,102,241,0.4)]" id="badge-system">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>ACTIVE</span>
+</div>
+<!-- Graphic Preview: Split Mockup -->
+<div class="w-full h-32 rounded-xl bg-surface-container p-3 flex flex-col justify-between shadow-[inset_3px_3px_6px_rgba(0,0,0,0.08),inset_-3px_-3px_6px_rgba(255,255,255,0.9)] mb-4 overflow-hidden relative">
+<!-- Dark Side Split -->
+<div class="absolute right-0 top-0 bottom-0 w-1/2 bg-[#090D1A] z-0"></div>
+<div class="flex items-center justify-between pb-2 relative z-10">
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<div class="w-8 h-2 rounded bg-surface-container-highest"></div>
+</div>
+<div class="w-4 h-4 rounded-full bg-white/20"></div>
+</div>
+<div class="flex items-center justify-center my-auto relative z-10">
+<div class="p-2 rounded-xl bg-surface shadow-[3px_3px_6px_rgba(0,0,0,0.1),-3px_-3px_6px_rgba(255,255,255,0.9)] flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">brightness_medium</span>
+<span class="text-[10px] font-mono font-bold text-on-surface">AUTO DYNAMIC</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-[9px] font-mono text-on-surface-variant relative z-10">
+<span>SUNRISE: 06:40</span>
+<span class="text-white/60">SUNSET: 19:15</span>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-1.5">
+<h3 class="text-sm font-bold text-on-surface">System Automatic</h3>
+<span class="text-[10px] font-mono text-on-surface-variant font-medium">OS SYNC</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Aligns seamlessly with macOS/Windows schedule and ambient solar sensors.</p>
+</div>
+</div>
+</div>
+<!-- Sub-options: Toggles & Accent Colors -->
+<div class="pt-5 border-t-0 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+<!-- Auto-Dim Quick Toggle -->
+<div class="p-4 rounded-xl bg-surface shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.7)] flex items-center justify-between gap-3">
+<div class="space-y-0.5">
+<div class="text-xs font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">bedtime</span>
+<span>Night Flight Auto-Dim</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">Dims telemetry past 22:00 local</p>
+</div>
+<!-- Neomorphic Toggle Button -->
+<button class="w-12 h-6 rounded-full bg-surface shadow-[inset_2px_2px_4px_rgba(0,0,0,0.1),inset_-2px_-2px_4px_rgba(255,255,255,0.8)] p-0.5 relative transition-all duration-200" id="toggle-night" onclick="toggleSwitch('toggle-night')">
+<div class="w-5 h-5 rounded-full bg-primary shadow-[2px_2px_5px_rgba(99,102,241,0.5)] transform translate-x-6 transition-transform"></div>
+</button>
+</div>
+<!-- Accent Color Selection -->
+<div class="p-4 rounded-xl bg-surface shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.7)] flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-on-surface">System Accent</span>
+<span class="text-[10px] font-mono text-primary font-bold" id="active-accent-name">INDIGO #6366F1</span>
+</div>
+<div class="flex items-center gap-3">
+<!-- Indigo (Active) -->
+<button class="accent-btn w-6 h-6 rounded-full bg-[#6366F1] shadow-[2px_2px_5px_rgba(99,102,241,0.5)] ring-2 ring-primary ring-offset-2 ring-offset-surface transition-all" onclick="setAccent('Indigo #6366F1', this)"></button>
+<!-- Electric Blue -->
+<button class="accent-btn w-6 h-6 rounded-full bg-[#4D7CFF] shadow-[2px_2px_5px_rgba(77,124,255,0.4)] opacity-70 hover:opacity-100 transition-all" onclick="setAccent('Electric Blue #4D7CFF', this)"></button>
+<!-- Emerald -->
+<button class="accent-btn w-6 h-6 rounded-full bg-[#10B981] shadow-[2px_2px_5px_rgba(16,185,129,0.4)] opacity-70 hover:opacity-100 transition-all" onclick="setAccent('Emerald #10B981', this)"></button>
+<!-- Rose -->
+<button class="accent-btn w-6 h-6 rounded-full bg-[#F43F5E] shadow-[2px_2px_5px_rgba(244,63,94,0.4)] opacity-70 hover:opacity-100 transition-all" onclick="setAccent('Rose #F43F5E', this)"></button>
+</div>
+</div>
+<!-- Contrast Mode Segmented Pill -->
+<div class="p-4 rounded-xl bg-surface shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.7)] flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-on-surface">Depth Contrast</span>
+<span class="text-[10px] font-mono text-on-surface-variant font-medium">NEOMORPHIC STRENGTH</span>
+</div>
+<div class="flex items-center p-1 rounded-xl bg-surface shadow-[inset_2px_2px_4px_rgba(0,0,0,0.08),inset_-2px_-2px_4px_rgba(255,255,255,0.8)] gap-1">
+<button class="flex-1 py-1 rounded-lg text-[11px] font-bold text-primary bg-surface shadow-[2px_2px_5px_rgba(0,0,0,0.06),-2px_-2px_5px_rgba(255,255,255,0.8)] transition-all" id="contrast-standard" onclick="setContrast('standard')">
+            Standard Soft
+          </button>
+<button class="flex-1 py-1 rounded-lg text-[11px] font-semibold text-on-surface-variant hover:text-on-surface transition-all" id="contrast-high" onclick="setContrast('high')">
+            High Crisp
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2 & 3: GRID LAYOUT (Capacity & Automation) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- SECTION 2: Working Hours & Workload Ceiling -->
+<div class="p-7 rounded-2xl bg-surface shadow-[6px_6px_14px_rgba(0,0,0,0.07),-6px_-6px_14px_rgba(255,255,255,0.85)] space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">timelapse</span>
+<h2 class="text-base font-bold text-on-surface tracking-tight">Working Hours &amp; Capacity</h2>
+</div>
+<span class="text-[10px] font-mono text-on-surface-variant bg-surface-container px-2 py-0.5 rounded shadow-[inset_1px_1px_2px_rgba(0,0,0,0.05)]">TEAM GOVERNANCE</span>
+</div>
+<!-- Capacity Ceiling Slider & Metric -->
+<div class="p-5 rounded-xl bg-surface shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.8)] space-y-4">
+<div class="flex justify-between items-baseline">
+<div>
+<span class="text-xs font-bold text-on-surface">Weekly Creator Capacity Ceiling</span>
+<p class="text-[11px] text-on-surface-variant">Triggers automated reschedule alert when breached</p>
+</div>
+<div class="text-right">
+<span class="text-lg font-mono font-bold text-primary" id="capacity-hours">40h</span>
+<span class="text-[10px] font-mono text-on-surface-variant">/ week</span>
+</div>
+</div>
+<!-- Custom Tactile Slider -->
+<div class="relative w-full flex items-center">
+<input class="w-full h-2 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-primary shadow-[inset_1px_1px_3px_rgba(0,0,0,0.15)] focus:outline-none" id="capacity-slider" max="60" min="20" oninput="updateCapacity(this.value)" type="range" value="40"/>
+</div>
+<div class="flex justify-between items-center text-[10px] font-mono text-on-surface-variant font-medium">
+<span>Min: 20h</span>
+<span class="text-primary font-bold">Optimal: 35-42h</span>
+<span>Hard Max: 60h</span>
+</div>
+</div>
+<!-- Threshold Warning Indicator -->
+<div class="p-4 rounded-xl bg-surface shadow-[4px_4px_10px_rgba(0,0,0,0.05),-4px_-4px_10px_rgba(255,255,255,0.8)] flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center shadow-[inset_1px_1px_2px_rgba(0,0,0,0.06)]">
+<span class="material-symbols-outlined text-lg">warning</span>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-surface">Early Warning Threshold</h4>
+<p class="text-[11px] text-on-surface-variant">Warn creator when pipeline commitments reach 80%</p>
+</div>
+</div>
+<span class="text-xs font-mono font-bold text-amber-600 px-2 py-1 rounded bg-amber-500/10">32h (80%)</span>
+</div>
+<!-- Toggle: Respect Editor 8h daily limit -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.7)]">
+<div class="space-y-0.5 pr-4">
+<h4 class="text-xs font-bold text-on-surface">Enforce 8h Daily Editor Buffer</h4>
+<p class="text-[11px] text-on-surface-variant">Prevents autonomous scheduler from stacking revision slots beyond 8h/day</p>
+</div>
+<button class="w-12 h-6 flex-shrink-0 rounded-full bg-surface shadow-[inset_2px_2px_4px_rgba(0,0,0,0.1),inset_-2px_-2px_4px_rgba(255,255,255,0.8)] p-0.5 relative transition-all duration-200" id="toggle-editor-limit" onclick="toggleSwitch('toggle-editor-limit')">
+<div class="w-5 h-5 rounded-full bg-primary shadow-[2px_2px_5px_rgba(99,102,241,0.5)] transform translate-x-6 transition-transform"></div>
+</button>
+</div>
+</div>
+<!-- SECTION 3: Notifications & Automation Rules -->
+<div class="p-7 rounded-2xl bg-surface shadow-[6px_6px_14px_rgba(0,0,0,0.07),-6px_-6px_14px_rgba(255,255,255,0.85)] space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">smart_toy</span>
+<h2 class="text-base font-bold text-on-surface tracking-tight">Automation &amp; Alert Signals</h2>
+</div>
+<span class="text-[10px] font-mono text-primary font-bold bg-primary/10 px-2 py-0.5 rounded">AUTONOMOUS COPILOT</span>
+</div>
+<!-- Automation Item 1: Slack Brief Parser -->
+<div class="p-4 rounded-xl bg-surface shadow-[4px_4px_10px_rgba(0,0,0,0.05),-4px_-4px_10px_rgba(255,255,255,0.8)] flex items-start justify-between gap-3">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center shadow-[inset_1px_1px_2px_rgba(0,0,0,0.06)] flex-shrink-0">
+<span class="material-symbols-outlined text-lg">auto_awesome</span>
+</div>
+<div class="space-y-0.5">
+<h4 class="text-xs font-bold text-on-surface">Auto-Run "What-If" on Incoming Briefs</h4>
+<p class="text-[11px] text-on-surface-variant">Simulates pipeline shock, editor deadlines, and cash flow when briefs drop in #brand-deals.</p>
+<div class="pt-2 flex items-center gap-2">
+<span class="text-[10px] font-mono bg-surface-container px-2 py-0.5 rounded text-on-surface font-semibold shadow-[inset_1px_1px_2px_rgba(0,0,0,0.05)]">SLACK CHANNEL: #sponsorships</span>
+<span class="text-[10px] font-mono text-emerald-600 font-bold">CONNECTED</span>
+</div>
+</div>
+</div>
+<button class="w-12 h-6 flex-shrink-0 rounded-full bg-surface shadow-[inset_2px_2px_4px_rgba(0,0,0,0.1),inset_-2px_-2px_4px_rgba(255,255,255,0.8)] p-0.5 relative transition-all duration-200" id="toggle-brief-auto" onclick="toggleSwitch('toggle-brief-auto')">
+<div class="w-5 h-5 rounded-full bg-primary shadow-[2px_2px_5px_rgba(99,102,241,0.5)] transform translate-x-6 transition-transform"></div>
+</button>
+</div>
+<!-- Automation Item 2: Critical Path Deliverables -->
+<div class="p-4 rounded-xl bg-surface shadow-[4px_4px_10px_rgba(0,0,0,0.05),-4px_-4px_10px_rgba(255,255,255,0.8)] flex items-start justify-between gap-3">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center shadow-[inset_1px_1px_2px_rgba(0,0,0,0.06)] flex-shrink-0">
+<span class="material-symbols-outlined text-lg">campaign</span>
+</div>
+<div class="space-y-0.5">
+<h4 class="text-xs font-bold text-on-surface">Critical Path Blocker Broadcast</h4>
+<p class="text-[11px] text-on-surface-variant">High-priority push alert to phone &amp; Apple Watch when a sponsor review delay risks YouTube publish window.</p>
+<div class="pt-1 flex items-center gap-2">
+<span class="text-[10px] font-mono text-on-surface-variant font-medium">ESCALATION: SMS + PUSH</span>
+</div>
+</div>
+</div>
+<button class="w-12 h-6 flex-shrink-0 rounded-full bg-surface shadow-[inset_2px_2px_4px_rgba(0,0,0,0.1),inset_-2px_-2px_4px_rgba(255,255,255,0.8)] p-0.5 relative transition-all duration-200" id="toggle-push-blocker" onclick="toggleSwitch('toggle-push-blocker')">
+<div class="w-5 h-5 rounded-full bg-primary shadow-[2px_2px_5px_rgba(99,102,241,0.5)] transform translate-x-6 transition-transform"></div>
+</button>
+</div>
+<!-- System Notification Sound Inset Select -->
+<div class="p-4 rounded-xl bg-surface shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.7)] flex items-center justify-between">
+<div>
+<span class="text-xs font-bold text-on-surface">Critical Radar Audio Beacon</span>
+<p class="text-[11px] text-on-surface-variant">Haptic synthesizer frequency</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono font-bold text-primary">Subtle Ripple (432Hz)</span>
+<button class="w-7 h-7 rounded-lg bg-surface shadow-[3px_3px_6px_rgba(0,0,0,0.08),-3px_-3px_6px_rgba(255,255,255,0.8)] flex items-center justify-center text-on-surface-variant hover:text-primary active:shadow-[inset_1px_1px_3px_rgba(0,0,0,0.1)]">
+<span class="material-symbols-outlined text-[15px]">volume_up</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- BOTTOM ACTION BAR: Tactile Neomorphic Controls -->
+<div class="p-5 rounded-2xl bg-surface shadow-[6px_6px_14px_rgba(0,0,0,0.07),-6px_-6px_14px_rgba(255,255,255,0.85)] flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-emerald-600">check_circle</span>
+<span>All unsaved changes are cached in browser local state.</span>
+</div>
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-5 py-2.5 rounded-xl bg-surface text-xs font-semibold text-on-surface-variant hover:text-on-surface shadow-[4px_4px_10px_rgba(0,0,0,0.06),-4px_-4px_10px_rgba(255,255,255,0.8)] active:shadow-[inset_2px_2px_5px_rgba(0,0,0,0.08),inset_-2px_-2px_5px_rgba(255,255,255,0.6)] transition-all" onclick="resetDefaults()">
+        Reset to Defaults
+      </button>
+<button class="flex-1 sm:flex-initial px-7 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-br from-indigo-500 to-indigo-600 shadow-[4px_4px_12px_rgba(99,102,241,0.38),-2px_-2px_6px_rgba(255,255,255,0.8)] hover:brightness-105 active:shadow-[inset_2px_2px_5px_rgba(0,0,0,0.25)] flex items-center justify-center gap-2 transition-all" id="save-btn" onclick="saveSettings()">
+<span class="material-symbols-outlined text-[16px]">save</span>
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Theme Switching Logic
+  function selectTheme(theme) {
+    const cards = {
+      silk: document.getElementById('theme-silk-card'),
+      dark: document.getElementById('theme-dark-card'),
+      system: document.getElementById('theme-system-card')
+    };
+
+    const badges = {
+      silk: document.getElementById('badge-silk'),
+      dark: document.getElementById('badge-dark'),
+      system: document.getElementById('badge-system')
+    };
+
+    // Reset all cards
+    Object.keys(cards).forEach(key => {
+      cards[key].classList.remove('ring-2', 'ring-primary', 'shadow-[6px_6px_14px_rgba(99,102,241,0.25)]');
+      badges[key].classList.add('hidden');
+      badges[key].classList.remove('flex');
+    });
+
+    // Activate selected
+    if (theme === 'silk') {
+      cards.silk.classList.add('ring-2', 'ring-primary');
+      badges.silk.classList.remove('hidden');
+      badges.silk.classList.add('flex');
+      document.documentElement.classList.remove('dark');
+    } else if (theme === 'dark') {
+      cards.dark.classList.add('ring-2', 'ring-primary');
+      badges.dark.classList.remove('hidden');
+      badges.dark.classList.add('flex');
+    } else if (theme === 'system') {
+      cards.system.classList.add('ring-2', 'ring-primary');
+      badges.system.classList.remove('hidden');
+      badges.system.classList.add('flex');
+    }
+  }
+
+  // Toggle Switches Logic
+  function toggleSwitch(id) {
+    const toggle = document.getElementById(id);
+    const knob = toggle.querySelector('div');
+    const isChecked = knob.classList.contains('translate-x-6');
+
+    if (isChecked) {
+      knob.classList.remove('translate-x-6', 'bg-primary');
+      knob.classList.add('translate-x-0', 'bg-on-surface-variant/40');
+      knob.style.boxShadow = 'none';
+    } else {
+      knob.classList.remove('translate-x-0', 'bg-on-surface-variant/40');
+      knob.classList.add('translate-x-6', 'bg-primary');
+      knob.style.boxShadow = '2px 2px 5px rgba(99,102,241,0.5)';
+    }
+  }
+
+  // Accent Color Picker Logic
+  function setAccent(colorName, btn) {
+    document.getElementById('active-accent-name').innerText = colorName.toUpperCase();
+    document.querySelectorAll('.accent-btn').forEach(b => {
+      b.classList.remove('ring-2', 'ring-primary', 'ring-offset-2', 'ring-offset-surface', 'opacity-100');
+      b.classList.add('opacity-70');
+    });
+    btn.classList.add('ring-2', 'ring-primary', 'ring-offset-2', 'ring-offset-surface', 'opacity-100');
+    btn.classList.remove('opacity-70');
+  }
+
+  // Contrast Mode Toggle Logic
+  function setContrast(mode) {
+    const std = document.getElementById('contrast-standard');
+    const hi = document.getElementById('contrast-high');
+    if (mode === 'standard') {
+      std.className = "flex-1 py-1 rounded-lg text-[11px] font-bold text-primary bg-surface shadow-[2px_2px_5px_rgba(0,0,0,0.06),-2px_-2px_5px_rgba(255,255,255,0.8)] transition-all";
+      hi.className = "flex-1 py-1 rounded-lg text-[11px] font-semibold text-on-surface-variant hover:text-on-surface transition-all";
+    } else {
+      hi.className = "flex-1 py-1 rounded-lg text-[11px] font-bold text-primary bg-surface shadow-[2px_2px_5px_rgba(0,0,0,0.06),-2px_-2px_5px_rgba(255,255,255,0.8)] transition-all";
+      std.className = "flex-1 py-1 rounded-lg text-[11px] font-semibold text-on-surface-variant hover:text-on-surface transition-all";
+    }
+  }
+
+  // Capacity Slider Handler
+  function updateCapacity(val) {
+    document.getElementById('capacity-hours').innerText = val + 'h';
+  }
+
+  // Save changes toast micro-interaction
+  function saveSettings() {
+    const btn = document.getElementById('save-btn');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `<span class="material-symbols-outlined text-[16px] animate-spin">progress_activity</span><span>Applying...</span>`;
+    setTimeout(() => {
+      btn.innerHTML = `<span class="material-symbols-outlined text-[16px]">done</span><span>Preferences Saved</span>`;
+      btn.classList.remove('from-indigo-500', 'to-indigo-600');
+      btn.classList.add('from-emerald-500', 'to-emerald-600');
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('from-emerald-500', 'to-emerald-600');
+        btn.classList.add('from-indigo-500', 'to-indigo-600');
+      }, 2000);
+    }, 600);
+  }
+
+  // Reset defaults handler
+  function resetDefaults() {
+    selectTheme('silk');
+    const slider = document.getElementById('capacity-slider');
+    slider.value = 40;
+    updateCapacity(40);
+    setContrast('standard');
+  }
+</script></main></div></body></html>

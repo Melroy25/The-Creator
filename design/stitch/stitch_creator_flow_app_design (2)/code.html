@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>
+  @layer base {
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #F0F2F8;
+      color: #1E2337;
+    }
+    body {
+      overscroll-behavior: none;
+    }
+    main > :first-child {
+      margin-top: 0 !important;
+    }
+    main > :last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Silk Neomorphic Custom Shadows */
+  .silk-card {
+    background: #F5F7FB;
+    box-shadow: 6px 6px 14px rgba(166, 175, 195, 0.45), -6px -6px 14px rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  .silk-card-sm {
+    background: #F5F7FB;
+    box-shadow: 4px 4px 10px rgba(166, 175, 195, 0.4), -4px -4px 10px rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
+  .silk-inset {
+    background: #EDEFF6;
+    box-shadow: inset 3px 3px 6px rgba(166, 175, 195, 0.45), inset -3px -3px 6px rgba(255, 255, 255, 0.95);
+  }
+  .silk-inset-deep {
+    background: #E8EBF3;
+    box-shadow: inset 4px 4px 8px rgba(166, 175, 195, 0.5), inset -4px -4px 8px rgba(255, 255, 255, 1);
+  }
+  .silk-btn-primary {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    box-shadow: 4px 4px 12px rgba(99, 102, 241, 0.38), -2px -2px 6px rgba(255, 255, 255, 0.8);
+  }
+  .silk-btn-primary:active {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.25);
+  }
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        background: "#F0F2F8",
+        surface: "#F5F7FB",
+        "surface-container": "#EDEFF6",
+        "surface-container-low": "#F2F4FA",
+        "surface-container-high": "#E5E8F2",
+        "surface-container-highest": "#DCDEE8",
+        primary: "#6366F1",
+        "primary-container": "#818cf8",
+        "on-primary": "#FFFFFF",
+        secondary: "#7C3AED",
+        "on-surface": "#1E2337",
+        "on-surface-variant": "#64748B",
+        outline: "#94A3B8",
+        "outline-variant": "#CBD5E1",
+        tertiary: "#0284C7",
+        error: "#EF4444"
+      },
+      borderRadius: {
+        DEFAULT: "0.5rem",
+        lg: "1rem",
+        xl: "1.25rem",
+        "2xl": "1.25rem",
+        full: "9999px"
+      },
+      fontFamily: {
+        headline: ["Plus Jakarta Sans", "sans-serif"],
+        display: ["Plus Jakarta Sans", "sans-serif"],
+        body: ["Plus Jakarta Sans", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"]
+      }
+    }
+  }
+};</script></head><body class="bg-[#F0F2F8] font-body text-[#1E2337] antialiased min-h-screen overflow-x-hidden selection:bg-indigo-100 selection:text-indigo-900"><aside class="fixed left-0 top-0 bottom-0 w-72 bg-[#F3F5FA] z-50 flex flex-col justify-between border-r border-[#E2E6F0] shadow-[4px_0_20px_rgba(166,175,195,0.2)]"><div class="flex flex-col flex-1 overflow-hidden"><div class="h-16 px-6 flex items-center gap-3 border-b border-[#E2E6F0]/80 bg-[#F5F7FC]"><img alt="Creator Flow Logo Mark" class="h-8 w-auto object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1WBP1EWCpQmf9vFOCf5Zi2Fm1aZ9OwNCmp2fHdPrqtvJZY_li-AndPH8tA903l0koPUYWWHybitxqDz1UvTOdr8p-m8WI8LWFAO_Me9Q-b3Nfpsr1nC_NNTGgUnp52EeyVSSA6WyVuwfXZXcKP0vzjXyKgmI5zNyw0bbeJ7G-oJfCT4swL4UprSgd_kNFpgXaKLCwfWY0xqhD91VrU2lIrn2MncpPVJDh-l_J5NUjSPtzRAqCZXh-7gfg"/><div class="flex items-center gap-1.5"><span class="font-headline text-[15px] tracking-tight text-[#1E2337] uppercase font-bold">CREATOR FLOW</span><span class="text-[11px] font-semibold bg-[#E8EBF5] text-indigo-600 px-2 py-0.5 rounded-full uppercase tracking-wider border border-white/80 shadow-[inset_1px_1px_2px_rgba(166,175,195,0.3)]">PRO</span></div></div><div class="flex-1 overflow-y-auto px-4 py-5"><div class="px-3 pb-2 text-[#94A3B8] font-mono text-[11px] uppercase tracking-wider font-semibold">Primary Modules</div><nav class="space-y-1.5 mb-6"><a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#1E2337] font-semibold silk-inset transition-all" data-path="dashboard" href="#"><div class="flex flex-col"><span class="text-sm leading-tight text-indigo-600 font-bold">Dashboard</span><span class="text-[11px] text-[#64748B] font-normal">Command center telemetry</span></div><span class="text-[11px] font-mono font-bold text-indigo-600 bg-white/80 px-2 py-0.5 rounded-md shadow-sm">01</span></a><a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="campaigns" href="#"><div class="flex flex-col"><span class="text-sm leading-tight font-medium">Campaigns</span><span class="text-[11px] text-[#94A3B8]">Brand deals &amp; deliverables</span></div><span class="text-[11px] font-mono text-[#94A3B8]">02</span></a><a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="workflow" href="#"><div class="flex flex-col"><span class="text-sm leading-tight font-medium">Workflow</span><span class="text-[11px] text-[#94A3B8]">Interactive node graph</span></div><span class="text-[11px] font-mono text-[#94A3B8]">03</span></a><a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="simulator" href="#"><div class="flex flex-col"><span class="text-sm leading-tight font-medium">Simulator</span><span class="text-[11px] text-[#94A3B8]">What-if impact engine</span></div><span class="text-[11px] font-mono text-[#94A3B8]">04</span></a><a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="risks" href="#"><div class="flex flex-col"><span class="text-sm leading-tight font-medium">Risks</span><span class="text-[11px] text-[#94A3B8]">Bottlenecks &amp; critical radar</span></div><span class="text-[11px] font-mono text-rose-500 font-semibold">05</span></a><a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="copilot" href="#"><div class="flex flex-col"><span class="text-sm leading-tight font-medium">Copilot</span><span class="text-[11px] text-[#94A3B8]">Autonomous pipeline reasoning</span></div><span class="text-[11px] font-mono text-indigo-500 font-semibold">06</span></a></nav><div class="px-1"><details class="group silk-card-sm rounded-xl overflow-hidden"><summary class="flex items-center justify-between px-3.5 py-2.5 cursor-pointer list-none text-[#64748B] hover:text-[#1E2337] transition-colors"><div class="flex items-center gap-2"><span class="text-xs font-semibold">More Operations</span><span class="text-[10px] font-mono px-1.5 py-0.5 rounded-md bg-[#E8EBF5] text-[#64748B] font-bold">4</span></div><span class="text-xs text-[#94A3B8] group-open:rotate-180 transition-transform">↓</span></summary><div class="px-2 py-2 space-y-1 bg-[#EEF1F8] border-t border-[#E2E6F0]"><a class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="brief-analyzer" href="#"><span>Brief Analyzer</span><span class="text-[10px] font-mono text-[#94A3B8]">AI Parser</span></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="finances" href="#"><span>Finances</span><span class="text-[10px] font-mono text-[#94A3B8]">Ledger</span></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="audit-trail" href="#"><span>Audit Trail</span><span class="text-[10px] font-mono text-[#94A3B8]">Logs</span></a><a class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-[#64748B] hover:text-[#1E2337] hover:bg-white/70 transition-all" data-path="settings" href="#"><span>Settings</span><span class="text-[10px] font-mono text-[#94A3B8]">System</span></a></div></details></div></div></div><div class="p-3.5 m-3.5 silk-card rounded-2xl space-y-3"><div class="flex items-center justify-between"><span class="text-xs font-bold truncate text-[#1E2337]">Apex Media Studio</span><span class="text-[10px] bg-indigo-50 text-indigo-600 border border-indigo-200/60 px-1.5 py-0.5 rounded font-mono font-bold">PRO HUD</span></div><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span><span class="text-[11px] text-[#64748B] leading-none truncate">Telemetry sync (0ms jitter)</span></div><div class="space-y-1.5"><div class="flex justify-between items-center text-[11px]"><span class="text-[#94A3B8]">Bandwidth</span><span class="text-indigo-600 font-bold font-mono">84% utilized</span></div><div class="w-full h-2 bg-[#E2E6F2] rounded-full overflow-hidden silk-inset"><div class="h-full bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full w-[84%]"></div></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-[#F3F5FA]/90 backdrop-blur-xl z-40 px-8 flex items-center justify-between gap-6 border-b border-[#E2E6F0] shadow-[0_4px_16px_rgba(166,175,195,0.15)]"><div class="flex items-center gap-4 flex-1 max-w-md"><div class="relative w-full flex items-center silk-inset rounded-xl px-3.5 py-2 focus-within:border-indigo-400 border border-transparent transition-all"><span class="text-[11px] font-mono uppercase text-[#94A3B8] mr-2 font-bold">FIND</span><input class="bg-transparent text-sm text-[#1E2337] placeholder-[#94A3B8] focus:outline-none w-full font-medium" placeholder="Search campaigns, briefs, assets..." type="text"/><kbd class="text-[11px] font-mono bg-white text-[#64748B] px-1.5 py-0.5 rounded-md shadow-sm border border-slate-200">⌘K</kbd></div></div><div class="flex items-center gap-5"><div class="flex items-center gap-2.5 silk-card-sm px-3.5 py-1.5 rounded-full"><span class="text-xs text-[#64748B] font-medium">What-if Simulation</span><button class="relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full bg-indigo-500/20 p-0.5 transition-colors" type="button"><span class="translate-x-4 inline-block h-4 w-4 transform rounded-full bg-indigo-600 shadow-md transition-transform"></span></button></div><button class="relative p-2 rounded-xl text-[#64748B] hover:text-[#1E2337] silk-card-sm transition-all" type="button"><span class="font-mono text-xs font-bold tracking-wider uppercase text-[#64748B]">NOTIF</span><span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-indigo-500 ring-2 ring-white"></span></button><div class="flex items-center gap-3 pl-1"><div class="relative"><img alt="Marcus Vance Creator Avatar" class="w-8 h-8 rounded-full object-cover ring-2 ring-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf0UPwBWWzgAlNhdUoA7tPDGyflnUQ9U4Fr5dVCkgvXkboms5Ch6dRg3QP9xkhD35T4iNO0ThjHVYbS2JhzjwFHwt1u6hz0qwyBPvgwM95YZI8kIWengCmDqMOjHCqJYeqJztBq4-eNAQCBGsom6ZhYFXI0CpG0m36vGlWpNRbr31fQiiKR-2XLCw_o8DAJNLW3KQHvUO261zYgZJcS8QteevSWda3ZXNTUpXfkJjE9_T9h4QDbBEK"/><span class="absolute bottom-0 right-0 h-2 w-2 rounded-full bg-emerald-500 ring-2 ring-white"></span></div><div class="hidden xl:flex flex-col text-left"><span class="text-xs font-bold text-[#1E2337] leading-tight">Marcus Vance</span><span class="text-[10px] text-[#94A3B8] font-medium leading-none">Executive Creator</span></div></div></div></header><main class="relative pt-16 min-h-screen bg-[#F0F2F8] bg-[radial-gradient(circle_at_top_left,rgba(99,102,241,0.06),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(167,139,250,0.06),transparent_40%)] w-full px-8 py-8"><div class="flex flex-col w-full pb-16 space-y-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1.5">
+<span class="text-xs font-mono font-semibold tracking-wider text-primary uppercase">Deliverables Radar</span>
+<span class="text-[11px] font-mono font-medium px-2 py-0.5 rounded-full silk-inset text-secondary">Q4 Active Cycle</span>
+</div>
+<h1 class="font-headline text-3xl font-semibold text-on-surface tracking-tight">Campaigns &amp; Deliverables</h1>
+<p class="text-base text-on-surface-variant font-normal mt-1">Track contracts, deliverable deadlines, review statuses, and payment reliability across all sponsor partnerships.</p>
+</div>
+<div class="flex items-center gap-3 self-start md:self-auto">
+<button class="silk-card-sm px-4 py-2.5 rounded-xl text-sm font-medium text-on-surface hover:text-primary transition-all flex items-center gap-2 cursor-pointer active:silk-inset">
+<span class="material-symbols-outlined text-base">download</span>
+<span>Export CSV</span>
+</button>
+<button class="silk-btn-primary px-5 py-2.5 rounded-xl text-sm font-semibold text-on-primary flex items-center gap-2 transition-transform hover:scale-[1.02] cursor-pointer">
+<span class="material-symbols-outlined text-lg leading-none">add</span>
+<span>New Campaign</span>
+</button>
+</div>
+</div>
+<div class="silk-card rounded-2xl p-3 flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2 flex-1 min-w-[280px]">
+<div class="relative w-full flex items-center silk-inset rounded-xl px-3.5 py-2">
+<span class="material-symbols-outlined text-secondary text-lg mr-2">search</span>
+<input class="bg-transparent text-sm text-on-surface placeholder-secondary/70 focus:outline-none w-full font-medium" placeholder="Filter by partner, deliverable, or tag..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto py-1">
+<button class="silk-inset px-3.5 py-1.5 rounded-xl text-xs font-semibold text-primary transition-all flex items-center gap-1.5">
+<span>All</span>
+<span class="text-[10px] font-mono font-bold bg-primary/10 text-primary px-1.5 py-0.2 rounded-md">4</span>
+</button>
+<button class="silk-card-sm px-3.5 py-1.5 rounded-xl text-xs font-medium text-on-surface-variant hover:text-on-surface transition-all">
+        Active
+      </button>
+<button class="silk-card-sm px-3.5 py-1.5 rounded-xl text-xs font-medium text-amber-600 hover:text-amber-700 transition-all flex items-center gap-1.5">
+<span>At Risk</span>
+<span class="text-[10px] font-mono font-bold bg-amber-500/15 text-amber-600 px-1.5 py-0.2 rounded-md">2</span>
+</button>
+<button class="silk-card-sm px-3.5 py-1.5 rounded-xl text-xs font-medium text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1">
+<span>Payment: All Records</span>
+<span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 silk-inset p-1 rounded-xl">
+<button class="silk-card-sm px-2.5 py-1.5 rounded-lg text-primary text-xs flex items-center gap-1 font-semibold" title="Card Grid View">
+<span class="material-symbols-outlined text-sm leading-none">grid_view</span>
+</button>
+<button class="px-2.5 py-1.5 rounded-lg text-secondary text-xs flex items-center gap-1 hover:text-on-surface" title="List View">
+<span class="material-symbols-outlined text-sm leading-none">view_list</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+<div class="xl:col-span-7 flex flex-col space-y-6">
+<div class="silk-card rounded-2xl p-6 relative transition-all hover:translate-y-[-2px] cursor-pointer group shadow-[8px_8px_18px_rgba(166,175,195,0.5),-8px_-8px_18px_rgba(255,255,255,0.95)]">
+<div class="absolute -left-1 top-8 bottom-8 w-1.5 bg-primary rounded-r-full shadow-[2px_0_6px_rgba(99,102,241,0.5)]"></div>
+<div class="flex items-start justify-between gap-4 mb-4">
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-2xl silk-inset flex items-center justify-center p-2.5 flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-2xl">shield</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline text-lg font-semibold text-on-surface">CyberSecurity VPN</h3>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-500/10 text-amber-700 border border-amber-300/30">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5 animate-pulse"></span>
+                  At Risk
+                </span>
+</div>
+<p class="text-xs text-on-surface-variant font-medium mt-0.5">Sponsorship • Q4 Security Awareness Sprint</p>
+</div>
+</div>
+<div class="silk-inset px-2.5 py-1 rounded-full flex items-center gap-1.5 text-[11px] font-mono text-primary font-bold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            Currently Inspecting
+          </div>
+</div>
+<p class="text-sm text-on-surface-variant font-normal leading-relaxed mb-5">
+          90-second Mid-Roll YouTube integration with dynamic promo code tracker and accompanying thread on X. Creative review SLA is narrowing.
+        </p>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
+<div class="silk-inset rounded-xl p-3">
+<div class="text-[11px] font-mono uppercase text-secondary font-medium">Deliverables</div>
+<div class="text-sm font-semibold text-on-surface mt-0.5">1 Video + 2 Threads</div>
+</div>
+<div class="silk-inset rounded-xl p-3">
+<div class="text-[11px] font-mono uppercase text-secondary font-medium">Next Deadline</div>
+<div class="text-sm font-semibold text-amber-600 mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+              Due in 2 days (Oct 25)
+            </div>
+</div>
+<div class="silk-inset rounded-xl p-3 col-span-2 sm:col-span-1">
+<div class="text-[11px] font-mono uppercase text-secondary font-medium">Compensation</div>
+<div class="text-sm font-semibold text-on-surface mt-0.5">$18,500 <span class="text-xs text-secondary font-normal">(50% Paid)</span></div>
+</div>
+</div>
+<div class="space-y-2 mb-5">
+<div class="flex justify-between items-center text-xs">
+<span class="font-medium text-on-surface-variant">Production Velocity</span>
+<span class="font-mono font-semibold text-primary">60% Complete</span>
+</div>
+<div class="w-full h-2 rounded-full silk-inset overflow-hidden p-0.5">
+<div class="h-full bg-gradient-to-r from-primary to-indigo-400 rounded-full w-[60%] transition-all duration-500"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-secondary-container/30">
+<div class="flex items-center gap-2 text-xs text-secondary">
+<span class="material-symbols-outlined text-sm">person</span>
+<span>Lead: Alex Morgan (Editor)</span>
+</div>
+<button class="silk-card-sm px-3.5 py-1.5 rounded-xl text-xs font-semibold text-primary hover:text-primary-container transition-all flex items-center gap-1.5 cursor-pointer">
+<span>Inspector Open</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="silk-card rounded-2xl p-6 transition-all hover:translate-y-[-2px] cursor-pointer group">
+<div class="flex items-start justify-between gap-4 mb-4">
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-2xl silk-inset flex items-center justify-center p-2.5 flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary text-2xl">headphones</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline text-lg font-semibold text-on-surface">Aura Sound ANC</h3>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-rose-500/10 text-rose-700 border border-rose-300/30">
+<span class="w-1.5 h-1.5 rounded-full bg-rose-500 mr-1.5 animate-pulse"></span>
+                  Approval Overdue
+                </span>
+</div>
+<p class="text-xs text-on-surface-variant font-medium mt-0.5">Hardware Launch • Audiophile Series v2</p>
+</div>
+</div>
+<span class="text-xs font-mono font-medium text-secondary">#CP-1049</span>
+</div>
+<p class="text-sm text-on-surface-variant font-normal leading-relaxed mb-5">
+          Dedicated 6-minute deep dive on noise cancellation frequency curve. First draft submitted 48h ago, awaiting brand legal approval.
+        </p>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
+<div class="silk-inset rounded-xl p-3">
+<div class="text-[11px] font-mono uppercase text-secondary font-medium">Deliverables</div>
+<div class="text-sm font-semibold text-on-surface mt-0.5">1 Dedicated Video</div>
+</div>
+<div class="silk-inset rounded-xl p-3">
+<div class="text-[11px] font-mono uppercase text-secondary font-medium">Next Deadline</div>
+<div class="text-sm font-semibold text-rose-600 mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">warning</span>
+              Due today, 5:00 PM
+            </div>
+</div>
+<div class="silk-inset rounded-xl p-3 col-span-2 sm:col-span-1">
+<div class="text-[11px] font-mono uppercase text-secondary font-medium">Compensation</div>
+<div class="text-sm font-semibold text-on-surface mt-0.5">$24,000 <span class="text-xs text-secondary font-normal">(Escrowed)</span></div>
+</div>
+</div>
+<div class="space-y-2 mb-5">
+<div class="flex justify-between items-center text-xs">
+<span class="font-medium text-on-surface-variant">Production Velocity</span>
+<span class="font-mono font-semibold text-rose-600">25% (Blocked on client)</span>
+</div>
+<div class="w-full h-2 rounded-full silk-inset overflow-hidden p-0.5">
+<div class="h-full bg-rose-500 rounded-full w-[25%] transition-all duration-500"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-secondary-container/30">
+<div class="flex items-center gap-2 text-xs text-secondary">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Overdue by 6h 12m</span>
+</div>
+<button class="silk-card-sm px-3.5 py-1.5 rounded-xl text-xs font-semibold text-on-surface hover:text-primary transition-all flex items-center gap-1.5 cursor-pointer">
+<span>Open Details</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="silk-card rounded-2xl p-6 transition-all hover:translate-y-[-2px] cursor-pointer group">
+<div class="flex items-start justify-between gap-4 mb-4">
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-2xl silk-inset flex items-center justify-center p-2.5 flex-shrink-0">
+<span class="material-symbols-outlined text-emerald-600 text-2xl">movie</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline text-lg font-semibold text-on-surface">Lumina Studio</h3>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-700 border border-emerald-300/30">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
+                  On Track
+                </span>
+</div>
+<p class="text-xs text-on-surface-variant font-medium mt-0.5">Software • 3D Workflow Showcase &amp; Presets Pack</p>
+</div>
+</div>
+<span class="text-xs font-mono font-medium text-secondary">#CP-1052</span>
+</div>
+<p class="text-sm text-on-surface-variant font-normal leading-relaxed mb-5">
+          Complete tool suite demonstration featuring custom preset download pack in description box. Final color grade rendering now.
+        </p>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
+<div class="silk-inset rounded-xl p-3">
+<div class="text-[11px] font-mono uppercase text-secondary font-medium">Deliverables</div>
+<div class="text-sm font-semibold text-on-surface mt-0.5">1 Integration + Asset Pack</div>
+</div>
+<div class="silk-inset rounded-xl p-3">
+<div class="text-[11px] font-mono uppercase text-secondary font-medium">Next Deadline</div>
+<div class="text-sm font-semibold text-emerald-700 mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">event_available</span>
+              Due in 5 days (Oct 27)
+            </div>
+</div>
+<div class="silk-inset rounded-xl p-3 col-span-2 sm:col-span-1">
+<div class="text-[11px] font-mono uppercase text-secondary font-medium">Compensation</div>
+<div class="text-sm font-semibold text-on-surface mt-0.5">$12,000 <span class="text-xs text-secondary font-normal">(Net-15)</span></div>
+</div>
+</div>
+<div class="space-y-2 mb-5">
+<div class="flex justify-between items-center text-xs">
+<span class="font-medium text-on-surface-variant">Production Velocity</span>
+<span class="font-mono font-semibold text-emerald-700">80% Complete</span>
+</div>
+<div class="w-full h-2 rounded-full silk-inset overflow-hidden p-0.5">
+<div class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full w-[80%] transition-all duration-500"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-secondary-container/30">
+<div class="flex items-center gap-2 text-xs text-secondary">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>All specs compliant</span>
+</div>
+<button class="silk-card-sm px-3.5 py-1.5 rounded-xl text-xs font-semibold text-on-surface hover:text-primary transition-all flex items-center gap-1.5 cursor-pointer">
+<span>Open Details</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="xl:col-span-5 sticky top-24">
+<div class="silk-card rounded-2xl p-6 relative overflow-hidden shadow-[8px_8px_20px_rgba(166,175,195,0.45),-8px_-8px_20px_rgba(255,255,255,0.95)]">
+<div class="flex items-center justify-between pb-4 border-b border-secondary-container/30 mb-5">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-xl silk-inset flex items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined text-lg">shield</span>
+</div>
+<div>
+<h2 class="font-headline text-base font-semibold text-on-surface leading-tight">CyberSecurity VPN</h2>
+<span class="text-[11px] font-mono text-secondary">Contract ID #CV-2024-88A</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="silk-card-sm w-8 h-8 rounded-xl flex items-center justify-center text-secondary hover:text-on-surface transition-all cursor-pointer" title="Inspect options">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+<button class="silk-card-sm w-8 h-8 rounded-xl flex items-center justify-center text-secondary hover:text-on-surface transition-all cursor-pointer" title="Close Panel">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-mono uppercase tracking-wider text-secondary font-semibold">Active Pipeline Node</span>
+<span class="text-xs font-semibold text-primary">Stage 3 of 5</span>
+</div>
+<div class="silk-inset rounded-xl p-4 flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl silk-card flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-xl">videocam</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="text-sm font-semibold text-on-surface">Studio Shoot &amp; A-Roll Capture</div>
+<div class="text-xs text-on-surface-variant truncate mt-0.5">Soundstage B • 4K 60fps Apple ProRes 422HQ</div>
+</div>
+<span class="material-symbols-outlined text-amber-500 text-lg" title="Requires attention">error</span>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-mono uppercase tracking-wider text-secondary font-semibold">Contract Deliverables</span>
+<span class="text-xs text-secondary font-mono">2 Items</span>
+</div>
+<div class="space-y-2.5">
+<div class="silk-card-sm rounded-xl p-3.5 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<span class="material-symbols-outlined text-primary text-base">smart_display</span>
+<div class="truncate">
+<p class="text-sm font-medium text-on-surface truncate">90s YouTube Integration</p>
+<p class="text-xs text-secondary">Mid-Roll position • Promo: CREATOR25</p>
+</div>
+</div>
+<span class="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-lg silk-inset text-indigo-600 whitespace-nowrap">
+                  In Edit
+                </span>
+</div>
+<div class="silk-card-sm rounded-xl p-3.5 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<span class="material-symbols-outlined text-secondary text-base">forum</span>
+<div class="truncate">
+<p class="text-sm font-medium text-on-surface truncate">2x Social Threads</p>
+<p class="text-xs text-secondary">X (Twitter) + LinkedIn distribution</p>
+</div>
+</div>
+<span class="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-lg silk-inset text-secondary whitespace-nowrap">
+                  Queued
+                </span>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-mono uppercase tracking-wider text-secondary font-semibold">Deal Value &amp; Escrow</span>
+<span class="text-xs font-mono font-semibold text-emerald-600">Funded in Escrow</span>
+</div>
+<div class="silk-inset rounded-xl p-4 space-y-3">
+<div class="flex justify-between items-baseline">
+<span class="text-sm text-secondary font-normal">Total Contract Value</span>
+<span class="font-headline text-lg font-bold text-on-surface">$18,500.00</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-secondary-container/40 overflow-hidden flex">
+<div class="h-full bg-emerald-500 w-[50%]"></div>
+<div class="h-full bg-primary/40 w-[50%]"></div>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1 text-xs">
+<div class="flex flex-col">
+<span class="text-secondary">Milestone 1 (Signed)</span>
+<span class="font-mono font-semibold text-emerald-600 mt-0.5">$9,250 Paid</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-secondary">Milestone 2 (Final Delivery)</span>
+<span class="font-mono font-semibold text-on-surface mt-0.5">$9,250 Pending</span>
+</div>
+</div>
+</div>
+</div>
+<div class="silk-inset rounded-xl p-4 space-y-2">
+<div class="flex items-center justify-between text-xs">
+<span class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-amber-500">warning</span>
+                Risk Vector Detected
+              </span>
+<span class="font-mono text-amber-700 font-medium">SLA Risk: Medium</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+              Brand compliance contact has not confirmed the updated script revisions for the encryption speed benchmarks. Delayed response may compress post-production window by 18 hours.
+            </p>
+</div>
+<div class="space-y-2.5 pt-2">
+<button class="w-full silk-btn-primary py-2.5 px-4 rounded-xl text-sm font-semibold text-on-primary flex items-center justify-center gap-2 cursor-pointer transition-transform hover:scale-[1.01]">
+<span class="material-symbols-outlined text-base">hub</span>
+<span>Workflow Graph</span>
+</button>
+<button class="w-full silk-card-sm py-2.5 px-4 rounded-xl text-sm font-semibold text-on-surface hover:text-primary flex items-center justify-center gap-2 cursor-pointer transition-all active:silk-inset">
+<span class="material-symbols-outlined text-base">mail</span>
+<span>Draft Sponsor Update</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
