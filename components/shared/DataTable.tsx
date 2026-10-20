@@ -53,11 +53,11 @@ export function DataTable<T extends { id: string }>({
               return (
                 <motion.tr
                   key={row.id}
-                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 8 }}
+                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    duration: 0.25,
-                    delay: shouldReduceMotion ? 0 : cappedIdx * 0.03, // 30ms stagger per row (capped at 12 rows)
+                    duration: 0.28,
+                    delay: shouldReduceMotion ? 0 : 0.12 + cappedIdx * 0.035, // Cascading row stagger starting right after table container
                     ease: [0.22, 1, 0.36, 1],
                   }}
                   onClick={() => onRowClick && onRowClick(row)}

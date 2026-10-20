@@ -18,11 +18,20 @@ export function AnimatedCardGrid({
   const shouldReduceMotion = useReducedMotion();
 
   const containerVariants = {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: 1,
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : staggerDelay,
+        delayChildren: shouldReduceMotion ? 0 : 0.08,
+      },
+    },
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
         staggerChildren: shouldReduceMotion ? 0 : staggerDelay,
+        delayChildren: shouldReduceMotion ? 0 : 0.08,
       },
     },
   };
@@ -30,8 +39,8 @@ export function AnimatedCardGrid({
   return (
     <motion.div
       variants={containerVariants}
-      initial="hidden"
-      animate="show"
+      initial="initial"
+      animate="animate"
       className={className}
     >
       {children}
@@ -48,6 +57,20 @@ export function AnimatedCard({ children, className }: AnimatedCardProps) {
   const shouldReduceMotion = useReducedMotion();
 
   const cardVariants = {
+    initial: {
+      opacity: 0,
+      scale: shouldReduceMotion ? 1 : 0.97,
+      y: shouldReduceMotion ? 0 : 12,
+    },
+    animate: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.35,
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
+    },
     hidden: {
       opacity: 0,
       scale: shouldReduceMotion ? 1 : 0.97,

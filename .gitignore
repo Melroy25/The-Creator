@@ -29,6 +29,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Recordings and local media
+Recording_*
+*.pdf
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

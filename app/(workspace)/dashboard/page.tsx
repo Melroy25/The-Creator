@@ -13,28 +13,15 @@ import {
   CountUp,
 } from '@/components/shared';
 import { Calendar, AlertCircle, AlertTriangle, Play, Sparkles, ArrowRight, History } from 'lucide-react';
-import { getDashboardMetrics } from '@/lib/data';
+import { getDashboardMetrics, getInitialDashboardMetrics } from '@/lib/data';
 import Link from 'next/link';
 
 export default function DashboardPage() {
-  const [metrics, setMetrics] = useState<any>(null);
+  const [metrics, setMetrics] = useState<any>(getInitialDashboardMetrics);
 
   useEffect(() => {
     getDashboardMetrics().then(setMetrics);
   }, []);
-
-  if (!metrics) {
-    return (
-      <div className="space-y-8 pb-12 font-sans animate-pulse">
-        <div className="h-16 bg-surface-inset rounded-2xl w-1/3" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="h-36 bg-surface-inset rounded-3xl" />
-          <div className="h-36 bg-surface-inset rounded-3xl" />
-          <div className="h-36 bg-surface-inset rounded-3xl" />
-        </div>
-      </div>
-    );
-  }
 
   return (
     <StaggerContainer className="space-y-8 pb-12 font-sans">

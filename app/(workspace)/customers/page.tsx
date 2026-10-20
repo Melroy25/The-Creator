@@ -2,12 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import { PageHeader, DataTable, Column, Avatar, StaggerContainer, StaggerItem, GlassCard, CountUp } from '@/components/shared';
-import { getCustomers } from '@/lib/data';
+import { getCustomers, getInitialCustomers } from '@/lib/data';
 import { Customer } from '@/lib/types';
 import { Users, Mail, DollarSign, Sparkles } from 'lucide-react';
 
 export default function CustomersPage() {
-  const [customers, setCustomers] = useState<Customer[]>([]);
+  const [customers, setCustomers] = useState<Customer[]>(getInitialCustomers);
 
   useEffect(() => {
     getCustomers().then(setCustomers);

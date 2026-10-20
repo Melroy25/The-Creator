@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { PageHeader, DataTable, Column, Avatar, StaggerContainer, StaggerItem } from '@/components/shared';
-import { getResources } from '@/lib/data';
+import { getResources, getInitialResources } from '@/lib/data';
 import { Resource } from '@/lib/types';
 
 export default function TeamPage() {
-  const [team, setTeam] = useState<Resource[]>([]);
+  const [team, setTeam] = useState<Resource[]>(getInitialResources);
 
   useEffect(() => {
     getResources().then(setTeam);

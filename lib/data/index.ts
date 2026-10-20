@@ -150,3 +150,98 @@ export async function getDashboardMetrics() {
     },
   };
 }
+
+// Synchronous initial state getters for immediate instant render with zero layout shift / no skeleton flash
+export function getInitialDashboardMetrics() {
+  const tasks = currentStore.tasks.map(t => ({
+    ...t,
+    assignee: currentStore.resources.find(r => r.id === t.assignee_resource_id),
+    dependencies: currentStore.taskDependencies.filter(d => d.task_id === t.id).map(d => d.depends_on_task_id),
+    campaign: currentStore.campaigns.find(c => c.id === t.campaign_id),
+  }));
+
+  return {
+    dueTodayCount: 3,
+    overdueCount: 1,
+    atRiskCount: 2,
+    nextDeadlines: tasks.slice(0, 5),
+    topRecommendation: {
+      text: "Move Editor Maya's rough cut window to clear Wednesday's 4.5-hour bottleneck with Sam.",
+      actionLabel: 'Fix With One Click',
+    },
+    cashFlow: {
+      received: 48250,
+      waiting: 16500,
+      expected: 24000,
+    },
+  };
+}
+
+export function getInitialCampaigns(): Campaign[] {
+  return currentStore.campaigns.map(camp => ({
+    ...camp,
+    brand: currentStore.brands.find(b => b.id === camp.brand_id),
+    deliverables: currentStore.deliverables.filter(d => d.campaign_id === camp.id),
+    tasks: currentStore.tasks.filter(t => t.campaign_id === camp.id),
+  }));
+}
+
+export function getInitialInvoices(): Invoice[] {
+  return currentStore.invoices.map(inv => ({
+    ...inv,
+    campaign: currentStore.campaigns.find(c => c.id === inv.campaign_id),
+  }));
+}
+
+export function getInitialBrands(): Brand[] {
+  return currentStore.brands;
+}
+
+export function getInitialResources(): Resource[] {
+  return currentStore.resources;
+}
+
+export function getInitialCustomers(): Customer[] {
+  return [
+    {
+      id: 'cust-01',
+      name: 'Rachel Zane',
+      company: 'Nova Audio',
+      role: 'Head of Influencer Partnerships',
+      email: 'rachel@novaaudio.com',
+      platform: 'YouTube (90s Integration)',
+      status: 'active',
+      total_deal_value: 18500,
+    },
+    {
+      id: 'cust-02',
+      name: 'Sarah Lin',
+      company: 'Pixel & Co',
+      role: 'Growth Marketing Director',
+      email: 'sarah.lin@pixelandco.design',
+      platform: 'YouTube & X',
+      status: 'active',
+      total_deal_value: 12000,
+    },
+    {
+      id: 'cust-03',
+      name: 'David Ortiz',
+      company: 'Lumen Skincare',
+      role: 'Brand Campaign Manager',
+      email: 'dortiz@lumenskincare.com',
+      platform: 'Instagram Reels',
+      status: 'active',
+      total_deal_value: 6000,
+    },
+    {
+      id: 'cust-04',
+      name: 'Elena Rostova',
+      company: 'Vento Travel',
+      role: 'Sponsorship Coordinator',
+      email: 'elena@ventotravel.com',
+      platform: 'TikTok & Shorts',
+      status: 'in_negotiation',
+      total_deal_value: 8500,
+    },
+  ];
+}

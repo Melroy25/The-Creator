@@ -11,12 +11,12 @@ import {
   StaggerItem,
   CountUp,
 } from '@/components/shared';
-import { getInvoices } from '@/lib/data';
+import { getInvoices, getInitialInvoices } from '@/lib/data';
 import { Invoice } from '@/lib/types';
 import { DollarSign, Clock, AlertTriangle } from 'lucide-react';
 
 export default function InvoicesPage() {
-  const [invoices, setInvoices] = useState<Invoice[]>([]);
+  const [invoices, setInvoices] = useState<Invoice[]>(getInitialInvoices);
 
   useEffect(() => {
     getInvoices().then(setInvoices);

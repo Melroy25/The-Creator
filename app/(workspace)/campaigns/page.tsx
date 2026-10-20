@@ -13,11 +13,11 @@ import {
 } from '@/components/shared';
 import { Download, FileSearch } from 'lucide-react';
 import Link from 'next/link';
-import { getCampaigns } from '@/lib/data';
+import { getCampaigns, getInitialCampaigns } from '@/lib/data';
 import { Campaign } from '@/lib/types';
 
 export default function CampaignsPage() {
-  const [campaigns, setCampaigns] = useState<Campaign[]>([]);
+  const [campaigns, setCampaigns] = useState<Campaign[]>(getInitialCampaigns);
 
   useEffect(() => {
     getCampaigns().then(setCampaigns);

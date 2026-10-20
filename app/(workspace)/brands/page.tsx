@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { PageHeader, DataTable, Column, StaggerContainer, StaggerItem } from '@/components/shared';
-import { getBrands } from '@/lib/data';
+import { getBrands, getInitialBrands } from '@/lib/data';
 import { Brand } from '@/lib/types';
 
 export default function BrandsPage() {
-  const [brands, setBrands] = useState<Brand[]>([]);
+  const [brands, setBrands] = useState<Brand[]>(getInitialBrands);
 
   useEffect(() => {
     getBrands().then(setBrands);
