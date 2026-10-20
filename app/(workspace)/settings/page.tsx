@@ -7,6 +7,8 @@ import {
   AccentSwatchRow,
   Toggle,
   ConfirmModal,
+  StaggerContainer,
+  StaggerItem,
   useTheme,
   useToast,
 } from '@/components/shared';
@@ -62,186 +64,192 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="space-y-6 pb-12 font-sans">
+    <StaggerContainer className="space-y-6 pb-12 font-sans">
       {/* Wharf Header: Settings title, subtitle, circular notification bell on right */}
-      <PageHeader
-        title="Settings"
-        purpose="Your account, your plan, your connections, and how Wharf looks."
-      />
+      <StaggerItem>
+        <PageHeader
+          title="Settings"
+          purpose="Your account, your plan, your connections, and how Wharf looks."
+        />
+      </StaggerItem>
 
       {/* Sub-tabs matching Wharf Image 1, 2, 3: Account, Billing, Integrations, Workspace */}
-      <div className="border-b border-border flex items-center gap-7 sm:gap-9 text-xs sm:text-sm text-text-secondary font-medium">
-        <button
-          onClick={() => setActiveTab('account')}
-          className={`pb-3 transition-colors cursor-pointer ${
-            activeTab === 'account'
-              ? 'text-text-primary border-b-2 border-text-primary font-semibold'
-              : 'hover:text-text-primary'
-          }`}
-        >
-          Account
-        </button>
-        <button
-          onClick={() => setActiveTab('billing')}
-          className={`pb-3 transition-colors cursor-pointer ${
-            activeTab === 'billing'
-              ? 'text-text-primary border-b-2 border-text-primary font-semibold'
-              : 'hover:text-text-primary'
-          }`}
-        >
-          Billing
-        </button>
-        <button
-          onClick={() => setActiveTab('integrations')}
-          className={`pb-3 transition-colors cursor-pointer ${
-            activeTab === 'integrations'
-              ? 'text-text-primary border-b-2 border-text-primary font-semibold'
-              : 'hover:text-text-primary'
-          }`}
-        >
-          Integrations
-        </button>
-        <button
-          onClick={() => setActiveTab('workspace')}
-          className={`pb-3 transition-colors cursor-pointer ${
-            activeTab === 'workspace'
-              ? 'text-text-primary border-b-2 border-text-primary font-semibold'
-              : 'hover:text-text-primary'
-          }`}
-        >
-          Workspace
-        </button>
-      </div>
+      <StaggerItem>
+        <div className="border-b border-border flex items-center gap-7 sm:gap-9 text-xs sm:text-sm text-text-secondary font-medium">
+          <button
+            onClick={() => setActiveTab('account')}
+            className={`pb-3 transition-colors cursor-pointer ${
+              activeTab === 'account'
+                ? 'text-text-primary border-b-2 border-text-primary font-semibold'
+                : 'hover:text-text-primary'
+            }`}
+          >
+            Account
+          </button>
+          <button
+            onClick={() => setActiveTab('billing')}
+            className={`pb-3 transition-colors cursor-pointer ${
+              activeTab === 'billing'
+                ? 'text-text-primary border-b-2 border-text-primary font-semibold'
+                : 'hover:text-text-primary'
+            }`}
+          >
+            Billing
+          </button>
+          <button
+            onClick={() => setActiveTab('integrations')}
+            className={`pb-3 transition-colors cursor-pointer ${
+              activeTab === 'integrations'
+                ? 'text-text-primary border-b-2 border-text-primary font-semibold'
+                : 'hover:text-text-primary'
+            }`}
+          >
+            Integrations
+          </button>
+          <button
+            onClick={() => setActiveTab('workspace')}
+            className={`pb-3 transition-colors cursor-pointer ${
+              activeTab === 'workspace'
+                ? 'text-text-primary border-b-2 border-text-primary font-semibold'
+                : 'hover:text-text-primary'
+            }`}
+          >
+            Workspace
+          </button>
+        </div>
+      </StaggerItem>
 
       {/* TAB 1: WORKSPACE (Matches Wharf Image 1, 2, 3) */}
       {activeTab === 'workspace' && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start pt-1">
-          {/* 1. Appearance Card */}
-          <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 shadow-card space-y-6">
-            <div className="space-y-0.5">
-              <h3 className="font-sans font-bold text-base sm:text-lg text-text-primary tracking-tight">
-                Appearance
-              </h3>
-              <p className="text-xs text-text-secondary font-normal">
-                Yours only; your team picks their own
-              </p>
-            </div>
+        <StaggerItem>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start pt-1">
+            {/* 1. Appearance Card */}
+            <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 shadow-card space-y-6 hover:-translate-y-0.5 transition-all duration-150">
+              <div className="space-y-0.5">
+                <h3 className="font-sans font-bold text-base sm:text-lg text-text-primary tracking-tight">
+                  Appearance
+                </h3>
+                <p className="text-xs text-text-secondary font-normal">
+                  Yours only; your team picks their own
+                </p>
+              </div>
 
-            {/* Theme Segmented Control */}
-            <div className="space-y-2">
-              <label className="text-xs font-medium text-text-secondary block">
-                Theme
-              </label>
-              <SegmentedControl
-                options={[
-                  { value: 'light', label: 'Light', icon: <Sun className="w-3.5 h-3.5" /> },
-                  { value: 'system', label: 'System', icon: <Monitor className="w-3.5 h-3.5" /> },
-                  { value: 'dark', label: 'Dark', icon: <Moon className="w-3.5 h-3.5" /> },
-                ]}
-                value={theme}
-                onChange={(val) => setTheme(val as any)}
-              />
-            </div>
-
-            {/* Accent Swatch Row */}
-            <div className="space-y-2 pt-1">
-              <label className="text-xs font-medium text-text-secondary block">
-                Accent
-              </label>
-              <AccentSwatchRow value={accent} onChange={setAccent} />
-            </div>
-          </div>
-
-          {/* 2. Workspace Form Card */}
-          <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 shadow-card space-y-6">
-            <div className="space-y-0.5">
-              <h3 className="font-sans font-bold text-base sm:text-lg text-text-primary tracking-tight">
-                Workspace
-              </h3>
-              <p className="text-xs text-text-secondary font-normal">
-                What everyone on the team sees
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
+              {/* Theme Segmented Control */}
+              <div className="space-y-2">
                 <label className="text-xs font-medium text-text-secondary block">
-                  Business name
+                  Theme
                 </label>
-                <input
-                  type="text"
-                  value={businessName}
-                  onChange={(e) => setBusinessName(e.target.value)}
-                  className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors"
+                <SegmentedControl
+                  options={[
+                    { value: 'light', label: 'Light', icon: <Sun className="w-3.5 h-3.5" /> },
+                    { value: 'system', label: 'System', icon: <Monitor className="w-3.5 h-3.5" /> },
+                    { value: 'dark', label: 'Dark', icon: <Moon className="w-3.5 h-3.5" /> },
+                  ]}
+                  value={theme}
+                  onChange={(val) => setTheme(val as any)}
                 />
               </div>
 
-              <div className="space-y-1.5">
+              {/* Accent Swatch Row */}
+              <div className="space-y-2 pt-1">
                 <label className="text-xs font-medium text-text-secondary block">
-                  Currency
+                  Accent
                 </label>
-                <div className="relative">
-                  <select
-                    value={currency}
-                    onChange={(e) => setCurrency(e.target.value)}
-                    className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors appearance-none cursor-pointer pr-8"
-                  >
-                    <option value="USD, US dollar">USD, US dollar</option>
-                    <option value="EUR, Euro">EUR, Euro</option>
-                    <option value="GBP, British pound">GBP, British pound</option>
-                  </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-text-tertiary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="text-xs font-medium text-text-secondary block">
-                  Time zone
-                </label>
-                <div className="relative">
-                  <select
-                    value={timeZone}
-                    onChange={(e) => setTimeZone(e.target.value)}
-                    className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors appearance-none cursor-pointer pr-8"
-                  >
-                    <option value="America/New_York">America/New_York</option>
-                    <option value="America/Los_Angeles">America/Los_Angeles</option>
-                    <option value="Europe/London">Europe/London</option>
-                  </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-text-tertiary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <label className="text-xs font-medium text-text-secondary block">
-                  Low-stock warning
-                </label>
-                <div className="relative">
-                  <select
-                    value={warningThreshold}
-                    onChange={(e) => setWarningThreshold(e.target.value)}
-                    className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors appearance-none cursor-pointer pr-8"
-                  >
-                    <option value="At the par level">At the par level</option>
-                    <option value="At 80% capacity">At 80% capacity</option>
-                    <option value="At 90% capacity">At 90% capacity</option>
-                  </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-text-tertiary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
+                <AccentSwatchRow value={accent} onChange={setAccent} />
               </div>
             </div>
 
-            <div className="pt-2 flex justify-end">
-              <button
-                type="button"
-                onClick={handleSaveWorkspace}
-                className="bg-text-primary text-text-inverse font-semibold text-xs px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity shadow-sm cursor-pointer"
-              >
-                Save workspace
-              </button>
+            {/* 2. Workspace Form Card */}
+            <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 shadow-card space-y-6 hover:-translate-y-0.5 transition-all duration-150">
+              <div className="space-y-0.5">
+                <h3 className="font-sans font-bold text-base sm:text-lg text-text-primary tracking-tight">
+                  Workspace
+                </h3>
+                <p className="text-xs text-text-secondary font-normal">
+                  What everyone on the team sees
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-medium text-text-secondary block">
+                    Business name
+                  </label>
+                  <input
+                    type="text"
+                    value={businessName}
+                    onChange={(e) => setBusinessName(e.target.value)}
+                    className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors"
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-medium text-text-secondary block">
+                    Currency
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={currency}
+                      onChange={(e) => setCurrency(e.target.value)}
+                      className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors appearance-none cursor-pointer pr-8"
+                    >
+                      <option value="USD, US dollar">USD, US dollar</option>
+                      <option value="EUR, Euro">EUR, Euro</option>
+                      <option value="GBP, British pound">GBP, British pound</option>
+                    </select>
+                    <ChevronDown className="w-3.5 h-3.5 text-text-tertiary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-medium text-text-secondary block">
+                    Time zone
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={timeZone}
+                      onChange={(e) => setTimeZone(e.target.value)}
+                      className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors appearance-none cursor-pointer pr-8"
+                    >
+                      <option value="America/New_York">America/New_York</option>
+                      <option value="America/Los_Angeles">America/Los_Angeles</option>
+                      <option value="Europe/London">Europe/London</option>
+                    </select>
+                    <ChevronDown className="w-3.5 h-3.5 text-text-tertiary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-medium text-text-secondary block">
+                    Low-stock warning
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={warningThreshold}
+                      onChange={(e) => setWarningThreshold(e.target.value)}
+                      className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors appearance-none cursor-pointer pr-8"
+                    >
+                      <option value="At the par level">At the par level</option>
+                      <option value="At 80% capacity">At 80% capacity</option>
+                      <option value="At 90% capacity">At 90% capacity</option>
+                    </select>
+                    <ChevronDown className="w-3.5 h-3.5 text-text-tertiary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2 flex justify-end">
+                <button
+                  type="button"
+                  onClick={handleSaveWorkspace}
+                  className="bg-text-primary text-text-inverse font-semibold text-xs px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity shadow-sm cursor-pointer"
+                >
+                  Save workspace
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </StaggerItem>
       )}
 
       {/* TAB 2: ACCOUNT */}
@@ -359,6 +367,6 @@ export default function SettingsPage() {
         cancelLabel="Cancel"
         variant="danger"
       />
-    </div>
+    </StaggerContainer>
   );
 }

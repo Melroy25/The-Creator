@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { PageHeader, DataTable, Column, Avatar } from '@/components/shared';
+import { PageHeader, DataTable, Column, Avatar, StaggerContainer, StaggerItem } from '@/components/shared';
 import { getResources } from '@/lib/data';
 import { Resource } from '@/lib/types';
 
@@ -64,15 +64,18 @@ export default function TeamPage() {
   ];
 
   return (
-    <div className="space-y-8 pb-12 font-body">
-      <PageHeader
-        title="Studio Team & Capacity"
-        purpose="Crew roster, daily working allocations, and editor availability schedules."
-        badge="Records // Team"
-        phaseBadge="Read-Only Seed Data"
-      />
+    <StaggerContainer className="space-y-8 pb-12 font-sans">
+      <StaggerItem>
+        <PageHeader
+          title="Studio Team & Capacity"
+          purpose="Crew roster, daily working allocations, and editor availability schedules."
+          badge="Records // Team"
+        />
+      </StaggerItem>
 
-      <DataTable columns={columns} data={team} />
-    </div>
+      <StaggerItem>
+        <DataTable columns={columns} data={team} />
+      </StaggerItem>
+    </StaggerContainer>
   );
 }

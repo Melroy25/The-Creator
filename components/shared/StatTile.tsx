@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { cn } from '@/lib/utils';
 import { GlassCard } from './GlassCard';
+import { CountUp } from './motion/CountUp';
 
 export interface StatTileProps {
   title: string;
@@ -25,35 +26,24 @@ export function StatTile({
   className,
   onClick,
 }: StatTileProps) {
-  const [displayValue, setDisplayValue] = useState<number | string>(
-    typeof value === 'number' ? 0 : value
-  );
+  // Parse numeric parts if value is string with formatting (e.g. "$24,500", "80%")
+  let numericVal: number | null = null;
+  let prefix = '';
+  let suffix = '';
 
-  // Smooth Count-Up for Numeric KPIs
-  useEffect(() => {
-    if (typeof value !== 'number') {
-      setDisplayValue(value);
-      return;
-    }
-
-    const duration = 600; // ms
-    const steps = 20;
-    const stepDuration = duration / steps;
-    let step = 0;
-
-    const timer = setInterval(() => {
-      step++;
-      const current = Math.round((step / steps) * value);
-      setDisplayValue(current);
-
-      if (step >= steps) {
-        clearInterval(timer);
-        setDisplayValue(value);
+  if (typeof value === 'number') {
+    numericVal = value;
+  } else if (typeof value === 'string') {
+    const match = value.match(/^([^0-9.-]*)([0-9,.-]+)(.*)$/);
+    if (match) {
+      prefix = match[1];
+      const parsed = parseFloat(match[2].replace(/,/g, ''));
+      suffix = match[3];
+      if (!isNaN(parsed)) {
+        numericVal = parsed;
       }
-    }, stepDuration);
-
-    return () => clearInterval(timer);
-  }, [value]);
+    }
+  }
 
   const variantStyles: Record<string, { badge: string; text: string }> = {
     amber: { badge: 'bg-accent-tint text-accent-strong border-accent/20', text: 'text-text-primary' },
@@ -69,18 +59,25 @@ export function StatTile({
     <GlassCard
       interactive={!!onClick}
       onClick={onClick}
-      className={cn('flex flex-col justify-between p-6 rounded-2xl min-h-[160px] fade-rise', className)}
+      className={cn(
+        'flex flex-col justify-between p-6 rounded-3xl min-h-[160px] bg-surface border border-border shadow-card hover:-translate-y-0.5 transition-all duration-150',
+        className
+      )}
     >
       <div className="flex items-center justify-between">
-        <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">{title}</span>
+        <span className="text-xs font-medium text-text-secondary">{title}</span>
         <div className={cn('w-9 h-9 rounded-xl flex items-center justify-center p-2 border shadow-sm', current.badge)}>
           {icon}
         </div>
       </div>
 
       <div className="my-3 flex items-baseline gap-2">
-        <span className={cn('font-headline text-4xl lg:text-[44px] font-bold tracking-tight leading-none', current.text)}>
-          {displayValue}
+        <span className={cn('font-sans text-3xl sm:text-4xl font-bold tracking-tight leading-none', current.text)}>
+          {numericVal !== null ? (
+            <CountUp value={numericVal} prefix={prefix} suffix={suffix} duration={900} />
+          ) : (
+            value
+          )}
         </span>
         {trend && (
           <span className="text-xs font-mono font-semibold text-status-done-text">

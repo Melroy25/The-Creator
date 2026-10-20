@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import {
   LayoutDashboard,
@@ -20,6 +21,7 @@ import {
 } from 'lucide-react';
 import { Avatar } from './Avatar';
 import { HelpModal } from './HelpModal';
+import { AnimatedProgressBar } from './motion/AnimatedProgressBar';
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -135,13 +137,20 @@ export function Sidebar() {
                       key={item.name}
                       href={item.href}
                       className={cn(
-                        'group relative flex items-center justify-between px-3.5 py-2 rounded-2xl transition-all text-xs font-medium',
+                        'group relative flex items-center justify-between px-3.5 py-2 rounded-2xl transition-colors text-xs font-medium',
                         active
-                          ? 'bg-text-primary text-text-inverse shadow-sm font-semibold'
+                          ? 'text-text-inverse font-semibold'
                           : 'text-text-secondary hover:text-text-primary hover:bg-surface-inset'
                       )}
                     >
-                      <div className="flex items-center gap-2.5">
+                      {active && (
+                        <motion.div
+                          layoutId="active-sidebar-pill"
+                          className="absolute inset-0 bg-text-primary rounded-2xl shadow-sm z-0"
+                          transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                        />
+                      )}
+                      <div className="relative z-10 flex items-center gap-2.5">
                         <div className={cn(active ? 'text-text-inverse' : 'text-text-secondary group-hover:text-text-primary')}>
                           {item.icon}
                         </div>
@@ -151,7 +160,7 @@ export function Sidebar() {
                       {item.badge && (
                         <span
                           className={cn(
-                            'text-[10px] font-bold px-2 py-0.2 rounded-full min-w-[18px] text-center',
+                            'relative z-10 text-[10px] font-bold px-2 py-0.2 rounded-full min-w-[18px] text-center',
                             active
                               ? 'bg-accent text-accent-contrast'
                               : 'bg-accent text-accent-contrast shadow-sm'
@@ -179,13 +188,20 @@ export function Sidebar() {
                       key={item.name}
                       href={item.href}
                       className={cn(
-                        'group relative flex items-center justify-between px-3.5 py-2 rounded-2xl transition-all text-xs font-medium',
+                        'group relative flex items-center justify-between px-3.5 py-2 rounded-2xl transition-colors text-xs font-medium',
                         active
-                          ? 'bg-text-primary text-text-inverse shadow-sm font-semibold'
+                          ? 'text-text-inverse font-semibold'
                           : 'text-text-secondary hover:text-text-primary hover:bg-surface-inset'
                       )}
                     >
-                      <div className="flex items-center gap-2.5">
+                      {active && (
+                        <motion.div
+                          layoutId="active-sidebar-pill"
+                          className="absolute inset-0 bg-text-primary rounded-2xl shadow-sm z-0"
+                          transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                        />
+                      )}
+                      <div className="relative z-10 flex items-center gap-2.5">
                         <div className={cn(active ? 'text-text-inverse' : 'text-text-secondary group-hover:text-text-primary')}>
                           {item.icon}
                         </div>
@@ -206,13 +222,20 @@ export function Sidebar() {
                 <Link
                   href="/settings"
                   className={cn(
-                    'group relative flex items-center justify-between px-3.5 py-2 rounded-2xl transition-all text-xs font-medium',
+                    'group relative flex items-center justify-between px-3.5 py-2 rounded-2xl transition-colors text-xs font-medium',
                     isActive('/settings')
-                      ? 'bg-text-primary text-text-inverse shadow-sm font-semibold'
+                      ? 'text-text-inverse font-semibold'
                       : 'text-text-secondary hover:text-text-primary hover:bg-surface-inset'
                   )}
                 >
-                  <div className="flex items-center gap-2.5">
+                  {isActive('/settings') && (
+                    <motion.div
+                      layoutId="active-sidebar-pill"
+                      className="absolute inset-0 bg-text-primary rounded-2xl shadow-sm z-0"
+                      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                    />
+                  )}
+                  <div className="relative z-10 flex items-center gap-2.5">
                     <Settings className="w-4 h-4" />
                     <span>Settings</span>
                   </div>
@@ -249,9 +272,7 @@ export function Sidebar() {
               </button>
             </div>
             <div className="space-y-1.5">
-              <div className="w-full h-1.5 rounded-full bg-border overflow-hidden">
-                <div className="h-full bg-accent rounded-full w-[64%] transition-all duration-300" />
-              </div>
+              <AnimatedProgressBar value={64} duration={0.7} />
               <span className="text-[10px] text-text-tertiary block">
                 1,284 of 2,000 orders this month
               </span>

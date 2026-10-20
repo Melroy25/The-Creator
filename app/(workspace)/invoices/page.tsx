@@ -1,10 +1,19 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { PageHeader, GlassCard, DataTable, StatusChip, Column } from '@/components/shared';
+import {
+  PageHeader,
+  GlassCard,
+  DataTable,
+  StatusChip,
+  Column,
+  StaggerContainer,
+  StaggerItem,
+  CountUp,
+} from '@/components/shared';
 import { getInvoices } from '@/lib/data';
 import { Invoice } from '@/lib/types';
-import { Receipt, DollarSign, Clock, AlertTriangle } from 'lucide-react';
+import { DollarSign, Clock, AlertTriangle } from 'lucide-react';
 
 export default function InvoicesPage() {
   const [invoices, setInvoices] = useState<Invoice[]>([]);
@@ -83,67 +92,72 @@ export default function InvoicesPage() {
   ];
 
   return (
-    <div className="space-y-8 pb-12 font-body">
-      <PageHeader
-        title="Invoices & Receivables"
-        purpose="Honest tracking of sponsor billing milestones, verified bank deposits, and overdue accounts."
-        badge="Records // Invoices"
-        phaseBadge="Read-Only Seed Data"
-      />
+    <StaggerContainer className="space-y-8 pb-12 font-sans">
+      <StaggerItem>
+        <PageHeader
+          title="Invoices & Receivables"
+          purpose="Honest tracking of sponsor billing milestones, verified bank deposits, and overdue accounts."
+          badge="Records // Invoices"
+        />
+      </StaggerItem>
 
       {/* 3 Summary Cards: Received, Waiting, Expected/Overdue */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <GlassCard className="p-6 rounded-2xl bg-surface border border-border space-y-2 shadow-card">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-mono uppercase text-text-secondary font-semibold">Received (Settled)</span>
-            <div className="w-8 h-8 rounded-full bg-status-done-bg text-status-done-text flex items-center justify-center border border-status-done-border">
-              <DollarSign className="w-4 h-4" />
+      <StaggerItem>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <GlassCard className="p-6 rounded-3xl bg-surface border border-border space-y-2 shadow-card hover:-translate-y-0.5 transition-all duration-150">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-mono uppercase text-text-secondary font-semibold">Received (Settled)</span>
+              <div className="w-8 h-8 rounded-full bg-status-done-bg text-status-done-text flex items-center justify-center border border-status-done-border">
+                <DollarSign className="w-4 h-4" />
+              </div>
             </div>
-          </div>
-          <p className="font-mono text-3xl font-bold text-status-done-text">
-            ${receivedTotal.toLocaleString()}
-          </p>
-          <span className="text-[11px] text-text-tertiary block">Deposited in verified studio bank account</span>
-        </GlassCard>
+            <p className="font-mono text-3xl font-bold text-status-done-text">
+              <CountUp value={receivedTotal} prefix="$" duration={900} />
+            </p>
+            <span className="text-[11px] text-text-tertiary block">Deposited in verified studio bank account</span>
+          </GlassCard>
 
-        <GlassCard className="p-6 rounded-2xl bg-surface border border-border space-y-2 shadow-card">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-mono uppercase text-text-secondary font-semibold">Waiting (Sent)</span>
-            <div className="w-8 h-8 rounded-full bg-accent-tint text-accent-strong flex items-center justify-center border border-accent/20">
-              <Clock className="w-4 h-4" />
+          <GlassCard className="p-6 rounded-3xl bg-surface border border-border space-y-2 shadow-card hover:-translate-y-0.5 transition-all duration-150">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-mono uppercase text-text-secondary font-semibold">Waiting (Sent)</span>
+              <div className="w-8 h-8 rounded-full bg-accent-tint text-accent-strong flex items-center justify-center border border-accent/20">
+                <Clock className="w-4 h-4" />
+              </div>
             </div>
-          </div>
-          <p className="font-mono text-3xl font-bold text-accent-strong">
-            ${waitingTotal.toLocaleString()}
-          </p>
-          <span className="text-[11px] text-text-tertiary block">Invoiced milestones awaiting payment</span>
-        </GlassCard>
+            <p className="font-mono text-3xl font-bold text-accent-strong">
+              <CountUp value={waitingTotal} prefix="$" duration={900} />
+            </p>
+            <span className="text-[11px] text-text-tertiary block">Invoiced milestones awaiting payment</span>
+          </GlassCard>
 
-        <GlassCard className="p-6 rounded-2xl bg-surface border border-border space-y-2 shadow-card">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-mono uppercase text-text-secondary font-semibold">Overdue (Past SLA)</span>
-            <div className="w-8 h-8 rounded-full bg-status-overdue-bg text-status-overdue-text flex items-center justify-center border border-status-overdue-border">
-              <AlertTriangle className="w-4 h-4" />
+          <GlassCard className="p-6 rounded-3xl bg-surface border border-border space-y-2 shadow-card hover:-translate-y-0.5 transition-all duration-150">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-mono uppercase text-text-secondary font-semibold">Overdue (Past SLA)</span>
+              <div className="w-8 h-8 rounded-full bg-status-overdue-bg text-status-overdue-text flex items-center justify-center border border-status-overdue-border">
+                <AlertTriangle className="w-4 h-4" />
+              </div>
             </div>
-          </div>
-          <p className="font-mono text-3xl font-bold text-status-overdue-text">
-            ${overdueTotal.toLocaleString()}
-          </p>
-          <span className="text-[11px] text-status-overdue-text font-medium block">
-            1 invoice overdue (Lumen Skincare past sprint)
-          </span>
-        </GlassCard>
-      </div>
+            <p className="font-mono text-3xl font-bold text-status-overdue-text">
+              <CountUp value={overdueTotal} prefix="$" duration={900} />
+            </p>
+            <span className="text-[11px] text-status-overdue-text font-medium block">
+              1 invoice overdue (Lumen Skincare past sprint)
+            </span>
+          </GlassCard>
+        </div>
+      </StaggerItem>
 
       {/* Invoices Data Table */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h3 className="font-headline font-bold text-lg text-text-primary tracking-tight">Invoice Ledger</h3>
-          <span className="text-xs font-mono text-text-tertiary">3 records</span>
-        </div>
+      <StaggerItem>
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="font-sans font-bold text-base text-text-primary tracking-tight">Invoice Ledger</h3>
+            <span className="text-xs font-mono text-text-tertiary">{invoices.length} records</span>
+          </div>
 
-        <DataTable columns={columns} data={invoices} />
-      </div>
-    </div>
+          <DataTable columns={columns} data={invoices} />
+        </div>
+      </StaggerItem>
+    </StaggerContainer>
   );
 }

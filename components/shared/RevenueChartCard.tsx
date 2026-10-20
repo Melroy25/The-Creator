@@ -11,6 +11,7 @@ import {
 } from 'recharts';
 import { GlassCard } from './GlassCard';
 import { SegmentedControl } from './SegmentedControl';
+import { CountUp } from './motion/CountUp';
 import { TrendingUp } from 'lucide-react';
 
 interface DataPoint {
@@ -90,8 +91,8 @@ export function RevenueChartCard() {
 
       {/* KPI Display */}
       <div>
-        <span className="font-headline text-4xl sm:text-5xl font-bold text-text-primary tracking-[-0.03em] leading-none">
-          $107,870
+        <span className="font-sans text-4xl sm:text-5xl font-bold text-text-primary tracking-tight leading-none">
+          <CountUp value={107870} prefix="$" duration={900} />
         </span>
       </div>
 
@@ -140,6 +141,9 @@ export function RevenueChartCard() {
               strokeWidth={2.5}
               fillOpacity={1}
               fill="url(#accentGradient)"
+              isAnimationActive={true}
+              animationDuration={1000}
+              animationEasing="ease-out"
               activeDot={{ r: 6, fill: 'var(--accent-base)', stroke: 'var(--text-primary)', strokeWidth: 2 }}
             />
           </AreaChart>

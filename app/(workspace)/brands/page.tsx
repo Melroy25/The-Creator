@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { PageHeader, DataTable, Column } from '@/components/shared';
+import { PageHeader, DataTable, Column, StaggerContainer, StaggerItem } from '@/components/shared';
 import { getBrands } from '@/lib/data';
 import { Brand } from '@/lib/types';
 
@@ -43,15 +43,18 @@ export default function BrandsPage() {
   ];
 
   return (
-    <div className="space-y-8 pb-12 font-body">
-      <PageHeader
-        title="Brand Partners"
-        purpose="Directory of sponsor relationships, direct brand contacts, and contractual agreements."
-        badge="Records // Brands"
-        phaseBadge="Read-Only Seed Data"
-      />
+    <StaggerContainer className="space-y-8 pb-12 font-sans">
+      <StaggerItem>
+        <PageHeader
+          title="Brand Partners"
+          purpose="Directory of sponsor relationships, direct brand contacts, and contractual agreements."
+          badge="Records // Brands"
+        />
+      </StaggerItem>
 
-      <DataTable columns={columns} data={brands} />
-    </div>
+      <StaggerItem>
+        <DataTable columns={columns} data={brands} />
+      </StaggerItem>
+    </StaggerContainer>
   );
 }

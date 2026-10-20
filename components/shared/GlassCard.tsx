@@ -32,9 +32,9 @@ export function GlassCard({
   return (
     <div
       className={cn(
-        'bg-surface border border-border rounded-2xl transition-all duration-200 text-text-primary p-6 relative overflow-hidden',
+        'bg-surface border border-border rounded-3xl transition-all duration-150 text-text-primary p-6 relative overflow-hidden',
         elevationClasses[elevation],
-        interactive && 'hover:-translate-y-0.5 hover:shadow-card-hover cursor-pointer active:scale-[0.99]',
+        interactive && 'hover:-translate-y-0.5 hover:shadow-card-hover cursor-pointer active:scale-[0.97]',
         glowClasses[glow],
         className
       )}
