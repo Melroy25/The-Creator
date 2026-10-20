@@ -28,53 +28,53 @@ export default async function DashboardPage() {
         }
       />
 
-      {/* 2. Three Big Metric Tiles Only (From Stitch Design) */}
+      {/* 2. Three Big Metric Tiles (Warm Editorial Studio) */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <StatTile
           title="Due Today"
           value={metrics.dueTodayCount}
-          variant="cyan"
+          variant="blue"
           description="2 script reviews and 1 sponsor invoice."
-          icon={<Calendar className="w-5 h-5 text-[#0284C7]" />}
+          icon={<Calendar className="w-5 h-5" />}
         />
         <StatTile
           title="Overdue"
           value={metrics.overdueCount}
           variant="rose"
           description="Brand B script approval pending review."
-          icon={<AlertCircle className="w-5 h-5 text-[#EF4444]" />}
+          icon={<AlertCircle className="w-5 h-5" />}
         />
         <StatTile
           title="At Risk"
           value={metrics.atRiskCount}
           variant="amber"
           description="Editor schedule overlaps on Wednesday afternoon."
-          icon={<AlertTriangle className="w-5 h-5 text-[#D97706]" />}
+          icon={<AlertTriangle className="w-5 h-5" />}
         />
       </section>
 
       {/* 3. Next 5 Deadlines Priority Queue */}
       <section className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-headline font-bold text-[#1E2337] tracking-tight">Next 5 Deadlines</h2>
-          <span className="text-xs font-mono font-semibold text-[#94A3B8] uppercase tracking-wider">
+          <h2 className="text-lg font-headline font-bold text-[#1F1F23] tracking-tight">Next 5 Deadlines</h2>
+          <span className="text-xs font-mono font-semibold text-[#9A9384] uppercase tracking-wider">
             Priority Queue
           </span>
         </div>
 
-        <GlassCard className="p-4 space-y-3">
+        <GlassCard className="p-4 space-y-3 bg-[#FCFBF7]">
           {metrics.nextDeadlines.map((task) => (
             <div
               key={task.id}
-              className="silk-inset p-3.5 rounded-xl flex items-center justify-between hover:bg-white/80 transition-all"
+              className="p-3.5 rounded-xl flex items-center justify-between bg-[#FAF6EA] border border-[#EDE6D3] hover:bg-[#F4EFE0] transition-all"
             >
               <div className="flex items-center gap-3.5 min-w-0">
                 <StatusChip status={task.status as any} size="sm" />
-                <span className="text-sm font-semibold text-[#1E2337] truncate">
+                <span className="text-sm font-semibold text-[#1F1F23] truncate">
                   {task.title}
                 </span>
               </div>
-              <span className="text-xs font-mono text-[#64748B] shrink-0 font-medium">
+              <span className="text-xs font-mono text-[#6B6558] shrink-0 font-medium">
                 {task.due_date ? new Date(task.due_date).toLocaleDateString([], { month: 'short', day: 'numeric' }) : 'Flexible'}
               </span>
             </div>
@@ -83,16 +83,18 @@ export default async function DashboardPage() {
       </section>
 
       {/* 4. Top Recommendation Banner */}
-      <GlassCard className="p-6 rounded-2xl border-indigo-200/80 relative overflow-hidden bg-gradient-to-r from-indigo-50/40 to-transparent">
+      <GlassCard className="p-6 rounded-2xl border-[#EDE6D3] bg-[#FCFBF7] relative overflow-hidden">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="space-y-1 max-w-2xl">
+          <div className="space-y-1.5 max-w-2xl">
             <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-indigo-600" />
-              <span className="text-xs font-mono uppercase tracking-wider text-indigo-600 font-bold">
+              <span className="w-6 h-6 rounded-full bg-[#FBEFC2] flex items-center justify-center text-[#875C05] border border-[#F7E19D]">
+                <Sparkles className="w-3.5 h-3.5" />
+              </span>
+              <span className="text-xs font-mono uppercase tracking-wider text-[#875C05] font-bold">
                 Top Recommendation
               </span>
             </div>
-            <p className="text-base text-[#1E2337] font-semibold leading-relaxed">
+            <p className="text-base text-[#1F1F23] font-semibold leading-relaxed">
               {metrics.topRecommendation.text}
             </p>
           </div>
@@ -105,19 +107,19 @@ export default async function DashboardPage() {
       </GlassCard>
 
       {/* 5. Honest Money Strip */}
-      <GlassCard className="p-6 rounded-2xl">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[#E2E6F0]">
+      <GlassCard className="p-6 rounded-2xl bg-[#FCFBF7]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[#EDE6D3]">
           <div className="flex flex-col sm:items-center pt-2 sm:pt-0">
-            <span className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">Received</span>
-            <span className="font-mono text-2xl text-[#10B981] font-extrabold mt-1">$48,250</span>
+            <span className="text-xs font-semibold text-[#6B6558] uppercase tracking-wider">Received</span>
+            <span className="font-mono text-2xl text-[#1E6B52] font-bold mt-1">$48,250</span>
           </div>
           <div className="flex flex-col sm:items-center pt-4 sm:pt-0">
-            <span className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">Waiting</span>
-            <span className="font-mono text-2xl text-[#D97706] font-extrabold mt-1">$16,500</span>
+            <span className="text-xs font-semibold text-[#6B6558] uppercase tracking-wider">Waiting</span>
+            <span className="font-mono text-2xl text-[#875C05] font-bold mt-1">$16,500</span>
           </div>
           <div className="flex flex-col sm:items-center pt-4 sm:pt-0">
-            <span className="text-xs font-semibold text-[#64748B] uppercase tracking-wider">Expected</span>
-            <span className="font-mono text-2xl text-[#0284C7] font-extrabold mt-1">$24,000</span>
+            <span className="text-xs font-semibold text-[#6B6558] uppercase tracking-wider">Expected</span>
+            <span className="font-mono text-2xl text-[#1D6FB8] font-bold mt-1">$24,000</span>
           </div>
         </div>
       </GlassCard>

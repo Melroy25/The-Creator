@@ -7,7 +7,7 @@ export interface StatTileProps {
   value: number | string;
   description: string;
   icon: React.ReactNode;
-  variant?: 'cyan' | 'rose' | 'amber' | 'emerald' | 'indigo';
+  variant?: 'cyan' | 'rose' | 'amber' | 'emerald' | 'indigo' | 'mint' | 'blue';
   className?: string;
   onClick?: () => void;
 }
@@ -17,55 +17,63 @@ export function StatTile({
   value,
   description,
   icon,
-  variant = 'indigo',
+  variant = 'amber',
   className,
   onClick,
 }: StatTileProps) {
-  const variantStyles = {
+  const variantStyles: Record<string, { iconBg: string; iconColor: string }> = {
+    amber: {
+      iconBg: 'bg-[#FBEFC2] border border-[#F7E19D]',
+      iconColor: 'text-[#875C05]',
+    },
     cyan: {
-      number: 'text-[#0284C7]',
-      iconBg: 'bg-sky-50 text-[#0284C7] silk-inset-deep',
+      iconBg: 'bg-[#E5F0FC] border border-[#C5DCFA]',
+      iconColor: 'text-[#1D6FB8]',
+    },
+    blue: {
+      iconBg: 'bg-[#E5F0FC] border border-[#C5DCFA]',
+      iconColor: 'text-[#1D6FB8]',
     },
     rose: {
-      number: 'text-[#EF4444]',
-      iconBg: 'bg-rose-50 text-[#EF4444] silk-inset-deep',
-    },
-    amber: {
-      number: 'text-[#D97706]',
-      iconBg: 'bg-amber-50 text-[#D97706] silk-inset-deep',
+      iconBg: 'bg-[#FBE7E9] border border-[#F8BAC1]',
+      iconColor: 'text-[#9E2A2B]',
     },
     emerald: {
-      number: 'text-[#10B981]',
-      iconBg: 'bg-emerald-50 text-[#10B981] silk-inset-deep',
+      iconBg: 'bg-[#E1F6EE] border border-[#C3E8DC]',
+      iconColor: 'text-[#1E6B52]',
+    },
+    mint: {
+      iconBg: 'bg-[#E1F6EE] border border-[#C3E8DC]',
+      iconColor: 'text-[#1E6B52]',
     },
     indigo: {
-      number: 'text-[#6366F1]',
-      iconBg: 'bg-indigo-50 text-[#6366F1] silk-inset-deep',
+      iconBg: 'bg-[#EDEAFB] border border-[#D9D2F5]',
+      iconColor: 'text-[#544393]',
     },
   };
 
-  const current = variantStyles[variant];
+  const current = variantStyles[variant] || variantStyles.amber;
 
   return (
     <GlassCard
       interactive={!!onClick}
       onClick={onClick}
-      className={cn('flex flex-col justify-between p-7 rounded-2xl min-h-[170px]', className)}
+      className={cn('flex flex-col justify-between p-6 rounded-2xl min-h-[160px]', className)}
     >
       <div className="flex items-center justify-between">
-        <span className="text-sm font-semibold text-[#64748B]">{title}</span>
-        <div className={cn('w-9 h-9 rounded-xl flex items-center justify-center p-2', current.iconBg)}>
+        <span className="text-xs font-semibold uppercase tracking-wider text-[#6B6558]">{title}</span>
+        <div className={cn('w-9 h-9 rounded-xl flex items-center justify-center p-2', current.iconBg, current.iconColor)}>
           {icon}
         </div>
       </div>
 
-      <div className="my-4">
-        <span className={cn('font-headline text-[54px] font-extrabold tracking-tight leading-none', current.number)}>
+      <div className="my-3">
+        <span className="font-headline text-[40px] lg:text-[44px] font-bold text-[#1F1F23] tracking-[-0.03em] leading-none">
           {value}
         </span>
       </div>
 
-      <p className="text-xs text-[#64748B] font-medium leading-relaxed">
+      <p className="text-xs text-[#6B6558] font-normal leading-relaxed">
         {description}
       </p>
     </GlassCard>

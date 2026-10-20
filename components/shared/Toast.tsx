@@ -41,33 +41,35 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none">
         {toasts.map((t) => {
           const icons = {
-            success: <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />,
-            error: <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />,
-            warning: <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />,
-            info: <Info className="w-4 h-4 text-indigo-600 shrink-0" />,
+            success: <CheckCircle2 className="w-4 h-4 text-[#1E6B52] shrink-0" />,
+            error: <AlertCircle className="w-4 h-4 text-[#A31F2A] shrink-0" />,
+            warning: <AlertTriangle className="w-4 h-4 text-[#875C05] shrink-0" />,
+            info: <Info className="w-4 h-4 text-[#1D6FB8] shrink-0" />,
           };
 
           return (
             <div
               key={t.id}
               className={cn(
-                'pointer-events-auto p-4 rounded-xl border bg-white shadow-[0_8px_30px_rgba(166,175,195,0.4)] flex items-start justify-between gap-3 animate-in slide-in-from-bottom duration-200 text-[#1E2337]',
-                t.type === 'success' && 'border-emerald-200/80',
-                t.type === 'error' && 'border-rose-200/80',
-                t.type === 'warning' && 'border-amber-200/80',
-                t.type === 'info' && 'border-indigo-200/80'
+                'pointer-events-auto p-4 rounded-2xl border bg-[#FCFBF7] shadow-[0_12px_28px_-4px_rgba(60,50,30,0.12)] flex items-start justify-between gap-3 animate-in slide-in-from-bottom duration-200 text-[#1F1F23]',
+                t.type === 'success' && 'border-[#C3E8DC]',
+                t.type === 'error' && 'border-[#F8BAC1]',
+                t.type === 'warning' && 'border-[#F7E19D]',
+                t.type === 'info' && 'border-[#C5DCFA]'
               )}
             >
-              <div className="flex items-start gap-2.5">
-                {icons[t.type]}
+              <div className="flex items-start gap-3">
+                <div className="mt-0.5">{icons[t.type]}</div>
                 <div className="space-y-0.5">
-                  <h4 className="text-xs font-headline font-bold text-[#1E2337] leading-tight">{t.title}</h4>
-                  {t.description && <p className="text-[11px] text-[#64748B] leading-normal font-medium">{t.description}</p>}
+                  <h4 className="text-sm font-headline font-bold text-[#1F1F23]">{t.title}</h4>
+                  {t.description && (
+                    <p className="text-xs text-[#6B6558] font-normal leading-relaxed">{t.description}</p>
+                  )}
                 </div>
               </div>
               <button
                 onClick={() => removeToast(t.id)}
-                className="text-[#94A3B8] hover:text-[#1E2337] p-0.5 rounded transition-colors"
+                className="text-[#9A9384] hover:text-[#1F1F23] p-1 rounded-full transition-colors"
               >
                 <X className="w-3.5 h-3.5" />
               </button>

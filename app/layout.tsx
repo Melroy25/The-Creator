@@ -3,7 +3,7 @@ import './globals.css';
 import { ToastProvider } from '@/components/shared/Toast';
 
 export const metadata: Metadata = {
-  title: 'Creator Flow | Deterministic Workflow Intelligence',
+  title: 'Creator Flow | Warm Editorial Studio',
   description: 'One workspace for a creator’s brand deals, deadlines and money, with a schedule that fixes itself when plans change.',
 };
 
@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="light">
-      <body className="bg-[#F0F2F8] text-[#1E2337] font-sans antialiased min-h-screen selection:bg-indigo-100 selection:text-indigo-900">
+      <body className="bg-[#FAF6EA] text-[#1F1F23] font-sans antialiased min-h-screen selection:bg-[#FBEFC2] selection:text-[#875C05]">
         <ToastProvider>
           {children}
         </ToastProvider>

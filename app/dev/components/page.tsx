@@ -23,6 +23,7 @@ import {
   Sparkles,
   Clock,
   ArrowRight,
+  ShieldAlert,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -32,24 +33,24 @@ export default function DevComponentsPage() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F0F2F8] text-[#1E2337] p-8 space-y-12 max-w-6xl mx-auto font-body">
+    <div className="min-h-screen bg-[#FAF6EA] text-[#1F1F23] p-8 space-y-12 max-w-6xl mx-auto font-body selection:bg-[#FBEFC2] selection:text-[#875C05]">
       {/* Dev Header */}
-      <div className="flex items-center justify-between border-b border-[#E2E6F0] pb-6">
+      <div className="flex items-center justify-between border-b border-[#EDE6D3] pb-6">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-[10px] font-mono uppercase bg-[#E8EBF5] text-indigo-600 px-2 py-0.5 rounded-full border border-indigo-200 font-bold">
-              DEVELOPER TEST BENCH
+            <span className="text-[10px] font-mono uppercase bg-[#FBEFC2] text-[#875C05] px-2.5 py-0.5 rounded-full border border-[#F7E19D] font-bold">
+              WARM EDITORIAL STUDIO
             </span>
-            <span className="text-xs text-[#64748B]">/ Stitch Silk Light Token Verification</span>
+            <span className="text-xs text-[#6B6558]">/ Token Verification & Test Bench</span>
           </div>
-          <h1 className="text-3xl font-headline font-bold tracking-tight text-[#1E2337]">Shared Component Library</h1>
-          <p className="text-sm text-[#64748B] mt-1 font-medium">
-            Visual inspection test bench for every Phase A shared component rendered in Silk Light Neomorphic style.
+          <h1 className="text-3xl font-headline font-bold tracking-tight text-[#1F1F23]">Shared Component Library</h1>
+          <p className="text-sm text-[#6B6558] mt-1 font-normal">
+            Visual inspection test bench for every component rendered in Warm Editorial Studio style (warm cream foundations, ivory vellum surfaces, pill primitives).
           </p>
         </div>
         <Link
           href="/dashboard"
-          className="text-xs font-mono font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1.5 silk-card-sm px-3 py-1.5 rounded-xl"
+          className="text-xs font-mono font-bold text-[#1F1F23] hover:text-[#875C05] flex items-center gap-1.5 studio-btn-secondary px-4 py-2 rounded-full border border-[#EDE6D3]"
         >
           <span>Go to Dashboard</span>
           <ArrowRight className="w-3.5 h-3.5" />
@@ -58,10 +59,10 @@ export default function DevComponentsPage() {
 
       {/* 1. BUTTONS */}
       <section className="space-y-4">
-        <h2 className="text-lg font-headline font-semibold text-[#1E2337] flex items-center gap-2">
-          <span>1. Primary & Secondary Buttons</span>
+        <h2 className="text-lg font-headline font-bold text-[#1F1F23] flex items-center gap-2">
+          <span>1. Pill Buttons (Primary #1F1F23 & Secondary #FCFBF7)</span>
         </h2>
-        <GlassCard className="space-y-6">
+        <GlassCard className="space-y-6 bg-[#FCFBF7]">
           <div className="flex flex-wrap items-center gap-4">
             <PrimaryButton size="lg" icon={<Play className="w-4 h-4 fill-white" />}>
               Start Daily Focus (lg)
@@ -80,7 +81,7 @@ export default function DevComponentsPage() {
             </PrimaryButton>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[#E2E6F0]">
+          <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[#EDE6D3]">
             <SecondaryButton size="lg">
               Export CSV (lg)
             </SecondaryButton>
@@ -102,38 +103,38 @@ export default function DevComponentsPage() {
 
       {/* 2. STAT TILES */}
       <section className="space-y-4">
-        <h2 className="text-lg font-headline font-semibold text-[#1E2337]">2. Hero Stat Tiles (From Stitch Dashboard)</h2>
+        <h2 className="text-lg font-headline font-bold text-[#1F1F23]">2. Metric Tiles (Multi-Accent Wash)</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatTile
             title="Due Today"
             value="3"
-            variant="cyan"
+            variant="blue"
             description="2 script reviews and 1 sponsor invoice."
-            icon={<Calendar className="w-5 h-5 text-[#0284C7]" />}
+            icon={<Calendar className="w-5 h-5" />}
           />
           <StatTile
             title="Overdue"
             value="1"
             variant="rose"
             description="Brand B script approval pending review."
-            icon={<AlertTriangle className="w-5 h-5 text-[#EF4444]" />}
+            icon={<AlertTriangle className="w-5 h-5" />}
           />
           <StatTile
             title="At Risk"
             value="2"
             variant="amber"
             description="Editor schedule overlaps on Wednesday afternoon."
-            icon={<Clock className="w-5 h-5 text-[#D97706]" />}
+            icon={<Clock className="w-5 h-5" />}
           />
         </div>
       </section>
 
       {/* 3. STATUS CHIPS & SEVERITY BADGES */}
       <section className="space-y-4">
-        <h2 className="text-lg font-headline font-semibold text-[#1E2337]">3. Status Chips & Severity Badges</h2>
-        <GlassCard className="space-y-5">
+        <h2 className="text-lg font-headline font-bold text-[#1F1F23]">3. Status Chips & Severity Badges (Pill Primitives)</h2>
+        <GlassCard className="space-y-5 bg-[#FCFBF7]">
           <div>
-            <div className="text-xs font-mono uppercase text-[#64748B] mb-3 font-semibold">Status Chips (Icon + Label, Never Color Alone)</div>
+            <div className="text-xs font-mono uppercase text-[#6B6558] mb-3 font-semibold">Status Chips (Solid Indicator Dot + Label)</div>
             <div className="flex flex-wrap items-center gap-3">
               <StatusChip status="done" />
               <StatusChip status="in_progress" />
@@ -145,8 +146,8 @@ export default function DevComponentsPage() {
             </div>
           </div>
 
-          <div className="pt-4 border-t border-[#E2E6F0]">
-            <div className="text-xs font-mono uppercase text-[#64748B] mb-3 font-semibold">Severity Badges (Dual-Channel)</div>
+          <div className="pt-4 border-t border-[#EDE6D3]">
+            <div className="text-xs font-mono uppercase text-[#6B6558] mb-3 font-semibold">Severity Badges (Dual-Channel)</div>
             <div className="flex flex-wrap items-center gap-3">
               <SeverityBadge severity="critical" />
               <SeverityBadge severity="high" />
@@ -159,8 +160,8 @@ export default function DevComponentsPage() {
 
       {/* 4. PROVENANCE CHIPS */}
       <section className="space-y-4">
-        <h2 className="text-lg font-headline font-semibold text-[#1E2337]">4. Provenance Chips (Hover/Focus to test tooltip)</h2>
-        <GlassCard>
+        <h2 className="text-lg font-headline font-bold text-[#1F1F23]">4. Provenance Chips (Hover/Focus to test tooltip)</h2>
+        <GlassCard className="bg-[#FCFBF7]">
           <div className="flex flex-wrap items-center gap-4">
             <ProvenanceChip type="Confirmed" />
             <ProvenanceChip type="Assumption" />
@@ -172,10 +173,10 @@ export default function DevComponentsPage() {
 
       {/* 5. INTERACTIVE DRAWERS & MODALS */}
       <section className="space-y-4">
-        <h2 className="text-lg font-headline font-semibold text-[#1E2337]">5. Drawers, Modals & Toast Triggers</h2>
-        <GlassCard className="flex flex-wrap items-center gap-4">
+        <h2 className="text-lg font-headline font-bold text-[#1F1F23]">5. Drawers, Modals & Toast Triggers</h2>
+        <GlassCard className="flex flex-wrap items-center gap-4 bg-[#FCFBF7]">
           <PrimaryButton onClick={() => setDrawerOpen(true)}>
-            Open Side Drawer
+            Open 460px Side Drawer
           </PrimaryButton>
           <SecondaryButton onClick={() => setModalOpen(true)}>
             Open Confirm Modal
@@ -205,78 +206,76 @@ export default function DevComponentsPage() {
         </GlassCard>
       </section>
 
-      {/* 6. EMPTY STATE */}
+      {/* 6. SKELETON & EMPTY STATE */}
       <section className="space-y-4">
-        <h2 className="text-lg font-headline font-semibold text-[#1E2337]">6. Empty State</h2>
-        <EmptyState
-          title="No Active Deliverable Conflicts"
-          description="Your current workflow graph has room to spare. All deliverable milestones are feasible within team capacity."
-          actionLabel="Simulate New Deal"
-          onAction={() => alert('Simulate triggered')}
-        />
-      </section>
-
-      {/* 7. LOADING SKELETONS */}
-      <section className="space-y-4">
-        <h2 className="text-lg font-headline font-semibold text-[#1E2337]">7. Loading Skeletons</h2>
+        <h2 className="text-lg font-headline font-bold text-[#1F1F23]">6. Loading Skeleton & Empty State</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <LoadingSkeleton variant="tile" count={1} />
-          <LoadingSkeleton variant="card" count={1} />
+          <LoadingSkeleton className="h-44 w-full" />
+          <EmptyState
+            title="No Disruptions Detected"
+            description="All brand deliverables and milestones are currently tracking on schedule with full resource availability."
+            action={<PrimaryButton size="sm">Run Diagnostics</PrimaryButton>}
+          />
         </div>
       </section>
 
-      {/* Interactive Drawer Instance */}
+      {/* Side Drawer Instance */}
       <SideDrawer
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
-        title="Video Shoot & Edit"
-        subtitle="Node 04 Inspection // Stage 3 of 5"
+        title="Task Detail Inspector"
+        subtitle="ID: tsk_youtube_sponsor_v1"
         footer={
           <div className="flex items-center justify-end gap-3">
             <SecondaryButton size="sm" onClick={() => setDrawerOpen(false)}>
-              Close
+              Cancel
             </SecondaryButton>
             <PrimaryButton size="sm" onClick={() => setDrawerOpen(false)}>
-              Save Adjustments
+              Save Modifications
             </PrimaryButton>
           </div>
         }
       >
-        <div className="space-y-4 text-sm text-[#1E2337]">
-          <div className="p-4 rounded-xl silk-inset space-y-2">
-            <div className="text-xs font-mono uppercase text-[#64748B] font-semibold">Assigned Owners</div>
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-1 rounded bg-white shadow-sm text-indigo-600 font-mono text-xs font-bold border border-slate-200">
-                MV (Marcus)
-              </span>
-              <span className="px-2 py-1 rounded bg-white shadow-sm text-sky-600 font-mono text-xs font-bold border border-slate-200">
-                LS (Leo)
-              </span>
+        <div className="space-y-4 text-sm text-[#1F1F23]">
+          <div className="space-y-1">
+            <label className="text-xs font-semibold text-[#6B6558]">Task Title</label>
+            <p className="font-semibold text-base">Record Sponsored Segment (60s)</p>
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs font-semibold text-[#6B6558]">Assignee</label>
+            <p className="font-medium">Marcus Vance (Host)</p>
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs font-semibold text-[#6B6558]">Provenance</label>
+            <div>
+              <ProvenanceChip type="Confirmed" />
             </div>
           </div>
-          <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 space-y-2">
-            <div className="flex items-center gap-1.5 text-rose-700 font-semibold text-xs">
-              <AlertTriangle className="w-4 h-4 text-rose-600" />
-              <span>Waiting on Pre-requisite</span>
+          <div className="space-y-1">
+            <label className="text-xs font-semibold text-[#6B6558]">Status</label>
+            <div>
+              <StatusChip status="in_progress" />
             </div>
-            <p className="text-xs text-rose-700 font-medium">
-              Brand Sign-off from Sarah Lin is overdue by 6 hours.
-            </p>
           </div>
         </div>
       </SideDrawer>
 
-      {/* Interactive Modal Instance */}
+      {/* Confirm Modal Instance */}
       <ConfirmModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         onConfirm={() => {
           setModalOpen(false);
-          toast({ type: 'info', title: 'Schedule Approved', description: 'Changes locked into records.' });
+          toast({
+            type: 'warning',
+            title: 'Schedule Disrupted',
+            description: 'Brand A deadline moved 2 days earlier. 3 collateral tasks recalculated.',
+          });
         }}
-        title="Approve Schedule Adjustment"
-        description="The deterministic engine will shift 3 flexible editing tasks to accommodate Brand A's earlier submission. This will be recorded in the audit log."
-        confirmLabel="Approve Schedule"
+        title="Simulate Brand Disruption?"
+        description="This will test the deterministic scheduler by moving Brand A sponsor delivery from Friday to Wednesday. The engine will evaluate downstream bottlenecks without modifying live database records."
+        confirmLabel="Run Impact Engine"
+        variant="warning"
       />
     </div>
   );

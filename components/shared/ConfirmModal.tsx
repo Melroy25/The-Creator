@@ -47,35 +47,37 @@ export function ConfirmModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
+      {/* Translucent Scrim */}
       <div
-        className="fixed inset-0 bg-slate-900/35 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-[#1F1F23]/20 backdrop-blur-[4px] transition-opacity duration-200"
         onClick={onClose}
       />
 
-      {/* Modal Dialog */}
-      <div className="relative w-full max-w-md silk-card rounded-2xl shadow-[8px_8px_24px_rgba(166,175,195,0.5),-8px_-8px_24px_rgba(255,255,255,0.95)] p-6 z-10 space-y-5 animate-in zoom-in-95 duration-150 text-[#1E2337]">
+      {/* Modal Dialog Tile */}
+      <div className="relative w-full max-w-md bg-[#FCFBF7] border border-[#EDE6D3] rounded-2xl shadow-[0_16px_40px_-8px_rgba(31,31,35,0.14)] p-6 z-10 space-y-5 animate-in zoom-in-95 duration-150 text-[#1F1F23]">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
             <div className={cn(
-              'w-10 h-10 rounded-xl flex items-center justify-center',
-              variant === 'danger' ? 'bg-rose-50 text-rose-600 border border-rose-200' :
-              variant === 'warning' ? 'bg-amber-50 text-amber-600 border border-amber-200' :
-              'bg-indigo-50 text-indigo-600 border border-indigo-200'
+              'w-10 h-10 rounded-full flex items-center justify-center border',
+              variant === 'danger' && 'bg-[#FDE5E7] text-[#A31F2A] border-[#F8BAC1]',
+              variant === 'warning' && 'bg-[#FDF3D6] text-[#875C05] border-[#F7E19D]',
+              variant === 'primary' && 'bg-[#FBEFC2] text-[#875C05] border-[#F7E19D]'
             )}>
               <AlertTriangle className="w-5 h-5" />
             </div>
-            <h3 className="text-lg font-headline font-bold text-[#1E2337] tracking-tight">{title}</h3>
+            <div>
+              <h3 className="font-headline font-bold text-lg text-[#1F1F23] tracking-tight">{title}</h3>
+            </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-[#64748B] hover:text-[#1E2337] silk-card-sm transition-colors"
+            className="p-1 rounded-full text-[#6B6558] hover:text-[#1F1F23] hover:bg-[#F4EFE0] transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        <p className="text-sm text-[#64748B] leading-relaxed font-medium">
+        <p className="text-sm text-[#6B6558] font-normal leading-relaxed">
           {description}
         </p>
 
@@ -87,7 +89,9 @@ export function ConfirmModal({
             size="sm"
             onClick={onConfirm}
             loading={loading}
-            className={variant === 'danger' ? 'bg-gradient-to-r from-rose-600 to-red-600 border-rose-400' : ''}
+            className={cn(
+              variant === 'danger' && 'bg-[#A31F2A] hover:bg-[#8A1A23] border-[#A31F2A]'
+            )}
           >
             {confirmLabel}
           </PrimaryButton>

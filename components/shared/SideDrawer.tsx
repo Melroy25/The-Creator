@@ -39,49 +39,51 @@ export function SideDrawer({
 
   if (!isOpen) return null;
 
+  // Fixed 460px per Warm Editorial Studio spec (or wider when requested)
   const widthClasses = {
-    md: 'max-w-md',
-    lg: 'max-w-lg',
-    xl: 'max-w-2xl',
+    md: 'w-full sm:max-w-[460px]',
+    lg: 'w-full sm:max-w-[540px]',
+    xl: 'w-full sm:max-w-[640px]',
   };
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
-      {/* Backdrop */}
+      {/* Ultra-soft translucent scrim per spec: rgba(31, 31, 35, 0.18) with backdrop-filter: blur(4px) */}
       <div
-        className="fixed inset-0 bg-slate-900/30 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-[#1F1F23]/20 backdrop-blur-[4px] transition-opacity duration-200"
         onClick={onClose}
       />
 
-      {/* Drawer Surface */}
+      {/* Drawer Surface: #FCFBF7 with 1px #EDE6D3 border and Level 3 shadow */}
       <aside
         className={cn(
-          'relative w-full h-full bg-[#F5F7FB] border-l border-[#E2E6F0] shadow-[0_0_40px_rgba(166,175,195,0.4)] flex flex-col z-10 animate-in slide-in-from-right duration-200 text-[#1E2337]',
+          'relative w-full h-full bg-[#FCFBF7] border-l border-[#EDE6D3] shadow-[0_16px_40px_-8px_rgba(31,31,35,0.14)] flex flex-col z-10 animate-in slide-in-from-right duration-200 text-[#1F1F23]',
           widthClasses[width]
         )}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-[#E2E6F0] bg-[#F5F7FC]">
+        <div className="flex items-center justify-between p-6 border-b border-[#EDE6D3] bg-[#FAF6EA]">
           <div className="space-y-1">
-            <h3 className="text-lg font-headline font-bold text-[#1E2337] tracking-tight">{title}</h3>
-            {subtitle && <p className="text-xs text-[#64748B] font-mono">{subtitle}</p>}
+            <h3 className="text-lg font-headline font-bold text-[#1F1F23] tracking-tight">{title}</h3>
+            {subtitle && <p className="text-xs text-[#6B6558] font-mono">{subtitle}</p>}
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-[#64748B] hover:text-[#1E2337] silk-card-sm transition-colors"
+            className="p-1.5 rounded-full text-[#6B6558] hover:text-[#1F1F23] hover:bg-[#F4EFE0] transition-colors"
+            title="Close"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Scrollable Body */}
+        {/* Content Body */}
         <div className="flex-1 overflow-y-auto p-6 space-y-6">
           {children}
         </div>
 
-        {/* Optional Footer */}
+        {/* Footer (if provided) */}
         {footer && (
-          <div className="p-6 border-t border-[#E2E6F0] bg-[#EEF1F8]">
+          <div className="p-6 border-t border-[#EDE6D3] bg-[#FAF6EA]">
             {footer}
           </div>
         )}

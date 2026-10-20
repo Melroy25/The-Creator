@@ -18,30 +18,28 @@ export function GlassCard({
 }: GlassCardProps) {
   const glowClasses = {
     none: '',
-    primary: 'border-indigo-300 shadow-[0_0_16px_rgba(99,102,241,0.18)]',
-    danger: 'border-rose-300 shadow-[0_0_16px_rgba(239,68,68,0.18)]',
-    success: 'border-emerald-300 shadow-[0_0_16px_rgba(16,185,129,0.18)]',
+    primary: 'border-[#EDBE4B] shadow-[0_0_16px_rgba(237,190,75,0.2)]',
+    danger: 'border-[#F8BAC1] shadow-[0_0_16px_rgba(163,31,42,0.15)]',
+    success: 'border-[#C3E8DC] shadow-[0_0_16px_rgba(30,107,82,0.15)]',
   };
 
   const elevationClasses = {
-    1: 'silk-card',
-    2: 'silk-card shadow-[8px_8px_18px_rgba(166,175,195,0.5),-8px_-8px_18px_rgba(255,255,255,0.95)]',
-    3: 'silk-card shadow-[12px_12px_24px_rgba(166,175,195,0.55),-12px_-12px_24px_rgba(255,255,255,1)]',
+    1: 'studio-card',
+    2: 'studio-card shadow-[0_4px_12px_-2px_rgba(60,50,30,0.06),0_12px_28px_-4px_rgba(60,50,30,0.08)]',
+    3: 'studio-card shadow-[0_16px_40px_-8px_rgba(31,31,35,0.14)]',
   };
 
   return (
     <div
       className={cn(
         elevationClasses[elevation],
-        interactive && 'hover:-translate-y-0.5 hover:shadow-silk-card-hover cursor-pointer active:scale-[0.99]',
+        interactive && 'hover:-translate-y-0.5 hover:shadow-[0_4px_12px_-2px_rgba(60,50,30,0.06),0_12px_28px_-4px_rgba(60,50,30,0.08)] cursor-pointer active:scale-[0.99]',
         glowClasses[glow],
-        'p-6 relative overflow-hidden text-[#1E2337]',
+        'p-6 relative overflow-hidden text-[#1F1F23]',
         className
       )}
       {...props}
     >
-      {/* Top subtle specular edge trace */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/80 to-transparent pointer-events-none" />
       {children}
     </div>
   );

@@ -25,7 +25,7 @@ export default function SimulatorPage() {
       <EmptyState
         title="Predictive Change-Impact Simulator"
         description="3-Step Simulator: (a) What changed? (b) Now vs New plan timelines with moved tasks highlighted (c) Short summary with plain reasons, Approve or Reject, and calculated alternatives."
-        icon={<Cpu className="w-7 h-7 text-indigo-600" />}
+        icon={<Cpu className="w-7 h-7 text-[#875C05]" />}
       />
     </div>
   );

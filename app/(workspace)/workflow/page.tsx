@@ -25,7 +25,7 @@ export default function WorkflowPage() {
       <EmptyState
         title="Interactive React Flow Vector Graph"
         description="Visual dependency map showing how briefs, scripts, shoots, edits, approvals, and invoices link together across all deals with critical path highlighting and inspector drawer."
-        icon={<Network className="w-7 h-7 text-indigo-600" />}
+        icon={<Network className="w-7 h-7 text-[#875C05]" />}
       />
     </div>
   );

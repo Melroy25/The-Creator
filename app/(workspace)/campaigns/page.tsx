@@ -32,29 +32,29 @@ export default async function CampaignsPage() {
           <Link
             key={camp.id}
             href={`/campaigns/${camp.id}`}
-            className="silk-card p-6 rounded-2xl space-y-4 group block hover:-translate-y-0.5 transition-all"
+            className="studio-card p-6 rounded-2xl space-y-4 group block hover:-translate-y-0.5 transition-all bg-[#FCFBF7] border border-[#EDE6D3]"
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <span className="text-[11px] font-mono text-[#94A3B8] uppercase tracking-wider font-semibold">
+                <span className="text-[11px] font-mono text-[#9A9384] uppercase tracking-wider font-semibold">
                   {camp.brand?.name || 'Sponsor'}
                 </span>
-                <h3 className="text-base font-headline font-bold text-[#1E2337] group-hover:text-indigo-600 transition-colors">
+                <h3 className="text-base font-headline font-bold text-[#1F1F23] group-hover:text-[#875C05] transition-colors">
                   {camp.name}
                 </h3>
               </div>
-              <span className="text-xs font-mono font-bold text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-full border border-indigo-200">
+              <span className="text-xs font-mono font-bold text-[#875C05] bg-[#FBEFC2] px-2.5 py-0.5 rounded-full border border-[#F7E19D]">
                 ${camp.payment_amount.toLocaleString()}
               </span>
             </div>
 
-            <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2 font-medium">
+            <p className="text-xs text-[#6B6558] leading-relaxed line-clamp-2 font-normal">
               Deliverables: {camp.deliverables?.map(d => d.title).join(', ') || '1 Video Integration'}
             </p>
 
-            <div className="pt-2 border-t border-[#E2E6F0] flex items-center justify-between text-xs text-[#64748B] font-mono">
+            <div className="pt-2 border-t border-[#EDE6D3] flex items-center justify-between text-xs text-[#6B6558] font-mono">
               <span className="uppercase">Platform: {camp.platform}</span>
-              <span className="text-indigo-600 font-bold group-hover:underline">View details →</span>
+              <span className="text-[#875C05] font-bold group-hover:underline">View details →</span>
             </div>
           </Link>
         ))}

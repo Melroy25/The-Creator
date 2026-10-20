@@ -20,7 +20,7 @@ export default function RisksPage() {
       <EmptyState
         title="Deterministic Rule-Based Risk Alerts"
         description="Every alert lists the explicit evidence that triggered it. Critical (confirmed), High, Medium, Low categories based strictly on calculated engine metrics."
-        icon={<AlertTriangle className="w-7 h-7 text-[#D97706]" />}
+        icon={<AlertTriangle className="w-7 h-7 text-[#875C05]" />}
       />
     </div>
   );

@@ -34,12 +34,12 @@ export default async function CampaignDetailPage({
       />
 
       {/* Tabs as per Lean Scope: Tasks, Approvals, Money, History */}
-      <div className="border-b border-[#E2E6F0] flex items-center gap-6 text-sm font-semibold text-[#64748B]">
-        <span className="text-indigo-600 border-b-2 border-indigo-600 pb-3 font-bold cursor-pointer">Overview</span>
-        <span className="pb-3 hover:text-[#1E2337] cursor-pointer">Tasks</span>
-        <span className="pb-3 hover:text-[#1E2337] cursor-pointer">Approvals</span>
-        <span className="pb-3 hover:text-[#1E2337] cursor-pointer">Money</span>
-        <span className="pb-3 hover:text-[#1E2337] cursor-pointer">History</span>
+      <div className="border-b border-[#EDE6D3] flex items-center gap-6 text-sm font-semibold text-[#6B6558]">
+        <span className="text-[#1F1F23] border-b-2 border-[#1F1F23] pb-3 font-bold cursor-pointer">Overview</span>
+        <span className="pb-3 hover:text-[#1F1F23] cursor-pointer">Tasks</span>
+        <span className="pb-3 hover:text-[#1F1F23] cursor-pointer">Approvals</span>
+        <span className="pb-3 hover:text-[#1F1F23] cursor-pointer">Money</span>
+        <span className="pb-3 hover:text-[#1F1F23] cursor-pointer">History</span>
       </div>
 
       <EmptyState

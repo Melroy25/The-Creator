@@ -20,7 +20,7 @@ export default function BriefAnalyzerPage() {
       <EmptyState
         title="PDF & Text Brief Analyzer"
         description="Extract fields with Zod validation. The review screen flags uncertain (amber), conflicting (both values), and missing (dashed) fields. Nothing is saved until confirmed, with manual fallback always available."
-        icon={<FileSearch className="w-7 h-7 text-indigo-600" />}
+        icon={<FileSearch className="w-7 h-7 text-[#875C05]" />}
       />
     </div>
   );
