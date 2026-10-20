@@ -28,7 +28,7 @@ export function SegmentedControl<T extends string = string>({
     <div
       role="radiogroup"
       className={cn(
-        'inline-flex items-center p-1 bg-[#F5F2EB] dark:bg-[#1E1E24] border border-[#E5DFD3] dark:border-[#2C2C34] rounded-2xl select-none relative',
+        'inline-flex items-center p-1 bg-surface-inset border border-border rounded-2xl select-none relative',
         className
       )}
     >

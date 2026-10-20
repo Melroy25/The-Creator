@@ -110,13 +110,13 @@ export function Sidebar() {
                 const event = new KeyboardEvent('keydown', { key: 'k', metaKey: true, ctrlKey: true });
                 window.dispatchEvent(event);
               }}
-              className="flex items-center justify-between px-3.5 py-2 rounded-xl bg-[#F5F2EB] dark:bg-[#1E1E24] border border-[#E5DFD3] dark:border-[#2C2C34] text-[13px] text-[#52525B] dark:text-[#A1A1AA] hover:border-[#C5BFB0] transition-colors cursor-pointer shadow-xs"
+              className="flex items-center justify-between px-3.5 py-2 rounded-xl bg-surface-inset border border-border text-[13px] text-text-secondary hover:border-border-strong transition-colors cursor-pointer shadow-xs"
             >
               <div className="flex items-center gap-2.5">
-                <Search className="w-4 h-4 text-[#71717A] shrink-0" />
-                <span className="font-normal text-[#52525B] dark:text-[#A1A1AA]">Search orders</span>
+                <Search className="w-4 h-4 text-text-tertiary shrink-0" />
+                <span className="font-normal text-text-secondary">Search orders</span>
               </div>
-              <kbd className="text-[10px] font-mono font-medium bg-white/90 dark:bg-[#2A2A30] border border-[#E0D9CC] dark:border-[#383842] px-1.5 py-0.5 rounded-md text-[#71717A]">
+              <kbd className="text-[10px] font-mono font-medium bg-surface border border-border px-1.5 py-0.5 rounded-md text-text-tertiary">
                 CtrlK
               </kbd>
             </div>
@@ -140,7 +140,7 @@ export function Sidebar() {
                         'group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-colors text-[13px] font-medium',
                         active
                           ? 'text-white font-semibold'
-                          : 'text-[#27272A] dark:text-[#D4D4D8] hover:text-[#09090B] dark:hover:text-white hover:bg-[#F3EFE6] dark:hover:bg-[#26262B]'
+                          : 'text-[#27272A] dark:text-[#D4D4D8] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset'
                       )}
                     >
                       {active && (
@@ -199,7 +199,7 @@ export function Sidebar() {
                         'group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-colors text-[13px] font-medium',
                         active
                           ? 'text-white font-semibold'
-                          : 'text-[#27272A] dark:text-[#D4D4D8] hover:text-[#09090B] dark:hover:text-white hover:bg-[#F3EFE6] dark:hover:bg-[#26262B]'
+                          : 'text-[#27272A] dark:text-[#D4D4D8] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset'
                       )}
                     >
                       {active && (
@@ -233,7 +233,7 @@ export function Sidebar() {
                     'group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-colors text-[13px] font-medium',
                     isActive('/settings')
                       ? 'text-white font-semibold'
-                      : 'text-[#27272A] dark:text-[#D4D4D8] hover:text-[#09090B] dark:hover:text-white hover:bg-[#F3EFE6] dark:hover:bg-[#26262B]'
+                      : 'text-[#27272A] dark:text-[#D4D4D8] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset'
                   )}
                 >
                   {isActive('/settings') && (
@@ -252,7 +252,7 @@ export function Sidebar() {
                 <button
                   type="button"
                   onClick={() => setHelpOpen(true)}
-                  className="w-full group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-all text-[13px] font-medium text-[#27272A] dark:text-[#D4D4D8] hover:text-[#09090B] dark:hover:text-white hover:bg-[#F3EFE6] dark:hover:bg-[#26262B] cursor-pointer"
+                  className="w-full group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-all text-[13px] font-medium text-[#27272A] dark:text-[#D4D4D8] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset cursor-pointer"
                 >
                   <div className="flex items-center gap-2.5">
                     <HelpCircle className="w-4 h-4 text-[#52525B] dark:text-[#A1A1AA] group-hover:text-[#09090B] dark:group-hover:text-white transition-colors" />
@@ -293,7 +293,7 @@ export function Sidebar() {
           {/* User Row per Wharf Image: Noor Haddad, Operations lead */}
           <Link
             href="/settings"
-            className="flex items-center justify-between p-2 rounded-xl hover:bg-[#F3EFE6] dark:hover:bg-[#26262B] transition-colors group cursor-pointer"
+            className="flex items-center justify-between p-2 rounded-xl hover:bg-surface-inset transition-colors group cursor-pointer"
           >
             <div className="flex items-center gap-2.5">
               <div className="w-7 h-7 rounded-full bg-white dark:bg-[#2A2A30] border border-border flex items-center justify-center font-bold text-xs text-[#09090B] dark:text-white shadow-xs">

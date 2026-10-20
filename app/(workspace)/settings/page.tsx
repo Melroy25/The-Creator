@@ -179,7 +179,7 @@ export default function SettingsPage() {
                     type="text"
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
-                    className="w-full bg-[#F5F2EB]/90 dark:bg-[#1E1E24]/90 border border-[#E5DFD3] dark:border-[#2C2C34] rounded-xl px-4 py-2.5 text-sm font-medium text-[#09090B] dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all shadow-xs"
+                    className="w-full bg-surface-inset border border-border rounded-xl px-4 py-2.5 text-sm font-medium text-text-primary focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all shadow-xs"
                   />
                 </div>
 
@@ -191,7 +191,7 @@ export default function SettingsPage() {
                     <select
                       value={currency}
                       onChange={(e) => setCurrency(e.target.value)}
-                      className="w-full bg-[#F5F2EB]/90 dark:bg-[#1E1E24]/90 border border-[#E5DFD3] dark:border-[#2C2C34] rounded-xl px-4 py-2.5 text-sm font-medium text-[#09090B] dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all appearance-none cursor-pointer pr-9 shadow-xs"
+                      className="w-full bg-surface-inset border border-border rounded-xl px-4 py-2.5 text-sm font-medium text-text-primary focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all appearance-none cursor-pointer pr-9 shadow-xs"
                     >
                       <option value="USD, US dollar">USD, US dollar</option>
                       <option value="EUR, Euro">EUR, Euro</option>
@@ -209,7 +209,7 @@ export default function SettingsPage() {
                     <select
                       value={timeZone}
                       onChange={(e) => setTimeZone(e.target.value)}
-                      className="w-full bg-[#F5F2EB]/90 dark:bg-[#1E1E24]/90 border border-[#E5DFD3] dark:border-[#2C2C34] rounded-xl px-4 py-2.5 text-sm font-medium text-[#09090B] dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all appearance-none cursor-pointer pr-9 shadow-xs"
+                      className="w-full bg-surface-inset border border-border rounded-xl px-4 py-2.5 text-sm font-medium text-text-primary focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all appearance-none cursor-pointer pr-9 shadow-xs"
                     >
                       <option value="America/New_York">America/New_York</option>
                       <option value="America/Los_Angeles">America/Los_Angeles</option>
@@ -227,7 +227,7 @@ export default function SettingsPage() {
                     <select
                       value={warningThreshold}
                       onChange={(e) => setWarningThreshold(e.target.value)}
-                      className="w-full bg-[#F5F2EB]/90 dark:bg-[#1E1E24]/90 border border-[#E5DFD3] dark:border-[#2C2C34] rounded-xl px-4 py-2.5 text-sm font-medium text-[#09090B] dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all appearance-none cursor-pointer pr-9 shadow-xs"
+                      className="w-full bg-surface-inset border border-border rounded-xl px-4 py-2.5 text-sm font-medium text-text-primary focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all appearance-none cursor-pointer pr-9 shadow-xs"
                     >
                       <option value="At the par level">At the par level</option>
                       <option value="At 80% capacity">At 80% capacity</option>

@@ -27,6 +27,21 @@
   inherits: true;
   initial-value: rgba(251, 227, 166, 0.35);
 }
+@property --bg-inset {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #F4F0E6;
+}
+@property --bg-inset-deep {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #EDE7DC;
+}
+@property --border-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #E6E0D4;
+}
 
 /* ==========================================================================
    THEME AND ACCENT TOKEN SYSTEM (Authentic Wharf Design System)
@@ -132,6 +147,9 @@ html:not([data-accent]) {
   --accent-text: #92400E;
   --accent-contrast: #18181B;
   --focus-ring: #F59E0B;
+  --bg-inset: #F4F0E6;
+  --bg-inset-deep: #EDE7DC;
+  --border-color: #E6E0D4;
 }
 
 /* 2. Mint */
@@ -144,6 +162,9 @@ html[data-accent="mint"],
   --accent-text: #065F46;
   --accent-contrast: #18181B;
   --focus-ring: #10B981;
+  --bg-inset: #EAF7F2;
+  --bg-inset-deep: #DEEFE8;
+  --border-color: #CCEBE0;
 }
 
 /* 3. Pink */
@@ -156,6 +177,9 @@ html[data-accent="pink"],
   --accent-text: #9D174D;
   --accent-contrast: #18181B;
   --focus-ring: #EC4899;
+  --bg-inset: #FDF0F6;
+  --bg-inset-deep: #F9E2EE;
+  --border-color: #F5D5E5;
 }
 
 /* 4. Blue */
@@ -168,6 +192,9 @@ html[data-accent="blue"],
   --accent-text: #1E40AF;
   --accent-contrast: #18181B;
   --focus-ring: #3B82F6;
+  --bg-inset: #EDF4FD;
+  --bg-inset-deep: #E2EDFC;
+  --border-color: #D3E2F8;
 }
 
 /* ==========================================================================
@@ -242,6 +269,9 @@ html[data-theme="dark"]:not([data-accent]) {
   --accent-text: #FCD34D;
   --accent-contrast: #19191D;
   --focus-ring: #F59E0B;
+  --bg-inset: rgba(36, 32, 24, 0.75);
+  --bg-inset-deep: rgba(28, 25, 18, 0.75);
+  --border-color: #3D3628;
 }
 
 html[data-theme="dark"][data-accent="mint"] {
@@ -252,6 +282,9 @@ html[data-theme="dark"][data-accent="mint"] {
   --accent-text: #6EE7B7;
   --accent-contrast: #19191D;
   --focus-ring: #34D399;
+  --bg-inset: rgba(20, 39, 33, 0.75);
+  --bg-inset-deep: rgba(15, 30, 25, 0.75);
+  --border-color: #1E4237;
 }
 
 html[data-theme="dark"][data-accent="pink"] {
@@ -262,6 +295,9 @@ html[data-theme="dark"][data-accent="pink"] {
   --accent-text: #F9A8D4;
   --accent-contrast: #19191D;
   --focus-ring: #F472B6;
+  --bg-inset: rgba(42, 24, 34, 0.75);
+  --bg-inset-deep: rgba(33, 18, 26, 0.75);
+  --border-color: #4A2739;
 }
 
 html[data-theme="dark"][data-accent="blue"] {
@@ -272,6 +308,9 @@ html[data-theme="dark"][data-accent="blue"] {
   --accent-text: #93C5FD;
   --accent-contrast: #19191D;
   --focus-ring: #60A5FA;
+  --bg-inset: rgba(23, 33, 47, 0.75);
+  --bg-inset-deep: rgba(18, 26, 38, 0.75);
+  --border-color: #24354D;
 }
 
 /* ==========================================================================
@@ -386,19 +425,26 @@ html[data-theme="dark"] .glow-orb-bl {
     outline-offset: 2px;
   }
 
+  /* Global scrollbars styled to dynamically match active accent color */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+  }
+
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--bg-canvas);
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--border-color);
+    background: var(--accent);
     border-radius: 9999px;
+    transition: background 300ms ease;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--border-strong);
+    background: var(--accent-text);
   }
 }
 
