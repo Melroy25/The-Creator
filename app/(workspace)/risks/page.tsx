@@ -9,7 +9,7 @@ export default function RisksPage() {
         title="Risk Radar"
         purpose="Rule-based alert matrix detecting overdue tasks, missed SLA turnarounds, payment delays, and team capacity constraints."
         badge="Bottlenecks & Critical Radar"
-        badgeVariant="amber"
+        phaseBadge="Built in Phase D"
         actions={
           <SecondaryButton size="sm" icon={<RefreshCw className="w-4 h-4" />}>
             Re-evaluate Rules
@@ -19,8 +19,8 @@ export default function RisksPage() {
 
       <EmptyState
         title="Deterministic Rule-Based Risk Alerts"
-        description="Every alert lists the explicit evidence that triggered it. Critical (confirmed), High, Medium, Low categories based strictly on calculated engine metrics."
-        icon={<AlertTriangle className="w-7 h-7 text-[#875C05]" />}
+        description="Every alert lists the explicit evidence that triggered it. Critical (confirmed), High, Medium, Low categories based strictly on calculated engine metrics with recommended next actions. Wired in Phase D."
+        icon={<AlertTriangle className="w-7 h-7 text-accent-strong" />}
       />
     </div>
   );

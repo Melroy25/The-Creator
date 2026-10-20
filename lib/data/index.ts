@@ -94,7 +94,7 @@ export async function getDashboardMetrics() {
     atRiskCount,
     nextDeadlines: tasks.slice(0, 5),
     topRecommendation: {
-      text: "Move Editor Leo's B-roll cut to Kai to clear Wednesday's 4.5-hour bottleneck.",
+      text: "Move Editor Maya's rough cut window to clear Wednesday's 4.5-hour bottleneck with Sam.",
       actionLabel: 'Fix With One Click',
     },
     cashFlow: {

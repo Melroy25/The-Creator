@@ -10,248 +10,263 @@ import {
   Network,
   Cpu,
   AlertTriangle,
-  ChevronDown,
-  FileSearch,
+  Building2,
+  Receipt,
+  Users,
   Settings,
+  HelpCircle,
   Zap,
 } from 'lucide-react';
-
-interface NavItem {
-  name: string;
-  subtitle: string;
-  href: string;
-  icon: React.ReactNode;
-  badge?: string;
-  isDangerous?: boolean;
-}
+import { Avatar } from './Avatar';
+import { HelpModal } from './HelpModal';
 
 export function Sidebar() {
   const pathname = usePathname();
-  const [moreOpen, setMoreOpen] = useState(true);
-
-  // 5 Primary Modules for Lean Scope
-  const primaryNav: NavItem[] = [
-    {
-      name: 'Dashboard',
-      subtitle: 'Command center telemetry',
-      href: '/dashboard',
-      icon: <LayoutDashboard className="w-4 h-4" />,
-      badge: '01',
-    },
-    {
-      name: 'Campaigns',
-      subtitle: 'Brand deals & deliverables',
-      href: '/campaigns',
-      icon: <Megaphone className="w-4 h-4" />,
-      badge: '02',
-    },
-    {
-      name: 'Workflow',
-      subtitle: 'Interactive node graph',
-      href: '/workflow',
-      icon: <Network className="w-4 h-4" />,
-      badge: '03',
-    },
-    {
-      name: 'Simulator',
-      subtitle: 'What-if impact engine',
-      href: '/simulator',
-      icon: <Cpu className="w-4 h-4" />,
-      badge: '04',
-    },
-    {
-      name: 'Risks',
-      subtitle: 'Bottlenecks & critical radar',
-      href: '/risks',
-      icon: <AlertTriangle className="w-4 h-4" />,
-      badge: '05',
-      isDangerous: true,
-    },
-  ];
-
-  // More Operations (Brief Analyzer & Settings)
-  const moreNav: NavItem[] = [
-    {
-      name: 'Brief Analyzer',
-      subtitle: 'AI Parser',
-      href: '/brief-analyzer',
-      icon: <FileSearch className="w-4 h-4" />,
-    },
-    {
-      name: 'Settings',
-      subtitle: 'System',
-      href: '/settings',
-      icon: <Settings className="w-4 h-4" />,
-    },
-  ];
+  const [helpOpen, setHelpOpen] = useState(false);
 
   const isActive = (href: string) => {
     if (href === '/dashboard' && (pathname === '/' || pathname === '/dashboard')) return true;
     return pathname.startsWith(href);
   };
 
+  // 1. Operations
+  const operationsNav = [
+    {
+      name: 'Dashboard',
+      href: '/dashboard',
+      icon: <LayoutDashboard className="w-4 h-4" />,
+      badge: '3', // Due today
+    },
+    {
+      name: 'Campaigns',
+      href: '/campaigns',
+      icon: <Megaphone className="w-4 h-4" />,
+      badge: '3', // 3 Active
+    },
+    {
+      name: 'Workflow',
+      href: '/workflow',
+      icon: <Network className="w-4 h-4" />,
+    },
+    {
+      name: 'Simulator',
+      href: '/simulator',
+      icon: <Cpu className="w-4 h-4" />,
+    },
+    {
+      name: 'Risks',
+      href: '/risks',
+      icon: <AlertTriangle className="w-4 h-4" />,
+      badge: '2', // 2 Risks
+      isAlert: true,
+    },
+  ];
+
+  // 2. Records
+  const recordsNav = [
+    {
+      name: 'Brands',
+      href: '/brands',
+      icon: <Building2 className="w-4 h-4" />,
+    },
+    {
+      name: 'Invoices',
+      href: '/invoices',
+      icon: <Receipt className="w-4 h-4" />,
+      badge: '1', // 1 Overdue
+      isAlert: true,
+    },
+    {
+      name: 'Team',
+      href: '/team',
+      icon: <Users className="w-4 h-4" />,
+    },
+  ];
+
   return (
-    <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-72 bg-[#FCFBF7] z-50 flex-col justify-between border-r border-[#EDE6D3] shadow-[0_2px_8px_-2px_rgba(60,50,30,0.04)] select-none">
-      <div className="flex flex-col flex-1 overflow-hidden">
-        {/* Brand Logo Header */}
-        <div className="h-16 px-6 flex items-center justify-between border-b border-[#EDE6D3] bg-[#FCFBF7]">
-          <Link href="/dashboard" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-full bg-[#1F1F23] flex items-center justify-center shadow-sm">
-              <Zap className="w-4 h-4 text-[#EDBE4B] fill-[#EDBE4B]" />
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="font-headline font-bold text-[15px] tracking-tight text-[#1F1F23] uppercase">
-                Creator Flow
-              </span>
-              <span className="text-[10px] font-mono font-bold bg-[#FBEFC2] text-[#875C05] px-2 py-0.5 rounded-full uppercase tracking-wider border border-[#F7E19D]">
-                STUDIO
-              </span>
-            </div>
-          </Link>
-        </div>
-
-        {/* Navigation Scroll Area */}
-        <div className="flex-1 overflow-y-auto px-4 py-5 space-y-6">
-          <div>
-            <div className="px-3 pb-2 text-[#9A9384] font-mono text-[11px] uppercase tracking-wider font-semibold">
-              Primary Modules
-            </div>
-            <nav className="space-y-1.5">
-              {primaryNav.map((item) => {
-                const active = isActive(item.href);
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={cn(
-                      'group relative flex items-center justify-between px-3.5 py-2.5 rounded-full transition-all',
-                      active
-                        ? 'bg-[#1F1F23] text-white shadow-sm font-semibold'
-                        : 'text-[#6B6558] hover:text-[#1F1F23] hover:bg-[#F4EFE0]'
-                    )}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={cn(
-                          'p-1.5 rounded-full transition-colors',
-                          active ? 'text-[#EDBE4B]' : 'text-[#6B6558] group-hover:text-[#1F1F23]'
-                        )}
-                      >
-                        {item.icon}
-                      </div>
-                      <div className="flex flex-col">
-                        <span className={cn('text-sm leading-tight', active ? 'text-white font-bold' : 'text-[#1F1F23] font-medium')}>
-                          {item.name}
-                        </span>
-                        <span className={cn('text-[11px] leading-tight font-normal', active ? 'text-[#C8C5CB]' : 'text-[#9A9384]')}>
-                          {item.subtitle}
-                        </span>
-                      </div>
-                    </div>
-
-                    {item.badge && (
-                      <span
-                        className={cn(
-                          'text-[11px] font-mono font-bold px-2 py-0.5 rounded-full',
-                          active
-                            ? 'bg-[#2E2E36] text-[#EDBE4B]'
-                            : item.isDangerous
-                            ? 'text-[#A31F2A] bg-[#FDE5E7] border border-[#F8BAC1]'
-                            : 'text-[#9A9384] bg-transparent'
-                        )}
-                      >
-                        {item.badge}
-                      </span>
-                    )}
-                  </Link>
-                );
-              })}
-            </nav>
+    <>
+      <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-64 bg-surface z-50 flex-col justify-between border-r border-border shadow-card select-none">
+        <div className="flex flex-col flex-1 overflow-hidden">
+          {/* Wharf-style Brand Logo */}
+          <div className="h-16 px-6 flex items-center justify-between border-b border-border bg-surface">
+            <Link href="/dashboard" className="flex items-center gap-3 group">
+              <div className="w-8 h-8 rounded-full bg-text-primary flex items-center justify-center shadow-sm">
+                <Zap className="w-4 h-4 text-accent fill-accent" />
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="font-headline font-bold text-base tracking-tight text-text-primary uppercase">
+                  Creator Flow
+                </span>
+              </div>
+            </Link>
           </div>
 
-          {/* More Operations Menu */}
-          <div className="px-1">
-            <details
-              open={moreOpen}
-              onToggle={(e) => setMoreOpen(e.currentTarget.open)}
-              className="group studio-card-sm rounded-2xl overflow-hidden"
-            >
-              <summary className="flex items-center justify-between px-3.5 py-2.5 cursor-pointer list-none text-[#6B6558] hover:text-[#1F1F23] transition-colors">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-semibold">More Operations</span>
-                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-[#F4EFE0] text-[#6B6558] font-bold border border-[#EDE6D3]">
-                    2
-                  </span>
-                </div>
-                <ChevronDown
-                  className={cn('w-3.5 h-3.5 text-[#9A9384] transition-transform duration-200 group-open:rotate-180')}
-                />
-              </summary>
-
-              <div className="px-2 py-2 space-y-1 bg-[#FAF6EA] border-t border-[#EDE6D3]">
-                {moreNav.map((item) => {
+          {/* Navigation Scroll Area */}
+          <div className="flex-1 overflow-y-auto px-4 py-5 space-y-6">
+            {/* OPERATIONS */}
+            <div>
+              <div className="px-3 pb-2 text-text-tertiary font-mono text-[11px] uppercase tracking-wider font-semibold">
+                Operations
+              </div>
+              <nav className="space-y-1">
+                {operationsNav.map((item) => {
                   const active = isActive(item.href);
                   return (
                     <Link
                       key={item.href}
                       href={item.href}
                       className={cn(
-                        'flex items-center justify-between px-3 py-2 rounded-full text-xs font-medium transition-all',
+                        'group relative flex items-center justify-between px-3.5 py-2 rounded-full transition-all text-xs font-semibold',
                         active
-                          ? 'bg-[#1F1F23] text-white shadow-sm font-semibold'
-                          : 'text-[#6B6558] hover:text-[#1F1F23] hover:bg-[#F4EFE0]'
+                          ? 'bg-text-primary text-text-inverse shadow-sm'
+                          : 'text-text-secondary hover:text-text-primary hover:bg-surface-inset'
                       )}
                     >
-                      <div className="flex items-center gap-2">
-                        {item.icon}
+                      <div className="flex items-center gap-2.5">
+                        <div className={cn(active ? 'text-accent' : 'text-text-secondary group-hover:text-text-primary')}>
+                          {item.icon}
+                        </div>
                         <span>{item.name}</span>
                       </div>
-                      <span className={cn('text-[10px] font-mono', active ? 'text-[#C8C5CB]' : 'text-[#9A9384]')}>
-                        {item.subtitle}
-                      </span>
+
+                      {item.badge && (
+                        <span
+                          className={cn(
+                            'text-[10px] font-mono font-bold px-2 py-0.5 rounded-full',
+                            active
+                              ? 'bg-text-primary text-accent border border-accent/30'
+                              : item.isAlert
+                              ? 'text-status-risk-text bg-status-risk-bg border border-status-risk-border'
+                              : 'text-text-secondary bg-surface-inset border border-border'
+                          )}
+                        >
+                          {item.badge}
+                        </span>
+                      )}
                     </Link>
                   );
                 })}
+              </nav>
+            </div>
+
+            {/* RECORDS */}
+            <div>
+              <div className="px-3 pb-2 text-text-tertiary font-mono text-[11px] uppercase tracking-wider font-semibold">
+                Records
               </div>
-            </details>
-          </div>
-        </div>
-      </div>
+              <nav className="space-y-1">
+                {recordsNav.map((item) => {
+                  const active = isActive(item.href);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(
+                        'group relative flex items-center justify-between px-3.5 py-2 rounded-full transition-all text-xs font-semibold',
+                        active
+                          ? 'bg-text-primary text-text-inverse shadow-sm'
+                          : 'text-text-secondary hover:text-text-primary hover:bg-surface-inset'
+                      )}
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <div className={cn(active ? 'text-accent' : 'text-text-secondary group-hover:text-text-primary')}>
+                          {item.icon}
+                        </div>
+                        <span>{item.name}</span>
+                      </div>
 
-      {/* Apex Media Studio HUD Card (Warm Editorial Studio) */}
-      <div className="p-4 m-3.5 studio-card rounded-2xl space-y-3 bg-[#FCFBF7]">
-        <div className="flex items-center justify-between">
-          <span className="text-xs font-bold truncate text-[#1F1F23]">Apex Media Studio</span>
-          <span className="text-[10px] bg-[#FBEFC2] text-[#875C05] border border-[#F7E19D] px-2 py-0.5 rounded-full font-mono font-bold">
-            PRO HUD
-          </span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#94E0D0] opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1E6B52]" />
-          </span>
-          <span className="text-[11px] text-[#6B6558] leading-none truncate font-medium">
-            Telemetry sync (0ms jitter)
-          </span>
-        </div>
-        <div className="space-y-1.5">
-          <div className="flex justify-between items-center text-[11px]">
-            <span className="text-[#9A9384]">Bandwidth</span>
-            <span className="text-[#1F1F23] font-bold font-mono">84% utilized</span>
-          </div>
-          <div className="w-full h-2 bg-[#F4EFE0] rounded-full overflow-hidden border border-[#EDE6D3] p-0.5">
-            <div className="h-full bg-[#EDBE4B] rounded-full w-[84%]" />
-          </div>
-        </div>
-      </div>
+                      {item.badge && (
+                        <span
+                          className={cn(
+                            'text-[10px] font-mono font-bold px-2 py-0.5 rounded-full',
+                            active
+                              ? 'bg-text-primary text-accent border border-accent/30'
+                              : item.isAlert
+                              ? 'text-status-overdue-text bg-status-overdue-bg border border-status-overdue-border'
+                              : 'text-text-secondary bg-surface-inset border border-border'
+                          )}
+                        >
+                          {item.badge}
+                        </span>
+                      )}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </div>
 
-      {/* Footer per BRIEF.md: "Demo workspace" */}
-      <div className="px-6 py-3 border-t border-[#EDE6D3] text-center bg-[#FCFBF7]">
-        <span className="text-[11px] font-mono uppercase tracking-wider text-[#9A9384] font-semibold">
-          Demo workspace
-        </span>
-      </div>
-    </aside>
+            {/* ACCOUNT */}
+            <div>
+              <div className="px-3 pb-2 text-text-tertiary font-mono text-[11px] uppercase tracking-wider font-semibold">
+                Account
+              </div>
+              <nav className="space-y-1">
+                <Link
+                  href="/settings"
+                  className={cn(
+                    'group relative flex items-center justify-between px-3.5 py-2 rounded-full transition-all text-xs font-semibold',
+                    isActive('/settings')
+                      ? 'bg-text-primary text-text-inverse shadow-sm'
+                      : 'text-text-secondary hover:text-text-primary hover:bg-surface-inset'
+                  )}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Settings className="w-4 h-4" />
+                    <span>Settings</span>
+                  </div>
+                </Link>
+
+                <button
+                  type="button"
+                  onClick={() => setHelpOpen(true)}
+                  className="w-full group relative flex items-center justify-between px-3.5 py-2 rounded-full transition-all text-xs font-semibold text-text-secondary hover:text-text-primary hover:bg-surface-inset cursor-pointer"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <HelpCircle className="w-4 h-4" />
+                    <span>Help</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-text-tertiary">4 tips</span>
+                </button>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="p-3 space-y-3 border-t border-border bg-surface">
+          {/* Plan Card per Wharf Image: "Demo workspace" with Progress Bar */}
+          <div className="p-3.5 rounded-2xl bg-surface-inset border border-border space-y-2.5 shadow-inset">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold text-text-primary">Demo workspace</span>
+              <span className="text-[10px] font-mono font-semibold text-accent-strong bg-accent-tint px-2 py-0.5 rounded-full border border-accent/20">
+                PRO ACTIVE
+              </span>
+            </div>
+            <div className="space-y-1">
+              <div className="w-full h-1.5 rounded-full bg-border overflow-hidden">
+                <div className="h-full bg-accent rounded-full w-[65%]" />
+              </div>
+              <span className="text-[10px] font-mono text-text-tertiary block">
+                22 of 25 tasks tracked this sprint
+              </span>
+            </div>
+          </div>
+
+          {/* User Row per Wharf Image */}
+          <Link
+            href="/settings"
+            className="flex items-center justify-between p-2 rounded-xl hover:bg-surface-inset transition-colors group cursor-pointer"
+          >
+            <Avatar name="Marcus Vance" subtitle="Executive Creator" size="md" />
+            <span className="text-text-tertiary group-hover:text-text-primary text-sm font-mono">
+              ›
+            </span>
+          </Link>
+        </div>
+      </aside>
+
+      {/* Help Modal */}
+      <HelpModal isOpen={helpOpen} onClose={() => setHelpOpen(false)} />
+    </>
   );
 }

@@ -28,14 +28,15 @@ export function PrimaryButton({
     <button
       disabled={disabled || loading}
       className={cn(
-        'studio-btn-primary inline-flex items-center justify-center font-medium tracking-normal select-none cursor-pointer',
+        'bg-text-primary text-text-inverse font-medium tracking-normal select-none cursor-pointer',
+        'tactile-btn inline-flex items-center justify-center shadow-sm',
         'disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none',
         sizeClasses[size],
         className
       )}
       {...props}
     >
-      {loading ? <Loader2 className="w-4 h-4 animate-spin text-white" /> : icon}
+      {loading ? <Loader2 className="w-4 h-4 animate-spin text-text-inverse" /> : icon}
       <span>{children}</span>
     </button>
   );

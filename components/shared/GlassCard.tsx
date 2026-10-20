@@ -18,24 +18,24 @@ export function GlassCard({
 }: GlassCardProps) {
   const glowClasses = {
     none: '',
-    primary: 'border-[#EDBE4B] shadow-[0_0_16px_rgba(237,190,75,0.2)]',
-    danger: 'border-[#F8BAC1] shadow-[0_0_16px_rgba(163,31,42,0.15)]',
-    success: 'border-[#C3E8DC] shadow-[0_0_16px_rgba(30,107,82,0.15)]',
+    primary: 'border-accent shadow-card',
+    danger: 'border-status-overdue-border shadow-card',
+    success: 'border-status-done-border shadow-card',
   };
 
   const elevationClasses = {
-    1: 'studio-card',
-    2: 'studio-card shadow-[0_4px_12px_-2px_rgba(60,50,30,0.06),0_12px_28px_-4px_rgba(60,50,30,0.08)]',
-    3: 'studio-card shadow-[0_16px_40px_-8px_rgba(31,31,35,0.14)]',
+    1: 'shadow-card',
+    2: 'shadow-card-hover',
+    3: 'shadow-drawer',
   };
 
   return (
     <div
       className={cn(
+        'bg-surface border border-border rounded-2xl transition-all duration-200 text-text-primary p-6 relative overflow-hidden',
         elevationClasses[elevation],
-        interactive && 'hover:-translate-y-0.5 hover:shadow-[0_4px_12px_-2px_rgba(60,50,30,0.06),0_12px_28px_-4px_rgba(60,50,30,0.08)] cursor-pointer active:scale-[0.99]',
+        interactive && 'hover:-translate-y-0.5 hover:shadow-card-hover cursor-pointer active:scale-[0.99]',
         glowClasses[glow],
-        'p-6 relative overflow-hidden text-[#1F1F23]',
         className
       )}
       {...props}

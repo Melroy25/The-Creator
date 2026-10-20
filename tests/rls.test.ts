@@ -73,10 +73,10 @@ describe('Phase 1: Foundation Verification', () => {
   });
 
   describe('Demo Scenario Data Model (BRIEF.md Section 10)', () => {
-    it('loads 3 brands and ~25 tasks with realistic relative dates', () => {
+    it('loads 4 brands (including candidate Vento Travel) and ~25 tasks with realistic relative dates', () => {
       const demoData = getDemoData();
 
-      expect(demoData.brands).toHaveLength(3);
+      expect(demoData.brands).toHaveLength(4);
       expect(demoData.campaigns).toHaveLength(3);
       expect(demoData.tasks.length).toBeGreaterThanOrEqual(20);
       expect(demoData.resources).toHaveLength(3); // Creator, Editor 1, Editor 2

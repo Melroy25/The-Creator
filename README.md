@@ -1,130 +1,128 @@
-# CREATOR FLOW
-### Workflow Intelligence Operating System for the Creator Economy
-**Tagline:** Create More. Manage Less. Stay Ahead.  
-**Event:** CODE MEET 2026 Hackathon (Problem Statement 4: Creator Economy Tech)  
-**Live Repository:** [https://github.com/Melroy25/The-Creator.git](https://github.com/Melroy25/The-Creator.git)
+# Creator Flow ⚡
 
-> **Design System Note**: Default theme: light. Tokens live in `app/globals.css` and `tailwind.config.ts`. The interface matches the Stitch export's Silk Light Neomorphic style (tactile clay surfaces, extruded soft depth, and specular accents).
+**Autonomous Creator Business Operating System**  
+Built for the **CODE MEET 2026 Hackathon** (Problem Statement 4: *Creator Economy Tech*).
 
 ---
 
-## 1. What is Creator Flow?
+## 🌟 The Big Idea
+Creators operate like small businesses, with brand deals, scripts, approvals, edits, and payments scattered across disconnected tools. **Creator Flow** provides one shared data model where schedules fix themselves when real-world disruptions strike.
 
-Today's creators operate like small studios, juggling multi-platform campaigns, client revisions, video edits, and pending invoices across fragmented tools. 
+When plans change (a brand deadline moves forward, an approval is delayed, or a video editor becomes unavailable), a **pure TypeScript deterministic engine** maps collateral impact across the dependency chain, recalculates feasible timelines, detects resource collisions, and proposes actionable alternatives with plain-English rationales.
 
-**Creator Flow** is an intelligent operating system built around a single connected data model and a **pure TypeScript deterministic scheduling engine**. When a deadline shifts, client review stalls, or an editor is unavailable, the engine calculates the downstream consequences, detects resource overlaps, and presents feasible alternative schedules for the creator's approval.
-
-### Non-Negotiable Core Principles
-1. **Deterministic Scheduling, AI as Explainer**: Dates, slack, critical paths, and money are strictly calculated by code. The LLM only extracts from briefs, explains engine changes, and drafts messages. AI never calculates dates, risk levels, or money.
-2. **Never Invent Certainty**: Infeasible schedules are reported plainly with calculated alternatives (renegotiate deadline, add editor hours, drop flexible task). Data is tagged with explicit provenance chips: `[Confirmed]`, `[Assumption]`, `[Calculated]`, `[AI suggestion]`.
-3. **Honest Money**: Unpaid invoices are never counted as received. Projected revenue is separated from cash received. Incomplete costs are labeled "Estimate".
-4. **Propose, Review, Approve, Audit**: Automated changes are proposals. Nothing is applied or sent without creator approval.
+- **Deterministic Engine**: 100% pure TypeScript in `/lib/engine`. Zero UI, zero database, zero AI dependencies.
+- **Constrained AI**: AI only ingests documents (reading briefs), explains engine diffs, and drafts messages. AI **never** calculates dates, risk scores, or finances.
+- **Honest Money**: Unreceived funds are strictly categorized as Waiting or Expected—never counted as received cash.
 
 ---
 
-## 2. Tech Stack
+## 🎨 Theme & Multi-Accent System (Wharf Design)
 
-- **Frontend & App Framework**: Next.js 14 (App Router), React 18, TypeScript (Strict).
-- **Styling & Design System**: Tailwind CSS, Silk Light Neomorphic design tokens, Lucide Icons.
-- **Workflow Visualization**: React Flow (`@xyflow/react`), Recharts.
-- **Database & Security**: Supabase PostgreSQL with strict Row Level Security (RLS) on all tables.
-- **Engine**: Pure TypeScript (`/lib/engine`) with zero UI/database/AI dependencies.
-- **Validation**: Zod.
-- **Testing**: Vitest.
-- **Deployment**: Vercel.
+The visual design is grounded in the warm, tactile **Wharf aesthetic**:
+- **Canvas Foundation**: Warm cream foundation (`#FAF6EA`) with soft directional ambient light washes (`#FDF2C7` butter-yellow drifting top-right, `#FBE6DC` peach anchoring bottom-left).
+- **Surfaces**: `#FCFBF7` ivory vellum cardstock encased in delicate 1px warm sand borders (`#EDE6D3`).
+- **Pill Primitives**: Distinct near-black pill buttons (`#1F1F23`), search capsule, and badge nodes.
+- **Typography**: **Hanken Grotesk** across display and body tiers; **JetBrains Mono** for tabular numbers, dates, and telemetry.
+
+### 4 Multi-Accent Studio Hues
+Switchable per-workspace inside **Settings > Workspace > Appearance**:
+1. **Warm Amber (`#EDBE4B`)**: Grounded, editorial (Default).
+2. **Studio Mint (`#94E0D0`)**: Fresh, balanced, energetic.
+3. **Creative Pink (`#F7B3CB`)**: Creative, playful, vibrant.
+4. **Analytical Blue (`#A0C9F2`)**: Calm, focused.
+
+### Technical Implementation
+- Managed via CSS custom properties in [`app/globals.css`](file:///e:/Projects/THE%20CREATOR/app/globals.css) bound to `html[data-theme="light|dark"]` and `html[data-accent="amber|mint|pink|blue"]`.
+- **Zero-Flash**: Synchronous `<head>` script in [`app/layout.tsx`](file:///e:/Projects/THE%20CREATOR/app/layout.tsx) immediately sets attributes from `localStorage` before DOM paint.
+- **Live System Theme**: Follows OS `prefers-color-scheme` dynamically.
+- **Contrast Guarantee**: All 8 theme x accent combinations meet WCAG AA contrast standards.
 
 ---
 
-## 3. Local Setup & Quick Start
+## 🛠️ Getting Started
 
-### Prerequisites
-- Node.js `v20+` or `v24+`
-- npm `v10+`
+### 1. Prerequisites
+- Node.js 18+
+- npm or pnpm
 
-### Installation
+### 2. Environment Setup
+Copy the template and configure your keys:
 ```bash
-# 1. Clone the repository
-git clone https://github.com/Melroy25/The-Creator.git
-cd The-Creator
-
-# 2. Install dependencies
-npm install
-
-# 3. Configure environment variables
 cp .env.example .env.local
-# Edit .env.local with your Supabase and OpenAI keys
 ```
 
-### Running the App
+| Variable | Description |
+| :--- | :--- |
+| `NEXT_PUBLIC_SUPABASE_URL` | Live Supabase project URL (`https://xyz.supabase.co`) |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Public client anon key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-side secret key (kept private, never exposed to clients) |
+| `LLM_PROVIDER` | `openai` (default) |
+| `LLM_MODEL` | `gpt-4o-mini` (default) |
+| `LLM_API_KEY` | OpenAI API Key |
+
+### 3. Run Development Server
 ```bash
-# Run local development server
 npm run dev
-
-# Open in browser:
-http://localhost:3000
 ```
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
+
+- **Landing Page**: [http://localhost:3000](http://localhost:3000)
+- **One-Click Demo Entry**: Click **"Continue with demo account"** on the [Login page](http://localhost:3000/login) to bypass auth and load Marcus Vance’s seeded workspace immediately.
+- **Component Test Bench**: Inspect every component with live theme and accent switchers at **[/dev/components](http://localhost:3000/dev/components)**.
 
 ---
 
-## 4. Supabase Setup & Migrations
+## 🧪 Testing & Verification
 
-### 1. Create Supabase Project
-1. Go to [supabase.com](https://supabase.com) and create a new project.
-2. In your Project Settings > API, copy:
-   - Project URL (`NEXT_PUBLIC_SUPABASE_URL`)
-   - Anon / Public Key (`NEXT_PUBLIC_SUPABASE_ANON_KEY`)
-   - Service Role Key (`SUPABASE_SERVICE_ROLE_KEY`)
-
-### 2. Apply SQL Migrations
-In your Supabase Dashboard SQL Editor, run:
-1. `supabase/migrations/001_initial_schema.sql` (Creates all tables with foreign keys, constraints, triggers, and RLS policies).
-2. `supabase/migrations/002_rls_test.sql` (Verifies user data isolation).
-
-### 3. Seed Demo Data
-To seed the Marcus Vance scenario (3 brand deals, relative dates, overdue invoices):
+### Run Unit Tests
+Verify the deterministic scheduler, calendar mathematics, graph traversal, cycle detection, and risk evaluation:
 ```bash
-npm run db:seed
+npm test
+```
+*(All 35 engine test suites pass with 0 errors).*
+
+### Run TypeScript & Build Verification
+```bash
+npm run typecheck
+npm run build
 ```
 
 ---
 
-## 5. Available Scripts
-
-| Script | Command | Purpose |
-| :--- | :--- | :--- |
-| `dev` | `npm run dev` | Starts local Next.js dev server on port 3000 |
-| `build` | `npm run build` | Builds optimized production bundle |
-| `lint` | `npm run lint` | Runs ESLint checks |
-| `typecheck` | `npm run typecheck` | Strict TypeScript compilation check |
-| `test` | `npm run test` | Runs Vitest unit tests |
-| `db:seed` | `npm run db:seed` | Idempotent database seed |
+## 🔄 Resetting Demo Scenario Data
+To restore Marcus Vance's workspace to the baseline day-zero state:
+1. Navigate to **[Settings > Workspace](http://localhost:3000/settings)**.
+2. Scroll to the **Reset Demo Data** card.
+3. Click **"Reset demo data"** and confirm.
+*(This resets all 3 brand contracts—Nova Audio, Pixel & Co, Lumen Skincare—and editor availability schedules).*
 
 ---
 
-## 6. Visual Component Test Bench
-
-You can visually verify every shared UI component against the Stitch export design by navigating to:
+## 📁 Project Architecture
 ```text
-http://localhost:3000/dev/components
+/app
+  ├── (workspace)
+  │     ├── dashboard/page.tsx       (Screen 1: Command Center)
+  │     ├── campaigns/               (Screen 2: Campaign List & Auto-Templates)
+  │     ├── workflow/page.tsx        (Screen 4: React Flow Dependency Graph)
+  │     ├── simulator/page.tsx       (Screen 5: What-If 3-Step Simulator)
+  │     ├── risks/page.tsx           (Screen 6: Rule-Based Risk Radar)
+  │     ├── brief-analyzer/page.tsx  (Screen 3: PDF/TXT Parser & Review Screen)
+  │     ├── invoices/page.tsx        (Records: Invoices & Receivables)
+  │     ├── brands/page.tsx          (Records: Brand Partners)
+  │     ├── team/page.tsx            (Records: Crew & Availability)
+  │     └── settings/page.tsx        (Account: Settings & Appearance Card)
+  ├── login/page.tsx                 (One-click demo login & fast pass)
+  ├── page.tsx                       (Product Landing Page)
+  └── dev/components/page.tsx        (Dev Test Bench with live theme/accent switcher)
+/components
+  ├── shared                         (Wharf AppShell, Sidebar, Topbar, StatTile, StepTracker...)
+/lib
+  ├── engine/                        (Pure TypeScript deterministic engine - untouched)
+  ├── data/                          (Server data functions and seeded mock store)
+  ├── ai/                            (Provider-agnostic LLM wrapper)
+  └── supabase/                      (SSR client, admin client, middleware)
+/supabase
+  ├── migrations/                    (15 tables with RLS & owner_id checks)
+  └── seed/                          (Idempotent Marcus Vance scenario demo data)
 ```
-This page renders all shared components in the Silk Light theme: `GlassCard`, `StatTile`, `StatusChip`, `SeverityBadge`, `ProvenanceChip` (with interactive tooltips), `SideDrawer`, `ConfirmModal`, `EmptyState`, and `LoadingSkeleton`.
-
----
-
-## 7. Deploying to Vercel
-
-1. Push your repository to GitHub:
-   ```bash
-   git add .
-   git commit -m "Phase A: Foundation Complete"
-   git push origin main
-   ```
-2. Import project in [Vercel](https://vercel.com).
-3. Set Environment Variables:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_ROLE_KEY`
-   - `LLM_PROVIDER=openai`
-   - `LLM_API_KEY`
-   - `LLM_MODEL=gpt-4o-mini`
-4. Deploy!

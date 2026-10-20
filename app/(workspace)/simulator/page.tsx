@@ -8,8 +8,8 @@ export default function SimulatorPage() {
       <PageHeader
         title="Change-Impact Simulator"
         purpose="Test schedule disruptions, simulate collateral task shifts, and neutralize creator bottlenecks before they touch active client pipelines."
-        badge="Module 04 // Predictive Dispatch"
-        badgeVariant="primary"
+        badge="Flagship Engine"
+        phaseBadge="Built in Phase C"
         actions={
           <div className="flex items-center gap-2">
             <SecondaryButton size="sm" icon={<RotateCcw className="w-4 h-4" />}>
@@ -24,8 +24,8 @@ export default function SimulatorPage() {
 
       <EmptyState
         title="Predictive Change-Impact Simulator"
-        description="3-Step Simulator: (a) What changed? (b) Now vs New plan timelines with moved tasks highlighted (c) Short summary with plain reasons, Approve or Reject, and calculated alternatives."
-        icon={<Cpu className="w-7 h-7 text-[#875C05]" />}
+        description="3-Step Simulator: (1) What changed? (2) Now vs New plan parallel timeline diff with shifted tasks highlighted (3) Short summary with plain reason codes, calculated alternatives (renegotiate, add hours, drop flexible task), 'Can I take this deal?' check, and Approve/Reject controls. Wired to pure TypeScript engine in Phase C."
+        icon={<Cpu className="w-7 h-7 text-accent-strong" />}
       />
     </div>
   );

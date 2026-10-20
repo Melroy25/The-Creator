@@ -21,14 +21,15 @@ export const DEMO_USER_ID = '00000000-0000-0000-0000-000000000001';
 export const ID_BRAND_A = 'a0000000-0000-0000-0000-000000000001';
 export const ID_BRAND_B = 'b0000000-0000-0000-0000-000000000002';
 export const ID_BRAND_C = 'c0000000-0000-0000-0000-000000000003';
+export const ID_BRAND_D = 'd0000000-0000-0000-0000-000000000004';
 
 export const ID_CAMP_A = '11111111-0000-0000-0000-000000000001';
 export const ID_CAMP_B = '22222222-0000-0000-0000-000000000002';
 export const ID_CAMP_C = '33333333-0000-0000-0000-000000000003';
 
 export const ID_RES_CREATOR = '90000000-0000-0000-0000-000000000001';
-export const ID_RES_EDITOR_1 = '90000000-0000-0000-0000-000000000002'; // Leo Santos (Full)
-export const ID_RES_EDITOR_2 = '90000000-0000-0000-0000-000000000003'; // Kai Vance (Limited next week)
+export const ID_RES_EDITOR_1 = '90000000-0000-0000-0000-000000000002'; // Maya (Full availability)
+export const ID_RES_EDITOR_2 = '90000000-0000-0000-0000-000000000003'; // Sam (Limited next week)
 
 // Relative Date Generator (Ensures demo scenario is always live and valid)
 export function getRelativeDate(daysOffset: number, hours: number = 18, minutes: number = 0): string {
@@ -72,7 +73,7 @@ export function getDemoData(ownerId: string = DEMO_USER_ID) {
     {
       id: ID_RES_EDITOR_1,
       owner_id: ownerId,
-      name: 'Leo Santos',
+      name: 'Maya',
       role: 'editor',
       hours_per_day: 8,
       working_days: [1, 2, 3, 4, 5],
@@ -83,7 +84,7 @@ export function getDemoData(ownerId: string = DEMO_USER_ID) {
     {
       id: ID_RES_EDITOR_2,
       owner_id: ownerId,
-      name: 'Kai Vance',
+      name: 'Sam',
       role: 'editor',
       hours_per_day: 8,
       working_days: [1, 2, 3, 4, 5],
@@ -100,8 +101,8 @@ export function getDemoData(ownerId: string = DEMO_USER_ID) {
       resource_id: ID_RES_EDITOR_2,
       date_from: getRelativeDate(3).split('T')[0],
       date_to: getRelativeDate(7).split('T')[0],
-      available_hours_per_day: 4, // Kai has limited availability (half-days) next week
-      note: 'Part-time masterclass coaching',
+      available_hours_per_day: 4, // Sam has limited availability (half-days) next week
+      note: 'Limited availability next week',
       created_at: getRelativeDate(-5),
       updated_at: getRelativeDate(-5),
     },
@@ -111,31 +112,41 @@ export function getDemoData(ownerId: string = DEMO_USER_ID) {
     {
       id: ID_BRAND_A,
       owner_id: ownerId,
-      name: 'CyberSecurity VPN',
+      name: 'Nova Audio',
       contact_name: 'Rachel Zane',
-      contact_email: 'rachel@cybersecvpn.io',
-      notes: 'Reliable sponsor. Strict legal guidelines on encryption terminology.',
+      contact_email: 'rachel@novaaudio.com',
+      notes: 'Brand A: Sponsored YouTube video. Fixed hard delivery on Monday.',
       created_at: getRelativeDate(-60),
       updated_at: getRelativeDate(-10),
     },
     {
       id: ID_BRAND_B,
       owner_id: ownerId,
-      name: 'Aura Sound ANC',
+      name: 'Pixel & Co',
       contact_name: 'Sarah Lin',
-      contact_email: 'sarah.lin@aurasound.com',
-      notes: 'Hardware manufacturer. Requires approval for noise curve graphs.',
+      contact_email: 'sarah.lin@pixelandco.design',
+      notes: 'Brand B: Product review Wednesday. Script approval currently pending review.',
       created_at: getRelativeDate(-45),
       updated_at: getRelativeDate(-2),
     },
     {
       id: ID_BRAND_C,
       owner_id: ownerId,
-      name: 'Lumina Studio',
+      name: 'Lumen Skincare',
       contact_name: 'David Ortiz',
-      contact_email: 'dortiz@luminastudio.design',
-      notes: 'SaaS creative suite. Has one unpaid Net-30 invoice from past sprint.',
+      contact_email: 'dortiz@lumenskincare.com',
+      notes: 'Brand C: Instagram Reel Friday, flexible edit, plus one overdue invoice from a past collaboration.',
       created_at: getRelativeDate(-90),
+      updated_at: getRelativeDate(-1),
+    },
+    {
+      id: ID_BRAND_D,
+      owner_id: ownerId,
+      name: 'Vento Travel',
+      contact_name: 'Elena Rostova',
+      contact_email: 'elena@ventotravel.com',
+      notes: 'Candidate for the new-deal check (NOT an active campaign yet).',
+      created_at: getRelativeDate(-15),
       updated_at: getRelativeDate(-1),
     },
   ];
@@ -145,7 +156,7 @@ export function getDemoData(ownerId: string = DEMO_USER_ID) {
       id: ID_CAMP_A,
       owner_id: ownerId,
       brand_id: ID_BRAND_A,
-      name: 'CyberSec Q4 YouTube Integration',
+      name: 'Nova Audio Studio Headphone Launch',
       status: 'active',
       platform: 'youtube',
       submission_deadline: getRelativeDate(2, 14, 0), // Monday
@@ -162,7 +173,7 @@ export function getDemoData(ownerId: string = DEMO_USER_ID) {
       id: ID_CAMP_B,
       owner_id: ownerId,
       brand_id: ID_BRAND_B,
-      name: 'Aura ANC Headphone Review',
+      name: 'Pixel & Co Creator Workflow Review',
       status: 'active',
       platform: 'youtube',
       submission_deadline: getRelativeDate(4, 17, 0), // Wednesday
@@ -179,7 +190,7 @@ export function getDemoData(ownerId: string = DEMO_USER_ID) {
       id: ID_CAMP_C,
       owner_id: ownerId,
       brand_id: ID_BRAND_C,
-      name: 'Lumina 3D Workflow Showcase',
+      name: 'Lumen Skincare Morning Ritual Reel',
       status: 'active',
       platform: 'instagram',
       submission_deadline: getRelativeDate(6, 11, 0), // Friday
@@ -730,7 +741,7 @@ export function getDemoData(ownerId: string = DEMO_USER_ID) {
       amount: 9250,
       received_at: getRelativeDate(-8),
       method: 'wire_transfer',
-      note: 'CyberSec AP deposit received',
+      note: 'Nova Audio initial 50% deposit received',
       created_at: getRelativeDate(-8),
       updated_at: getRelativeDate(-8),
     },
@@ -788,9 +799,9 @@ export function getDemoData(ownerId: string = DEMO_USER_ID) {
       title: 'Editor overlap risk on Wednesday',
       severity: 'medium',
       kind: 'potential',
-      evidence: { editor: 'Leo Santos', overlap_hours: 4.5 },
-      reason: 'Editor Leo is allocated to Brand A rough cut and Brand B rough cut simultaneously.',
-      recommended_action: 'Shift Brand C flexible edit window or reassign to Kai.',
+      evidence: { editor: 'Maya', overlap_hours: 4.5 },
+      reason: 'Editor Maya is allocated to Brand A rough cut and Brand B rough cut simultaneously.',
+      recommended_action: 'Shift Brand C flexible edit window or reassign to Sam.',
       relevant_date: getRelativeDate(2),
       resolved_at: null,
       created_at: getRelativeDate(0),
@@ -816,4 +827,15 @@ export function getDemoData(ownerId: string = DEMO_USER_ID) {
     riskAlerts,
     changeEvents,
   };
+}
+
+/**
+ * Reset demo data state
+ */
+export function resetDemoData(ownerId: string = DEMO_USER_ID) {
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('creator_flow_mock_data');
+    localStorage.removeItem('creator_flow_events');
+  }
+  return getDemoData(ownerId);
 }

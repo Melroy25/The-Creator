@@ -12,48 +12,48 @@ export interface StatusChipProps {
 }
 
 export function StatusChip({ status, label, className, size = 'md' }: StatusChipProps) {
-  const configs: Record<StatusChipType, { text: string; icon: React.ReactNode; dotColor: string; style: string }> = {
+  const configs: Record<StatusChipType, { text: string; icon: React.ReactNode; style: string; dot: string }> = {
     done: {
       text: 'Done',
-      icon: <CheckCircle2 className="w-3.5 h-3.5 text-[#1E6B52]" />,
-      dotColor: 'bg-[#1E6B52]',
-      style: 'bg-[#E1F6EE] text-[#1E6B52] border border-[#C3E8DC]',
+      icon: <CheckCircle2 className="w-3 h-3 text-status-done-text" />,
+      style: 'bg-status-done-bg text-status-done-text border-status-done-border',
+      dot: 'bg-status-done-dot',
     },
     in_progress: {
       text: 'In Progress',
-      icon: <PlayCircle className="w-3.5 h-3.5 text-[#9C4221]" />,
-      dotColor: 'bg-[#9C4221]',
-      style: 'bg-[#FDECDA] text-[#9C4221] border border-[#F8D2BA]',
+      icon: <PlayCircle className="w-3 h-3 text-status-progress-text" />,
+      style: 'bg-status-progress-bg text-status-progress-text border-status-progress-border',
+      dot: 'bg-status-progress-dot',
     },
     overdue: {
       text: 'Overdue',
-      icon: <AlertCircle className="w-3.5 h-3.5 text-[#A31F2A]" />,
-      dotColor: 'bg-[#A31F2A]',
-      style: 'bg-[#FDE5E7] text-[#A31F2A] border border-[#F8BAC1]',
+      icon: <AlertCircle className="w-3 h-3 text-status-overdue-text" />,
+      style: 'bg-status-overdue-bg text-status-overdue-text border-status-overdue-border',
+      dot: 'bg-status-overdue-dot',
     },
     blocked: {
       text: 'Blocked',
-      icon: <Lock className="w-3.5 h-3.5 text-[#A31F2A]" />,
-      dotColor: 'bg-[#A31F2A]',
-      style: 'bg-[#FDE5E7] text-[#A31F2A] border border-[#F8BAC1]',
+      icon: <Lock className="w-3 h-3 text-status-overdue-text" />,
+      style: 'bg-status-overdue-bg text-status-overdue-text border-status-overdue-border',
+      dot: 'bg-status-overdue-dot',
     },
     at_risk: {
       text: 'At Risk',
-      icon: <AlertTriangle className="w-3.5 h-3.5 text-[#875C05]" />,
-      dotColor: 'bg-[#875C05]',
-      style: 'bg-[#FDF3D6] text-[#875C05] border border-[#F7E19D]',
+      icon: <AlertTriangle className="w-3 h-3 text-status-risk-text" />,
+      style: 'bg-status-risk-bg text-status-risk-text border-status-risk-border',
+      dot: 'bg-status-risk-dot',
     },
     up_next: {
       text: 'Up Next',
-      icon: <Clock className="w-3.5 h-3.5 text-[#6B6558]" />,
-      dotColor: 'bg-[#9A9384]',
-      style: 'bg-[#F4EFE0] text-[#6B6558] border border-[#EDE6D3]',
+      icon: <Clock className="w-3 h-3 text-status-idle-text" />,
+      style: 'bg-status-idle-bg text-status-idle-text border-status-idle-border',
+      dot: 'bg-status-idle-dot',
     },
     not_started: {
       text: 'Not Started',
-      icon: <Clock className="w-3.5 h-3.5 text-[#6B6558]" />,
-      dotColor: 'bg-[#9A9384]',
-      style: 'bg-[#F4EFE0] text-[#6B6558] border border-[#EDE6D3]',
+      icon: <Clock className="w-3 h-3 text-status-idle-text" />,
+      style: 'bg-status-idle-bg text-status-idle-text border-status-idle-border',
+      dot: 'bg-status-idle-dot',
     },
   };
 
@@ -68,13 +68,14 @@ export function StatusChip({ status, label, className, size = 'md' }: StatusChip
   return (
     <span
       className={cn(
-        'inline-flex items-center font-semibold rounded-full select-none shadow-[0_1px_2px_rgba(60,50,30,0.03)]',
+        'inline-flex items-center font-semibold rounded-full select-none border shadow-sm',
         current.style,
         sizeClasses[size],
         className
       )}
     >
-      <span className={cn('w-1.5 h-1.5 rounded-full shrink-0', current.dotColor)} />
+      {current.icon}
+      <span className={cn('w-1.5 h-1.5 rounded-full shrink-0', current.dot)} />
       <span>{displayText}</span>
     </span>
   );

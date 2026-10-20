@@ -19,6 +19,9 @@ export type MessageDraftType = 'approval_request' | 'deadline_negotiation' | 'in
 export type MessageDraftStatus = 'draft' | 'copied';
 export type ProvenanceType = 'Confirmed' | 'Assumption' | 'Calculated' | 'AI suggestion';
 
+export type ThemePreference = 'light' | 'system' | 'dark';
+export type AccentPreference = 'amber' | 'mint' | 'pink' | 'blue';
+
 export interface CreatorProfile {
   id: string;
   owner_id: string;
@@ -27,6 +30,9 @@ export interface CreatorProfile {
   working_hours_per_day: number;
   working_days: number[];
   weekly_capacity_hours: number;
+  theme_preference?: ThemePreference;
+  accent_preference?: AccentPreference;
+  settings?: Record<string, any>;
   created_at: string;
   updated_at: string;
 }

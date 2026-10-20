@@ -41,35 +41,35 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none">
         {toasts.map((t) => {
           const icons = {
-            success: <CheckCircle2 className="w-4 h-4 text-[#1E6B52] shrink-0" />,
-            error: <AlertCircle className="w-4 h-4 text-[#A31F2A] shrink-0" />,
-            warning: <AlertTriangle className="w-4 h-4 text-[#875C05] shrink-0" />,
-            info: <Info className="w-4 h-4 text-[#1D6FB8] shrink-0" />,
+            success: <CheckCircle2 className="w-4 h-4 text-status-done-text shrink-0" />,
+            error: <AlertCircle className="w-4 h-4 text-status-overdue-text shrink-0" />,
+            warning: <AlertTriangle className="w-4 h-4 text-status-risk-text shrink-0" />,
+            info: <Info className="w-4 h-4 text-accent-strong shrink-0" />,
           };
 
           return (
             <div
               key={t.id}
               className={cn(
-                'pointer-events-auto p-4 rounded-2xl border bg-[#FCFBF7] shadow-[0_12px_28px_-4px_rgba(60,50,30,0.12)] flex items-start justify-between gap-3 animate-in slide-in-from-bottom duration-200 text-[#1F1F23]',
-                t.type === 'success' && 'border-[#C3E8DC]',
-                t.type === 'error' && 'border-[#F8BAC1]',
-                t.type === 'warning' && 'border-[#F7E19D]',
-                t.type === 'info' && 'border-[#C5DCFA]'
+                'pointer-events-auto p-4 rounded-2xl border bg-surface shadow-drawer flex items-start justify-between gap-3 animate-in slide-in-from-bottom duration-200 text-text-primary',
+                t.type === 'success' && 'border-status-done-border',
+                t.type === 'error' && 'border-status-overdue-border',
+                t.type === 'warning' && 'border-status-risk-border',
+                t.type === 'info' && 'border-border'
               )}
             >
               <div className="flex items-start gap-3">
                 <div className="mt-0.5">{icons[t.type]}</div>
                 <div className="space-y-0.5">
-                  <h4 className="text-sm font-headline font-bold text-[#1F1F23]">{t.title}</h4>
+                  <h4 className="text-sm font-headline font-bold text-text-primary">{t.title}</h4>
                   {t.description && (
-                    <p className="text-xs text-[#6B6558] font-normal leading-relaxed">{t.description}</p>
+                    <p className="text-xs text-text-secondary font-normal leading-relaxed">{t.description}</p>
                   )}
                 </div>
               </div>
               <button
                 onClick={() => removeToast(t.id)}
-                className="text-[#9A9384] hover:text-[#1F1F23] p-1 rounded-full transition-colors"
+                className="text-text-tertiary hover:text-text-primary p-1 rounded-full transition-colors"
               >
                 <X className="w-3.5 h-3.5" />
               </button>

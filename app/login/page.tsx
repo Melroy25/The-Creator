@@ -39,48 +39,42 @@ export default function LoginPage() {
     document.cookie = 'creator_flow_demo=true; path=/; max-age=86400';
     setTimeout(() => {
       router.push('/dashboard');
-    }, 400);
+    }, 350);
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF6EA] text-[#1F1F23] flex flex-col items-center justify-center p-4 relative overflow-hidden font-body selection:bg-[#FBEFC2] selection:text-[#875C05]">
-      {/* Background ambient light washes */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FDF2C7]/60 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FBE6DC]/60 rounded-full blur-[120px]" />
-      </div>
-
+    <div className="min-h-screen bg-canvas text-text-primary flex flex-col items-center justify-center p-4 relative overflow-hidden font-body">
       <div className="w-full max-w-md relative z-10 space-y-6">
         {/* Brand Header */}
         <div className="text-center space-y-2">
           <Link href="/" className="inline-flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-full bg-[#1F1F23] flex items-center justify-center shadow-sm">
-              <Zap className="w-5 h-5 text-[#EDBE4B] fill-[#EDBE4B]" />
+            <div className="w-10 h-10 rounded-full bg-text-primary flex items-center justify-center shadow-sm">
+              <Zap className="w-5 h-5 text-accent fill-accent" />
             </div>
-            <span className="font-headline font-bold text-2xl tracking-tight uppercase text-[#1F1F23]">
+            <span className="font-headline font-bold text-2xl tracking-tight uppercase text-text-primary">
               Creator Flow
             </span>
           </Link>
-          <p className="text-sm text-[#6B6558] font-normal">
-            Deterministic workflow intelligence for creators & studios
+          <p className="text-xs sm:text-sm text-text-secondary font-normal">
+            Autonomous creator business operating system
           </p>
         </div>
 
         {/* Auth Card */}
-        <GlassCard className="p-8 space-y-6 rounded-2xl bg-[#FCFBF7]">
-          {/* Hackathon Judge 1-Click Fast Pass */}
-          <div className="p-4 rounded-xl bg-[#FBEFC2]/60 border border-[#F7E19D] space-y-3">
+        <GlassCard className="p-6 sm:p-8 space-y-6 rounded-2xl bg-surface border border-border shadow-card">
+          {/* Hackathon Fast Pass: "Continue with demo account" */}
+          <div className="p-4 rounded-xl bg-accent-tint/60 border border-accent/20 space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#875C05] flex items-center gap-1.5">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-accent-strong flex items-center gap-1.5">
                 <UserCheck className="w-3.5 h-3.5" />
                 Hackathon Fast Pass
               </span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white text-[#875C05] font-bold border border-[#F7E19D]">
-                DEMO USER
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-surface text-accent-strong font-bold border border-accent/20">
+                ONE CLICK
               </span>
             </div>
-            <p className="text-xs text-[#6B6558] leading-relaxed">
-              Bypass email verification and jump directly into Marcus Vance’s demo workspace with pre-loaded mock deliverables and engine state.
+            <p className="text-xs text-text-secondary leading-relaxed">
+              Bypass email verification and jump directly into Marcus Vance’s seeded demo workspace with live brand deals and scheduling engine.
             </p>
             <PrimaryButton
               type="button"
@@ -89,13 +83,13 @@ export default function LoginPage() {
               className="w-full text-xs"
               icon={<ArrowRight className="w-4 h-4" />}
             >
-              Enter Marcus Vance Workspace
+              Continue with demo account
             </PrimaryButton>
           </div>
 
           <div className="relative flex items-center justify-center">
-            <div className="border-t border-[#EDE6D3] w-full" />
-            <span className="bg-[#FCFBF7] px-3 text-[11px] font-mono uppercase text-[#9A9384] absolute">
+            <div className="border-t border-border w-full" />
+            <span className="bg-surface px-3 text-[11px] font-mono uppercase text-text-tertiary absolute">
               or sign in with email
             </span>
           </div>
@@ -103,23 +97,21 @@ export default function LoginPage() {
           {/* Magic Link Form */}
           <form onSubmit={handleEmailSignIn} className="space-y-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-[#6B6558] flex items-center justify-between">
+              <label className="text-xs font-semibold text-text-secondary flex items-center justify-between">
                 <span>Creator Email</span>
-                <span className="text-[10px] text-[#9A9384] font-mono">Passwordless link</span>
+                <span className="text-[10px] text-text-tertiary font-mono">Passwordless link</span>
               </label>
-              <div className="relative flex items-center">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="marcus@apexmedia.studio"
-                  className="w-full bg-[#FAF6EA] border border-[#EDE6D3] rounded-full px-4 py-2.5 text-sm text-[#1F1F23] placeholder-[#9A9384] focus:outline-none focus:border-[#EDBE4B] focus:ring-2 focus:ring-[#EDBE4B]/30 transition-all font-medium"
-                />
-              </div>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="marcus@apexmedia.studio"
+                className="w-full bg-surface-inset border border-border rounded-full px-4 py-2.5 text-sm text-text-primary placeholder-text-tertiary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all font-medium"
+              />
             </div>
 
             {message && (
-              <div className="p-3 rounded-xl text-xs bg-[#FDECDA] text-[#9C4221] border border-[#F8D2BA]">
+              <div className="p-3 rounded-xl text-xs bg-status-progress-bg text-status-progress-text border border-status-progress-border">
                 {message}
               </div>
             )}
@@ -137,7 +129,7 @@ export default function LoginPage() {
 
         {/* Back link */}
         <div className="text-center">
-          <Link href="/" className="text-xs text-[#9A9384] hover:text-[#1F1F23] transition-colors font-mono">
+          <Link href="/" className="text-xs text-text-tertiary hover:text-text-primary transition-colors font-mono">
             ← Back to Homepage
           </Link>
         </div>
