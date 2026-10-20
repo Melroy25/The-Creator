@@ -19,3 +19,14 @@ export interface CashFlowSummary {
   waiting: number;
   expected: number;
 }
+
+export interface Customer {
+  id: string;
+  name: string;
+  company: string;
+  role: string;
+  email: string;
+  platform: string;
+  status: 'active' | 'in_negotiation' | 'past';
+  total_deal_value: number;
+}

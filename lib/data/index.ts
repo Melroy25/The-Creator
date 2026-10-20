@@ -7,6 +7,7 @@ import {
   RiskAlert,
   Brand,
   Resource,
+  Customer,
 } from '@/lib/types';
 
 // In-memory persistent store for seamless offline judging & live demo mode
@@ -66,6 +67,51 @@ export async function getInvoices(): Promise<Invoice[]> {
 
 export async function getRiskAlerts(): Promise<RiskAlert[]> {
   return currentStore.riskAlerts;
+}
+
+export async function getCustomers(): Promise<Customer[]> {
+  return [
+    {
+      id: 'cust-01',
+      name: 'Rachel Zane',
+      company: 'Nova Audio',
+      role: 'Head of Influencer Partnerships',
+      email: 'rachel@novaaudio.com',
+      platform: 'YouTube (90s Integration)',
+      status: 'active',
+      total_deal_value: 18500,
+    },
+    {
+      id: 'cust-02',
+      name: 'Sarah Lin',
+      company: 'Pixel & Co',
+      role: 'Growth Marketing Director',
+      email: 'sarah.lin@pixelandco.design',
+      platform: 'YouTube & X',
+      status: 'active',
+      total_deal_value: 12000,
+    },
+    {
+      id: 'cust-03',
+      name: 'David Ortiz',
+      company: 'Lumen Skincare',
+      role: 'Brand Campaign Manager',
+      email: 'dortiz@lumenskincare.com',
+      platform: 'Instagram Reels',
+      status: 'active',
+      total_deal_value: 6000,
+    },
+    {
+      id: 'cust-04',
+      name: 'Elena Rostova',
+      company: 'Vento Travel',
+      role: 'Sponsorship Coordinator',
+      email: 'elena@ventotravel.com',
+      platform: 'TikTok & Shorts',
+      status: 'in_negotiation',
+      total_deal_value: 8500,
+    },
+  ];
 }
 
 export async function getDashboardMetrics() {

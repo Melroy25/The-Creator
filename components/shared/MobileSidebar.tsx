@@ -44,7 +44,7 @@ export function MobileSidebar({ isOpen, onClose, onOpenHelp }: MobileSidebarProp
 
   const isActive = (href: string) => {
     if (href === '/dashboard' && (pathname === '/' || pathname === '/dashboard')) return true;
-    return pathname.startsWith(href);
+    return pathname === href || pathname.startsWith(href + '/');
   };
 
   const operationsNav = [
@@ -58,6 +58,7 @@ export function MobileSidebar({ isOpen, onClose, onOpenHelp }: MobileSidebarProp
   const recordsNav = [
     { name: 'Brands', href: '/brands', icon: <Building2 className="w-4 h-4" /> },
     { name: 'Invoices', href: '/invoices', icon: <Receipt className="w-4 h-4" /> },
+    { name: 'Customers', href: '/customers', icon: <Users className="w-4 h-4" /> },
     { name: 'Team', href: '/team', icon: <Users className="w-4 h-4" /> },
   ];
 

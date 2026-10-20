@@ -29,7 +29,7 @@ export function Sidebar() {
 
   const isActive = (href: string) => {
     if (href === '/dashboard' && (pathname === '/' || pathname === '/dashboard')) return true;
-    return pathname.startsWith(href);
+    return pathname === href || pathname.startsWith(href + '/');
   };
 
   // 1. Operations
@@ -77,7 +77,7 @@ export function Sidebar() {
     },
     {
       name: 'Customers',
-      href: '/team',
+      href: '/customers',
       icon: <Users className="w-4 h-4" />,
     },
     {
