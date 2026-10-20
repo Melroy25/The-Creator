@@ -38,7 +38,10 @@ export function BackgroundGlow({ isWorkspace = true, className }: BackgroundGlow
       aria-hidden="true"
     >
       {/* Current Accent Glow Layer */}
-      <div className="absolute inset-0 transition-opacity duration-600 opacity-100">
+      <div 
+        data-accent={currentAccent}
+        className="absolute inset-0 transition-opacity duration-600 opacity-100"
+      >
         <div className="glow-orb glow-orb-tr" />
         <div className="glow-orb glow-orb-bl" />
       </div>

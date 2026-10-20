@@ -75,13 +75,13 @@ export default function SettingsPage() {
 
       {/* Sub-tabs matching Wharf Image 1, 2, 3: Account, Billing, Integrations, Workspace */}
       <StaggerItem>
-        <div className="border-b border-border flex items-center gap-7 sm:gap-9 text-xs sm:text-sm text-text-secondary font-medium">
+        <div className="border-b border-border flex items-center gap-8 sm:gap-10 text-sm sm:text-[15px] font-medium">
           <button
             onClick={() => setActiveTab('account')}
             className={`pb-3 transition-colors cursor-pointer ${
               activeTab === 'account'
-                ? 'text-text-primary border-b-2 border-text-primary font-semibold'
-                : 'hover:text-text-primary'
+                ? 'text-[#09090B] dark:text-white border-b-2 border-[#09090B] dark:border-white font-bold'
+                : 'text-[#52525B] dark:text-[#A1A1AA] hover:text-[#09090B] dark:hover:text-white'
             }`}
           >
             Account
@@ -90,8 +90,8 @@ export default function SettingsPage() {
             onClick={() => setActiveTab('billing')}
             className={`pb-3 transition-colors cursor-pointer ${
               activeTab === 'billing'
-                ? 'text-text-primary border-b-2 border-text-primary font-semibold'
-                : 'hover:text-text-primary'
+                ? 'text-[#09090B] dark:text-white border-b-2 border-[#09090B] dark:border-white font-bold'
+                : 'text-[#52525B] dark:text-[#A1A1AA] hover:text-[#09090B] dark:hover:text-white'
             }`}
           >
             Billing
@@ -100,8 +100,8 @@ export default function SettingsPage() {
             onClick={() => setActiveTab('integrations')}
             className={`pb-3 transition-colors cursor-pointer ${
               activeTab === 'integrations'
-                ? 'text-text-primary border-b-2 border-text-primary font-semibold'
-                : 'hover:text-text-primary'
+                ? 'text-[#09090B] dark:text-white border-b-2 border-[#09090B] dark:border-white font-bold'
+                : 'text-[#52525B] dark:text-[#A1A1AA] hover:text-[#09090B] dark:hover:text-white'
             }`}
           >
             Integrations
@@ -110,8 +110,8 @@ export default function SettingsPage() {
             onClick={() => setActiveTab('workspace')}
             className={`pb-3 transition-colors cursor-pointer ${
               activeTab === 'workspace'
-                ? 'text-text-primary border-b-2 border-text-primary font-semibold'
-                : 'hover:text-text-primary'
+                ? 'text-[#09090B] dark:text-white border-b-2 border-[#09090B] dark:border-white font-bold'
+                : 'text-[#52525B] dark:text-[#A1A1AA] hover:text-[#09090B] dark:hover:text-white'
             }`}
           >
             Workspace
@@ -124,19 +124,19 @@ export default function SettingsPage() {
         <StaggerItem>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start pt-1">
             {/* 1. Appearance Card */}
-            <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 shadow-card space-y-6 hover:-translate-y-0.5 transition-all duration-150">
-              <div className="space-y-0.5">
-                <h3 className="font-sans font-bold text-base sm:text-lg text-text-primary tracking-tight">
+            <div className="bg-surface border border-border/80 rounded-3xl p-7 sm:p-8 shadow-card space-y-6 hover:-translate-y-0.5 transition-all duration-150 backdrop-blur-md">
+              <div className="space-y-1">
+                <h3 className="font-sans font-bold text-xl text-[#09090B] dark:text-white tracking-tight">
                   Appearance
                 </h3>
-                <p className="text-xs text-text-secondary font-normal">
+                <p className="text-sm text-[#52525B] dark:text-[#A1A1AA] font-normal">
                   Yours only; your team picks their own
                 </p>
               </div>
 
               {/* Theme Segmented Control */}
               <div className="space-y-2">
-                <label className="text-xs font-medium text-text-secondary block">
+                <label className="text-[13px] font-semibold text-[#18181B] dark:text-[#E4E4E7] block">
                   Theme
                 </label>
                 <SegmentedControl
@@ -151,8 +151,8 @@ export default function SettingsPage() {
               </div>
 
               {/* Accent Swatch Row */}
-              <div className="space-y-2 pt-1">
-                <label className="text-xs font-medium text-text-secondary block">
+              <div className="space-y-2.5 pt-1">
+                <label className="text-[13px] font-semibold text-[#18181B] dark:text-[#E4E4E7] block">
                   Accent
                 </label>
                 <AccentSwatchRow value={accent} onChange={setAccent} />
@@ -160,80 +160,80 @@ export default function SettingsPage() {
             </div>
 
             {/* 2. Workspace Form Card */}
-            <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 shadow-card space-y-6 hover:-translate-y-0.5 transition-all duration-150">
-              <div className="space-y-0.5">
-                <h3 className="font-sans font-bold text-base sm:text-lg text-text-primary tracking-tight">
+            <div className="bg-surface border border-border/80 rounded-3xl p-7 sm:p-8 shadow-card space-y-6 hover:-translate-y-0.5 transition-all duration-150 backdrop-blur-md">
+              <div className="space-y-1">
+                <h3 className="font-sans font-bold text-xl text-[#09090B] dark:text-white tracking-tight">
                   Workspace
                 </h3>
-                <p className="text-xs text-text-secondary font-normal">
+                <p className="text-sm text-[#52525B] dark:text-[#A1A1AA] font-normal">
                   What everyone on the team sees
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4.5">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-medium text-text-secondary block">
+                  <label className="text-[13px] font-semibold text-[#18181B] dark:text-[#E4E4E7] block">
                     Business name
                   </label>
                   <input
                     type="text"
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
-                    className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors"
+                    className="w-full bg-[#F5F2EB]/90 dark:bg-[#1E1E24]/90 border border-[#E5DFD3] dark:border-[#2C2C34] rounded-xl px-4 py-2.5 text-sm font-medium text-[#09090B] dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all shadow-xs"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-medium text-text-secondary block">
+                  <label className="text-[13px] font-semibold text-[#18181B] dark:text-[#E4E4E7] block">
                     Currency
                   </label>
                   <div className="relative">
                     <select
                       value={currency}
                       onChange={(e) => setCurrency(e.target.value)}
-                      className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors appearance-none cursor-pointer pr-8"
+                      className="w-full bg-[#F5F2EB]/90 dark:bg-[#1E1E24]/90 border border-[#E5DFD3] dark:border-[#2C2C34] rounded-xl px-4 py-2.5 text-sm font-medium text-[#09090B] dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all appearance-none cursor-pointer pr-9 shadow-xs"
                     >
                       <option value="USD, US dollar">USD, US dollar</option>
                       <option value="EUR, Euro">EUR, Euro</option>
                       <option value="GBP, British pound">GBP, British pound</option>
                     </select>
-                    <ChevronDown className="w-3.5 h-3.5 text-text-tertiary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <ChevronDown className="w-4 h-4 text-[#71717A] absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-medium text-text-secondary block">
+                  <label className="text-[13px] font-semibold text-[#18181B] dark:text-[#E4E4E7] block">
                     Time zone
                   </label>
                   <div className="relative">
                     <select
                       value={timeZone}
                       onChange={(e) => setTimeZone(e.target.value)}
-                      className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors appearance-none cursor-pointer pr-8"
+                      className="w-full bg-[#F5F2EB]/90 dark:bg-[#1E1E24]/90 border border-[#E5DFD3] dark:border-[#2C2C34] rounded-xl px-4 py-2.5 text-sm font-medium text-[#09090B] dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all appearance-none cursor-pointer pr-9 shadow-xs"
                     >
                       <option value="America/New_York">America/New_York</option>
                       <option value="America/Los_Angeles">America/Los_Angeles</option>
                       <option value="Europe/London">Europe/London</option>
                     </select>
-                    <ChevronDown className="w-3.5 h-3.5 text-text-tertiary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <ChevronDown className="w-4 h-4 text-[#71717A] absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-medium text-text-secondary block">
+                  <label className="text-[13px] font-semibold text-[#18181B] dark:text-[#E4E4E7] block">
                     Low-stock warning
                   </label>
                   <div className="relative">
                     <select
                       value={warningThreshold}
                       onChange={(e) => setWarningThreshold(e.target.value)}
-                      className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors appearance-none cursor-pointer pr-8"
+                      className="w-full bg-[#F5F2EB]/90 dark:bg-[#1E1E24]/90 border border-[#E5DFD3] dark:border-[#2C2C34] rounded-xl px-4 py-2.5 text-sm font-medium text-[#09090B] dark:text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-all appearance-none cursor-pointer pr-9 shadow-xs"
                     >
                       <option value="At the par level">At the par level</option>
                       <option value="At 80% capacity">At 80% capacity</option>
                       <option value="At 90% capacity">At 90% capacity</option>
                     </select>
-                    <ChevronDown className="w-3.5 h-3.5 text-text-tertiary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    <ChevronDown className="w-4 h-4 text-[#71717A] absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                   </div>
                 </div>
               </div>
@@ -242,7 +242,7 @@ export default function SettingsPage() {
                 <button
                   type="button"
                   onClick={handleSaveWorkspace}
-                  className="bg-text-primary text-text-inverse font-semibold text-xs px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity shadow-sm cursor-pointer"
+                  className="bg-[#18181B] text-white font-semibold text-sm px-6 py-2.5 rounded-xl hover:bg-black transition-all shadow-sm cursor-pointer active:scale-97"
                 >
                   Save workspace
                 </button>

@@ -52,10 +52,10 @@ export function PageHeader({
             )}
           </div>
         )}
-        <h1 className="text-3xl font-sans font-bold tracking-tight text-text-primary">
+        <h1 className="text-3xl sm:text-4xl font-sans font-extrabold tracking-tight text-[#09090B] dark:text-white">
           {title}
         </h1>
-        <p className="text-xs sm:text-sm text-text-secondary font-normal leading-relaxed">
+        <p className="text-sm sm:text-[15px] text-[#52525B] dark:text-[#A1A1AA] font-normal leading-relaxed">
           {purpose}
         </p>
       </div>
