@@ -19,10 +19,10 @@ export function PageHeader({
   className,
 }: PageHeaderProps) {
   const badgeStyles = {
-    primary: 'bg-primary/10 text-primary border-primary/25',
-    cyan: 'bg-cyan-500/10 text-cyan-300 border-cyan-500/25',
-    amber: 'bg-amber-500/10 text-amber-300 border-amber-500/25',
-    emerald: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/25',
+    primary: 'bg-indigo-50 text-indigo-600 border-indigo-200/80',
+    cyan: 'bg-sky-50 text-sky-700 border-sky-200/80',
+    amber: 'bg-amber-50 text-amber-800 border-amber-200/80',
+    emerald: 'bg-emerald-50 text-emerald-700 border-emerald-200/80',
   };
 
   return (
@@ -30,15 +30,15 @@ export function PageHeader({
       <div className="space-y-1.5 max-w-2xl">
         {badge && (
           <div className="flex items-center gap-2 mb-1">
-            <span className={cn('text-[10px] font-mono font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full border', badgeStyles[badgeVariant])}>
+            <span className={cn('text-[10px] font-mono font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full border shadow-sm', badgeStyles[badgeVariant])}>
               {badge}
             </span>
           </div>
         )}
-        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white font-sans">
+        <h1 className="text-3xl md:text-4xl font-headline font-bold tracking-tight text-[#1E2337]">
           {title}
         </h1>
-        <p className="text-sm md:text-base text-slate-400 font-normal leading-relaxed">
+        <p className="text-sm md:text-base text-[#64748B] font-medium leading-relaxed">
           {purpose}
         </p>
       </div>

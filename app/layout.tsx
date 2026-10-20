@@ -3,8 +3,8 @@ import './globals.css';
 import { ToastProvider } from '@/components/shared/Toast';
 
 export const metadata: Metadata = {
-  title: 'Creator Flow | AI-Powered Workflow Intelligence System',
-  description: 'Deterministic dependency-aware workflow adaptation for the creator economy.',
+  title: 'Creator Flow | Deterministic Workflow Intelligence',
+  description: 'One workspace for a creator’s brand deals, deadlines and money, with a schedule that fixes itself when plans change.',
 };
 
 export default function RootLayout({
@@ -13,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="bg-[#090C15] text-[#F1F5F9] font-sans antialiased min-h-screen selection:bg-indigo-500/30 selection:text-indigo-200">
+    <html lang="en" className="light">
+      <body className="bg-[#F0F2F8] text-[#1E2337] font-sans antialiased min-h-screen selection:bg-indigo-100 selection:text-indigo-900">
         <ToastProvider>
           {children}
         </ToastProvider>

@@ -10,7 +10,6 @@ import {
   Network,
   Cpu,
   AlertTriangle,
-  Bot,
   Settings,
 } from 'lucide-react';
 
@@ -23,7 +22,6 @@ export function BottomNav() {
     { name: 'Workflow', href: '/workflow', icon: <Network className="w-5 h-5" /> },
     { name: 'Simulator', href: '/simulator', icon: <Cpu className="w-5 h-5" /> },
     { name: 'Risks', href: '/risks', icon: <AlertTriangle className="w-5 h-5" /> },
-    { name: 'Copilot', href: '/copilot', icon: <Bot className="w-5 h-5" /> },
     { name: 'Settings', href: '/settings', icon: <Settings className="w-5 h-5" /> },
   ];
 
@@ -33,7 +31,7 @@ export function BottomNav() {
   };
 
   return (
-    <nav className="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-[#0B0F1C]/95 backdrop-blur-xl border-t border-white/[0.08] z-50 flex items-center justify-around px-2">
+    <nav className="lg:hidden fixed bottom-0 left-0 right-0 h-16 bg-[#F3F5FA]/95 backdrop-blur-xl border-t border-[#E2E6F0] z-50 flex items-center justify-around px-2 shadow-[0_-4px_16px_rgba(166,175,195,0.15)]">
       {navItems.map((item) => {
         const active = isActive(item.href);
         return (
@@ -41,8 +39,8 @@ export function BottomNav() {
             key={item.href}
             href={item.href}
             className={cn(
-              'flex flex-col items-center justify-center gap-1 py-1 px-2 rounded-xl transition-all',
-              active ? 'text-indigo-400 font-semibold' : 'text-slate-400 hover:text-white'
+              'flex flex-col items-center justify-center gap-1 py-1 px-2.5 rounded-xl transition-all',
+              active ? 'text-indigo-600 font-bold silk-inset' : 'text-[#64748B] hover:text-[#1E2337]'
             )}
           >
             {item.icon}

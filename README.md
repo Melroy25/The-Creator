@@ -1,20 +1,22 @@
 # CREATOR FLOW
-### AI-Powered Workflow Intelligence System for the Creator Economy
+### Workflow Intelligence Operating System for the Creator Economy
 **Tagline:** Create More. Manage Less. Stay Ahead.  
 **Event:** CODE MEET 2026 Hackathon (Problem Statement 4: Creator Economy Tech)  
 **Live Repository:** [https://github.com/Melroy25/The-Creator.git](https://github.com/Melroy25/The-Creator.git)
+
+> **Design System Note**: Default theme: light. Tokens live in `app/globals.css` and `tailwind.config.ts`. The interface matches the Stitch export's Silk Light Neomorphic style (tactile clay surfaces, extruded soft depth, and specular accents).
 
 ---
 
 ## 1. What is Creator Flow?
 
-Today's creators operate like small businesses, juggling multi-platform campaigns, client revisions, video edits, and pending invoices across fragmented tools. 
+Today's creators operate like small studios, juggling multi-platform campaigns, client revisions, video edits, and pending invoices across fragmented tools. 
 
 **Creator Flow** is an intelligent operating system built around a single connected data model and a **pure TypeScript deterministic scheduling engine**. When a deadline shifts, client review stalls, or an editor is unavailable, the engine calculates the downstream consequences, detects resource overlaps, and presents feasible alternative schedules for the creator's approval.
 
 ### Non-Negotiable Core Principles
-1. **Deterministic Scheduling, AI as Explainer**: Dates, slack, critical paths, and money are strictly calculated by code. The LLM only extracts from briefs, explains engine changes, and drafts messages.
-2. **Never Invent Certainty**: Infeasible schedules are reported plainly. Data is tagged with explicit provenance chips: `[Confirmed]`, `[Assumption]`, `[Calculated]`, `[AI suggestion]`.
+1. **Deterministic Scheduling, AI as Explainer**: Dates, slack, critical paths, and money are strictly calculated by code. The LLM only extracts from briefs, explains engine changes, and drafts messages. AI never calculates dates, risk levels, or money.
+2. **Never Invent Certainty**: Infeasible schedules are reported plainly with calculated alternatives (renegotiate deadline, add editor hours, drop flexible task). Data is tagged with explicit provenance chips: `[Confirmed]`, `[Assumption]`, `[Calculated]`, `[AI suggestion]`.
 3. **Honest Money**: Unpaid invoices are never counted as received. Projected revenue is separated from cash received. Incomplete costs are labeled "Estimate".
 4. **Propose, Review, Approve, Audit**: Automated changes are proposals. Nothing is applied or sent without creator approval.
 
@@ -23,9 +25,10 @@ Today's creators operate like small businesses, juggling multi-platform campaign
 ## 2. Tech Stack
 
 - **Frontend & App Framework**: Next.js 14 (App Router), React 18, TypeScript (Strict).
-- **Styling & Design System**: Tailwind CSS, Dark Mode Neomorphism ("Silk Dark" tactile glass), Lucide Icons.
+- **Styling & Design System**: Tailwind CSS, Silk Light Neomorphic design tokens, Lucide Icons.
 - **Workflow Visualization**: React Flow (`@xyflow/react`), Recharts.
-- **Database & Security**: Supabase PostgreSQL with strict Row Level Security (RLS) on all 15 tables.
+- **Database & Security**: Supabase PostgreSQL with strict Row Level Security (RLS) on all tables.
+- **Engine**: Pure TypeScript (`/lib/engine`) with zero UI/database/AI dependencies.
 - **Validation**: Zod.
 - **Testing**: Vitest.
 - **Deployment**: Vercel.
@@ -74,7 +77,7 @@ http://localhost:3000
 
 ### 2. Apply SQL Migrations
 In your Supabase Dashboard SQL Editor, run:
-1. `supabase/migrations/001_initial_schema.sql` (Creates all 15 tables with foreign keys, constraints, triggers, and RLS policies).
+1. `supabase/migrations/001_initial_schema.sql` (Creates all tables with foreign keys, constraints, triggers, and RLS policies).
 2. `supabase/migrations/002_rls_test.sql` (Verifies user data isolation).
 
 ### 3. Seed Demo Data
@@ -104,7 +107,7 @@ You can visually verify every shared UI component against the Stitch export desi
 ```text
 http://localhost:3000/dev/components
 ```
-This hidden page renders all variants of `GlassCard`, `StatTile`, `StatusChip`, `SeverityBadge`, `ProvenanceChip` (with interactive tooltips), `SideDrawer`, `ConfirmModal`, `EmptyState`, and `LoadingSkeleton`.
+This page renders all shared components in the Silk Light theme: `GlassCard`, `StatTile`, `StatusChip`, `SeverityBadge`, `ProvenanceChip` (with interactive tooltips), `SideDrawer`, `ConfirmModal`, `EmptyState`, and `LoadingSkeleton`.
 
 ---
 
@@ -113,7 +116,7 @@ This hidden page renders all variants of `GlassCard`, `StatTile`, `StatusChip`, 
 1. Push your repository to GitHub:
    ```bash
    git add .
-   git commit -m "Phase 1: Foundation Complete"
+   git commit -m "Phase A: Foundation Complete"
    git push origin main
    ```
 2. Import project in [Vercel](https://vercel.com).

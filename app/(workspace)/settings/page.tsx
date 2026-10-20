@@ -4,7 +4,7 @@ import { Settings as SettingsIcon, RotateCcw, Save, Shield } from 'lucide-react'
 
 export default function SettingsPage() {
   return (
-    <div className="space-y-8 pb-12">
+    <div className="space-y-8 pb-12 font-body">
       <PageHeader
         title="Settings & Workspace Configuration"
         purpose="Manage workspace preferences, team capacity ceilings, buffer rules, and demo data controls."
@@ -23,22 +23,22 @@ export default function SettingsPage() {
       />
 
       {/* Tabs navigation from Stitch design */}
-      <div className="border-b border-white/[0.08] flex items-center gap-6 text-sm font-semibold text-slate-400 overflow-x-auto pb-1">
-        <span className="text-white border-b-2 border-indigo-500 pb-3 font-bold shrink-0">Appearance & Display</span>
-        <span className="pb-3 hover:text-slate-200 cursor-pointer shrink-0">Profile & Account</span>
-        <span className="pb-3 hover:text-slate-200 cursor-pointer shrink-0">Working Hours & Capacity</span>
-        <span className="pb-3 hover:text-slate-200 cursor-pointer shrink-0">Integrations</span>
-        <span className="pb-3 hover:text-slate-200 cursor-pointer shrink-0">Notifications</span>
+      <div className="border-b border-[#E2E6F0] flex items-center gap-6 text-sm font-semibold text-[#64748B] overflow-x-auto pb-1">
+        <span className="text-indigo-600 border-b-2 border-indigo-600 pb-3 font-bold shrink-0 cursor-pointer">Appearance & Display</span>
+        <span className="pb-3 hover:text-[#1E2337] cursor-pointer shrink-0">Profile & Account</span>
+        <span className="pb-3 hover:text-[#1E2337] cursor-pointer shrink-0">Working Hours & Capacity</span>
+        <span className="pb-3 hover:text-[#1E2337] cursor-pointer shrink-0">Integrations</span>
+        <span className="pb-3 hover:text-[#1E2337] cursor-pointer shrink-0">Notifications</span>
       </div>
 
       {/* Demo Controls Callout */}
-      <GlassCard className="p-6 rounded-2xl border-indigo-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <GlassCard className="p-6 rounded-2xl border-indigo-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="space-y-1">
-          <div className="flex items-center gap-2 text-indigo-400 font-semibold text-xs">
+          <div className="flex items-center gap-2 text-indigo-600 font-bold text-xs">
             <Shield className="w-4 h-4" />
             <span>Hackathon Demonstration Controls</span>
           </div>
-          <p className="text-sm text-slate-300">
+          <p className="text-sm text-[#64748B] font-medium">
             Current scenario: Marcus Vance (Brand A fixed deadline, Brand B pending approval, Brand C flexible).
           </p>
         </div>
@@ -48,9 +48,9 @@ export default function SettingsPage() {
       </GlassCard>
 
       <EmptyState
-        title="Settings & Governance Controls Finalizing in Phase 10"
-        description="The full theme contrast toggles, working capacity slider (20h-60h), and integration tokens will be finalized in Phase 10."
-        icon={<SettingsIcon className="w-7 h-7 text-indigo-400" />}
+        title="Settings & Governance Controls"
+        description="Theme contrast preferences, creator working capacity rules (8h/day, Mon-Fri), and team availability ceilings."
+        icon={<SettingsIcon className="w-7 h-7 text-indigo-600" />}
       />
     </div>
   );

@@ -4,7 +4,7 @@ import { Cpu, RotateCcw, Play } from 'lucide-react';
 
 export default function SimulatorPage() {
   return (
-    <div className="space-y-8 pb-12">
+    <div className="space-y-8 pb-12 font-body">
       <PageHeader
         title="Change-Impact Simulator"
         purpose="Test schedule disruptions, simulate collateral task shifts, and neutralize creator bottlenecks before they touch active client pipelines."
@@ -23,9 +23,9 @@ export default function SimulatorPage() {
       />
 
       <EmptyState
-        title="Bifurcated Parallel Timeline Engine Coming in Phase 3"
-        description="The 3-step disruption simulator (What Changed? -> Parallel Timeline Comparison -> Remediation One-Click Solver) with provenance CLI logs will be integrated in Phase 3."
-        icon={<Cpu className="w-7 h-7 text-indigo-400" />}
+        title="Predictive Change-Impact Simulator"
+        description="3-Step Simulator: (a) What changed? (b) Now vs New plan timelines with moved tasks highlighted (c) Short summary with plain reasons, Approve or Reject, and calculated alternatives."
+        icon={<Cpu className="w-7 h-7 text-indigo-600" />}
       />
     </div>
   );

@@ -49,33 +49,33 @@ export function ConfirmModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/70 backdrop-blur-md transition-opacity"
+        className="fixed inset-0 bg-slate-900/35 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
 
       {/* Modal Dialog */}
-      <div className="relative w-full max-w-md bg-[#0F1424] border border-white/15 rounded-2xl shadow-2xl p-6 z-10 space-y-5 animate-in zoom-in-95 duration-150">
+      <div className="relative w-full max-w-md silk-card rounded-2xl shadow-[8px_8px_24px_rgba(166,175,195,0.5),-8px_-8px_24px_rgba(255,255,255,0.95)] p-6 z-10 space-y-5 animate-in zoom-in-95 duration-150 text-[#1E2337]">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
             <div className={cn(
               'w-10 h-10 rounded-xl flex items-center justify-center',
-              variant === 'danger' ? 'bg-rose-500/15 text-rose-400 border border-rose-500/30' :
-              variant === 'warning' ? 'bg-amber-500/15 text-amber-400 border border-amber-500/30' :
-              'bg-indigo-500/15 text-indigo-400 border border-indigo-500/30'
+              variant === 'danger' ? 'bg-rose-50 text-rose-600 border border-rose-200' :
+              variant === 'warning' ? 'bg-amber-50 text-amber-600 border border-amber-200' :
+              'bg-indigo-50 text-indigo-600 border border-indigo-200'
             )}>
               <AlertTriangle className="w-5 h-5" />
             </div>
-            <h3 className="text-lg font-semibold text-white tracking-tight">{title}</h3>
+            <h3 className="text-lg font-headline font-bold text-[#1E2337] tracking-tight">{title}</h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.08]"
+            className="p-1.5 rounded-lg text-[#64748B] hover:text-[#1E2337] silk-card-sm transition-colors"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
-        <p className="text-sm text-slate-300 leading-relaxed">
+        <p className="text-sm text-[#64748B] leading-relaxed font-medium">
           {description}
         </p>
 
@@ -87,7 +87,7 @@ export function ConfirmModal({
             size="sm"
             onClick={onConfirm}
             loading={loading}
-            className={variant === 'danger' ? 'bg-gradient-to-r from-rose-600 to-red-600' : ''}
+            className={variant === 'danger' ? 'bg-gradient-to-r from-rose-600 to-red-600 border-rose-400' : ''}
           >
             {confirmLabel}
           </PrimaryButton>

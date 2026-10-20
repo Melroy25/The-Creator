@@ -21,14 +21,14 @@ export function EmptyState({
   className,
 }: EmptyStateProps) {
   return (
-    <div className={cn('glass-card p-12 rounded-2xl flex flex-col items-center justify-center text-center max-w-lg mx-auto space-y-5', className)}>
-      <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 shadow-inner">
+    <div className={cn('silk-card p-12 rounded-2xl flex flex-col items-center justify-center text-center max-w-lg mx-auto space-y-5 text-[#1E2337]', className)}>
+      <div className="w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 silk-inset">
         {icon || <Inbox className="w-7 h-7" />}
       </div>
 
       <div className="space-y-1.5 max-w-md">
-        <h3 className="text-lg font-semibold text-white tracking-tight">{title}</h3>
-        <p className="text-sm text-slate-400 leading-relaxed font-normal">
+        <h3 className="text-lg font-headline font-bold text-[#1E2337] tracking-tight">{title}</h3>
+        <p className="text-sm text-[#64748B] leading-relaxed font-normal">
           {description}
         </p>
       </div>

@@ -11,12 +11,9 @@ export interface AppShellProps {
 
 export function AppShell({ children }: AppShellProps) {
   return (
-    <div className="min-h-screen bg-[#090C15] text-[#F1F5F9] relative overflow-x-hidden">
-      {/* Background radial ambient glow layers matching Stitch design */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 left-72 w-[600px] h-[600px] bg-indigo-600/[0.04] rounded-full blur-[140px]" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-violet-600/[0.04] rounded-full blur-[140px]" />
-      </div>
+    <div className="min-h-screen bg-[#F0F2F8] text-[#1E2337] relative overflow-x-hidden font-body selection:bg-indigo-100 selection:text-indigo-900">
+      {/* Background radial ambient glow layers matching Stitch Light design */}
+      <div className="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_top_left,rgba(99,102,241,0.06),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(167,139,250,0.06),transparent_40%)]" />
 
       {/* Fixed Desktop Sidebar */}
       <Sidebar />

@@ -13,23 +13,23 @@ export function SeverityBadge({ severity, className, size = 'md' }: SeverityBadg
   const configs: Record<RiskSeverity, { label: string; icon: React.ReactNode; style: string }> = {
     critical: {
       label: 'CRITICAL',
-      icon: <ShieldAlert className="w-3.5 h-3.5 text-rose-400" />,
-      style: 'bg-rose-500/20 text-rose-300 border-rose-500/40 font-bold',
+      icon: <ShieldAlert className="w-3.5 h-3.5 text-rose-600" />,
+      style: 'bg-rose-50 text-rose-700 border-rose-200 font-bold',
     },
     high: {
       label: 'HIGH RISK',
-      icon: <AlertCircle className="w-3.5 h-3.5 text-orange-400" />,
-      style: 'bg-orange-500/15 text-orange-300 border-orange-500/35 font-semibold',
+      icon: <AlertCircle className="w-3.5 h-3.5 text-orange-600" />,
+      style: 'bg-orange-50 text-orange-800 border-orange-200 font-semibold',
     },
     medium: {
       label: 'MEDIUM',
-      icon: <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />,
-      style: 'bg-amber-500/15 text-amber-300 border-amber-500/30 font-medium',
+      icon: <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />,
+      style: 'bg-amber-50 text-amber-800 border-amber-200 font-medium',
     },
     low: {
       label: 'LOW',
-      icon: <Info className="w-3.5 h-3.5 text-slate-400" />,
-      style: 'bg-slate-500/15 text-slate-300 border-slate-500/25 font-normal',
+      icon: <Info className="w-3.5 h-3.5 text-slate-500" />,
+      style: 'bg-slate-100 text-slate-700 border-slate-200 font-normal',
     },
   };
 
@@ -43,7 +43,7 @@ export function SeverityBadge({ severity, className, size = 'md' }: SeverityBadg
   return (
     <span
       className={cn(
-        'inline-flex items-center font-mono rounded-full border uppercase tracking-wider select-none',
+        'inline-flex items-center font-mono rounded-full border uppercase tracking-wider select-none shadow-sm',
         current.style,
         sizeClasses[size],
         className

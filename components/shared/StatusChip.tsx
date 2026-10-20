@@ -15,38 +15,38 @@ export function StatusChip({ status, label, className, size = 'md' }: StatusChip
   const configs: Record<StatusChipType, { text: string; icon: React.ReactNode; style: string }> = {
     done: {
       text: 'Done',
-      icon: <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />,
-      style: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30',
+      icon: <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />,
+      style: 'bg-emerald-50 text-emerald-700 border-emerald-200/80',
     },
     in_progress: {
       text: 'In Progress',
-      icon: <PlayCircle className="w-3.5 h-3.5 text-sky-400" />,
-      style: 'bg-sky-500/10 text-sky-300 border-sky-500/30',
+      icon: <PlayCircle className="w-3.5 h-3.5 text-indigo-600" />,
+      style: 'bg-indigo-50 text-indigo-700 border-indigo-200/80',
     },
     overdue: {
       text: 'Overdue',
-      icon: <AlertCircle className="w-3.5 h-3.5 text-rose-400 animate-pulse" />,
-      style: 'bg-rose-500/15 text-rose-300 border-rose-500/40',
+      icon: <AlertCircle className="w-3.5 h-3.5 text-rose-600 animate-pulse" />,
+      style: 'bg-rose-50 text-rose-700 border-rose-200/80',
     },
     blocked: {
       text: 'Blocked',
-      icon: <Lock className="w-3.5 h-3.5 text-red-400" />,
-      style: 'bg-red-500/15 text-red-300 border-red-500/40',
+      icon: <Lock className="w-3.5 h-3.5 text-red-600" />,
+      style: 'bg-red-50 text-red-700 border-red-200/80',
     },
     at_risk: {
       text: 'At Risk',
-      icon: <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />,
-      style: 'bg-amber-500/15 text-amber-300 border-amber-500/35',
+      icon: <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />,
+      style: 'bg-amber-50 text-amber-800 border-amber-200/80',
     },
     up_next: {
       text: 'Up Next',
-      icon: <Clock className="w-3.5 h-3.5 text-slate-400" />,
-      style: 'bg-slate-500/15 text-slate-300 border-slate-500/30',
+      icon: <Clock className="w-3.5 h-3.5 text-slate-600" />,
+      style: 'bg-slate-100 text-slate-700 border-slate-200/80',
     },
     not_started: {
       text: 'Not Started',
-      icon: <Clock className="w-3.5 h-3.5 text-slate-400" />,
-      style: 'bg-slate-800/60 text-slate-400 border-slate-700/50',
+      icon: <Clock className="w-3.5 h-3.5 text-slate-500" />,
+      style: 'bg-slate-100 text-slate-600 border-slate-200/80',
     },
   };
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { PageHeader, PrimaryButton, SecondaryButton, EmptyState } from '@/components/shared';
-import { Megaphone, Plus, Download } from 'lucide-react';
+import { PageHeader, PrimaryButton, SecondaryButton } from '@/components/shared';
+import { Plus, Download } from 'lucide-react';
 import Link from 'next/link';
 import { getCampaigns } from '@/lib/data';
 
@@ -8,7 +8,7 @@ export default async function CampaignsPage() {
   const campaigns = await getCampaigns();
 
   return (
-    <div className="space-y-8 pb-12">
+    <div className="space-y-8 pb-12 font-body">
       <PageHeader
         title="Campaigns & Deliverables"
         purpose="Track contracts, deliverable deadlines, review statuses, and payment reliability across all sponsor partnerships."
@@ -32,40 +32,33 @@ export default async function CampaignsPage() {
           <Link
             key={camp.id}
             href={`/campaigns/${camp.id}`}
-            className="glass-card-interactive p-6 rounded-2xl space-y-4 group block"
+            className="silk-card p-6 rounded-2xl space-y-4 group block hover:-translate-y-0.5 transition-all"
           >
             <div className="flex items-start justify-between gap-3">
               <div>
-                <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">
+                <span className="text-[11px] font-mono text-[#94A3B8] uppercase tracking-wider font-semibold">
                   {camp.brand?.name || 'Sponsor'}
                 </span>
-                <h3 className="text-base font-bold text-white group-hover:text-indigo-400 transition-colors">
+                <h3 className="text-base font-headline font-bold text-[#1E2337] group-hover:text-indigo-600 transition-colors">
                   {camp.name}
                 </h3>
               </div>
-              <span className="text-xs font-mono font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">
+              <span className="text-xs font-mono font-bold text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-full border border-indigo-200">
                 ${camp.payment_amount.toLocaleString()}
               </span>
             </div>
 
-            <p className="text-xs text-slate-400 leading-relaxed line-clamp-2">
+            <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2 font-medium">
               Deliverables: {camp.deliverables?.map(d => d.title).join(', ') || '1 Video Integration'}
             </p>
 
-            <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between text-xs text-slate-500 font-mono">
-              <span>Platform: {camp.platform}</span>
-              <span className="text-indigo-400 font-semibold group-hover:underline">View details →</span>
+            <div className="pt-2 border-t border-[#E2E6F0] flex items-center justify-between text-xs text-[#64748B] font-mono">
+              <span className="uppercase">Platform: {camp.platform}</span>
+              <span className="text-indigo-600 font-bold group-hover:underline">View details →</span>
             </div>
           </Link>
         ))}
       </div>
-
-      {/* Phase 5 Placeholder notice */}
-      <EmptyState
-        title="Full Campaign Matrix Coming in Phase 5"
-        description="The multi-track deliverable inspector, SLA timeline variance alerts, and auto task templates will be fully populated in Phase 5."
-        icon={<Megaphone className="w-7 h-7" />}
-      />
     </div>
   );
 }
