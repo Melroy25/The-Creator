@@ -10,20 +10,18 @@ export interface AppShellProps {
 
 export function AppShell({ children }: AppShellProps) {
   return (
-    <div className="min-h-screen bg-canvas text-text-primary relative overflow-x-hidden font-body">
+    <div className="min-h-screen bg-canvas text-text-primary relative overflow-x-hidden font-sans">
       {/* Desktop Sidebar (Wharf Operations, Records, Account structure) */}
       <Sidebar />
 
       {/* Main Content Area */}
-      <div className="lg:pl-64 flex flex-col min-h-screen relative z-10">
-        {/* Topbar with Search, Export, Primary CTA, Notifications */}
+      <div className="lg:pl-60 flex flex-col min-h-screen relative z-10">
+        {/* Mobile Topbar only (hidden on lg desktop) */}
         <Topbar />
 
-        {/* Viewport Canvas */}
-        <main className="flex-1 pt-16 pb-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto w-full pt-6">
-            {children}
-          </div>
+        {/* Viewport Canvas matching Wharf */}
+        <main className="flex-1 px-4 sm:px-8 lg:px-10 py-6 sm:py-8 w-full">
+          {children}
         </main>
       </div>
     </div>

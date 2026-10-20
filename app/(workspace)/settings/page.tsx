@@ -3,9 +3,6 @@
 import React, { useState } from 'react';
 import {
   PageHeader,
-  GlassCard,
-  PrimaryButton,
-  SecondaryButton,
   SegmentedControl,
   AccentSwatchRow,
   Toggle,
@@ -23,6 +20,7 @@ import {
   Plug,
   CheckCircle2,
   ShieldAlert,
+  ChevronDown,
 } from 'lucide-react';
 import { resetDemoStore } from '@/lib/data';
 
@@ -35,22 +33,21 @@ export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState<SettingsTab>('workspace');
   const [resetModalOpen, setResetModalOpen] = useState(false);
 
-  // Workspace settings state
-  const [businessName, setBusinessName] = useState('Apex Media Studio');
+  // Workspace settings state matching Wharf Screenshot
+  const [businessName, setBusinessName] = useState('Northlane Roasters');
   const [currency, setCurrency] = useState('USD, US dollar');
-  const [timeZone, setTimeZone] = useState('America/Los_Angeles');
-  const [capacityThreshold, setCapacityThreshold] = useState('80% (Tight)');
+  const [timeZone, setTimeZone] = useState('America/New_York');
+  const [warningThreshold, setWarningThreshold] = useState('At the par level');
 
-  // Notification toggles
+  // Account tab notification toggles
   const [deadlineReminders, setDeadlineReminders] = useState(true);
   const [approvalAlerts, setApprovalAlerts] = useState(true);
-  const [cashFlowDigest, setCashFlowDigest] = useState(false);
 
   const handleSaveWorkspace = () => {
     toast({
       type: 'success',
       title: 'Workspace Saved',
-      description: 'Your studio preferences and display settings have been updated.',
+      description: 'Your workspace settings and display appearance have been updated.',
     });
   };
 
@@ -60,24 +57,26 @@ export default function SettingsPage() {
     toast({
       type: 'warning',
       title: 'Demo Data Reset',
-      description: 'All 3 brand partnerships, 25 tasks, and editor schedules restored to day-zero baseline.',
+      description: 'All brand partnerships, tasks, and editor schedules restored to day-zero baseline.',
     });
   };
 
   return (
-    <div className="space-y-8 pb-12 font-body">
+    <div className="space-y-6 pb-12 font-sans">
+      {/* Wharf Header: Settings title, subtitle, circular notification bell on right */}
       <PageHeader
         title="Settings"
-        purpose="Your account, your plan, your connections, and how Creator Flow looks."
-        badge="System Configuration"
+        purpose="Your account, your plan, your connections, and how Wharf looks."
       />
 
-      {/* Sub-tabs per Wharf Screenshot: Account, Billing, Integrations, Workspace */}
-      <div className="border-b border-border flex items-center gap-8 text-sm font-semibold text-text-secondary">
+      {/* Sub-tabs matching Wharf Image 1, 2, 3: Account, Billing, Integrations, Workspace */}
+      <div className="border-b border-border flex items-center gap-7 sm:gap-9 text-xs sm:text-sm text-text-secondary font-medium">
         <button
           onClick={() => setActiveTab('account')}
           className={`pb-3 transition-colors cursor-pointer ${
-            activeTab === 'account' ? 'text-text-primary border-b-2 border-text-primary font-bold' : 'hover:text-text-primary'
+            activeTab === 'account'
+              ? 'text-text-primary border-b-2 border-text-primary font-semibold'
+              : 'hover:text-text-primary'
           }`}
         >
           Account
@@ -85,7 +84,9 @@ export default function SettingsPage() {
         <button
           onClick={() => setActiveTab('billing')}
           className={`pb-3 transition-colors cursor-pointer ${
-            activeTab === 'billing' ? 'text-text-primary border-b-2 border-text-primary font-bold' : 'hover:text-text-primary'
+            activeTab === 'billing'
+              ? 'text-text-primary border-b-2 border-text-primary font-semibold'
+              : 'hover:text-text-primary'
           }`}
         >
           Billing
@@ -93,7 +94,9 @@ export default function SettingsPage() {
         <button
           onClick={() => setActiveTab('integrations')}
           className={`pb-3 transition-colors cursor-pointer ${
-            activeTab === 'integrations' ? 'text-text-primary border-b-2 border-text-primary font-bold' : 'hover:text-text-primary'
+            activeTab === 'integrations'
+              ? 'text-text-primary border-b-2 border-text-primary font-semibold'
+              : 'hover:text-text-primary'
           }`}
         >
           Integrations
@@ -101,238 +104,260 @@ export default function SettingsPage() {
         <button
           onClick={() => setActiveTab('workspace')}
           className={`pb-3 transition-colors cursor-pointer ${
-            activeTab === 'workspace' ? 'text-text-primary border-b-2 border-text-primary font-bold' : 'hover:text-text-primary'
+            activeTab === 'workspace'
+              ? 'text-text-primary border-b-2 border-text-primary font-semibold'
+              : 'hover:text-text-primary'
           }`}
         >
           Workspace
         </button>
       </div>
 
+      {/* TAB 1: WORKSPACE (Matches Wharf Image 1, 2, 3) */}
       {activeTab === 'workspace' && (
-        <div className="space-y-6">
-          {/* Top Row: Appearance Card + Workspace Details Card (Matching Image 1) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            {/* 1. Appearance Card (Exact Wharf Reference Design) */}
-            <GlassCard className="lg:col-span-5 p-6 rounded-2xl bg-surface border border-border space-y-6 shadow-card">
-              <div className="space-y-1">
-                <h3 className="font-headline font-bold text-lg text-text-primary tracking-tight">Appearance</h3>
-                <p className="text-xs text-text-secondary font-normal">Yours only; your team picks their own</p>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start pt-1">
+          {/* 1. Appearance Card */}
+          <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 shadow-card space-y-6">
+            <div className="space-y-0.5">
+              <h3 className="font-sans font-bold text-base sm:text-lg text-text-primary tracking-tight">
+                Appearance
+              </h3>
+              <p className="text-xs text-text-secondary font-normal">
+                Yours only; your team picks their own
+              </p>
+            </div>
 
-              {/* Theme Segmented Control with Light, System, Dark icons */}
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-text-secondary block">Theme</label>
-                <SegmentedControl
-                  options={[
-                    { value: 'light', label: 'Light', icon: <Sun className="w-4 h-4" /> },
-                    { value: 'system', label: 'System', icon: <Monitor className="w-4 h-4" /> },
-                    { value: 'dark', label: 'Dark', icon: <Moon className="w-4 h-4" /> },
-                  ]}
-                  value={theme}
-                  onChange={(val) => setTheme(val as any)}
+            {/* Theme Segmented Control */}
+            <div className="space-y-2">
+              <label className="text-xs font-medium text-text-secondary block">
+                Theme
+              </label>
+              <SegmentedControl
+                options={[
+                  { value: 'light', label: 'Light', icon: <Sun className="w-3.5 h-3.5" /> },
+                  { value: 'system', label: 'System', icon: <Monitor className="w-3.5 h-3.5" /> },
+                  { value: 'dark', label: 'Dark', icon: <Moon className="w-3.5 h-3.5" /> },
+                ]}
+                value={theme}
+                onChange={(val) => setTheme(val as any)}
+              />
+            </div>
+
+            {/* Accent Swatch Row */}
+            <div className="space-y-2 pt-1">
+              <label className="text-xs font-medium text-text-secondary block">
+                Accent
+              </label>
+              <AccentSwatchRow value={accent} onChange={setAccent} />
+            </div>
+          </div>
+
+          {/* 2. Workspace Form Card */}
+          <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 shadow-card space-y-6">
+            <div className="space-y-0.5">
+              <h3 className="font-sans font-bold text-base sm:text-lg text-text-primary tracking-tight">
+                Workspace
+              </h3>
+              <p className="text-xs text-text-secondary font-normal">
+                What everyone on the team sees
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-text-secondary block">
+                  Business name
+                </label>
+                <input
+                  type="text"
+                  value={businessName}
+                  onChange={(e) => setBusinessName(e.target.value)}
+                  className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors"
                 />
               </div>
 
-              {/* Accent Row with four 56px round swatches */}
-              <div className="space-y-2 pt-2">
-                <label className="text-xs font-semibold text-text-secondary block">Accent</label>
-                <AccentSwatchRow value={accent} onChange={setAccent} />
-              </div>
-            </GlassCard>
-
-            {/* 2. Workspace Details Form (Matching Image 1 right side) */}
-            <GlassCard className="lg:col-span-7 p-6 rounded-2xl bg-surface border border-border space-y-5 shadow-card">
-              <div className="space-y-1">
-                <h3 className="font-headline font-bold text-lg text-text-primary tracking-tight">Workspace</h3>
-                <p className="text-xs text-text-secondary font-normal">What everyone on the team sees</p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-text-secondary">Business name</label>
-                  <input
-                    type="text"
-                    value={businessName}
-                    onChange={(e) => setBusinessName(e.target.value)}
-                    className="w-full bg-surface-inset border border-border rounded-full px-4 py-2 text-sm text-text-primary focus:outline-none focus:border-accent"
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-text-secondary">Currency</label>
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-text-secondary block">
+                  Currency
+                </label>
+                <div className="relative">
                   <select
                     value={currency}
                     onChange={(e) => setCurrency(e.target.value)}
-                    className="w-full bg-surface-inset border border-border rounded-full px-4 py-2 text-sm text-text-primary focus:outline-none focus:border-accent cursor-pointer"
+                    className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors appearance-none cursor-pointer pr-8"
                   >
                     <option value="USD, US dollar">USD, US dollar</option>
                     <option value="EUR, Euro">EUR, Euro</option>
                     <option value="GBP, British pound">GBP, British pound</option>
                   </select>
+                  <ChevronDown className="w-3.5 h-3.5 text-text-tertiary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
+              </div>
 
-                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-text-secondary">Time zone</label>
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-text-secondary block">
+                  Time zone
+                </label>
+                <div className="relative">
                   <select
                     value={timeZone}
                     onChange={(e) => setTimeZone(e.target.value)}
-                    className="w-full bg-surface-inset border border-border rounded-full px-4 py-2 text-sm text-text-primary focus:outline-none focus:border-accent cursor-pointer"
+                    className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors appearance-none cursor-pointer pr-8"
                   >
-                    <option value="America/Los_Angeles">America/Los_Angeles</option>
                     <option value="America/New_York">America/New_York</option>
+                    <option value="America/Los_Angeles">America/Los_Angeles</option>
                     <option value="Europe/London">Europe/London</option>
                   </select>
+                  <ChevronDown className="w-3.5 h-3.5 text-text-tertiary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
+              </div>
 
-                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-text-secondary">Capacity warning</label>
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-text-secondary block">
+                  Low-stock warning
+                </label>
+                <div className="relative">
                   <select
-                    value={capacityThreshold}
-                    onChange={(e) => setCapacityThreshold(e.target.value)}
-                    className="w-full bg-surface-inset border border-border rounded-full px-4 py-2 text-sm text-text-primary focus:outline-none focus:border-accent cursor-pointer"
+                    value={warningThreshold}
+                    onChange={(e) => setWarningThreshold(e.target.value)}
+                    className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-text-secondary transition-colors appearance-none cursor-pointer pr-8"
                   >
-                    <option value="80% (Tight)">At 80% capacity</option>
-                    <option value="90% (Urgent)">At 90% capacity</option>
-                    <option value="100% (Overloaded)">At 100% capacity</option>
+                    <option value="At the par level">At the par level</option>
+                    <option value="At 80% capacity">At 80% capacity</option>
+                    <option value="At 90% capacity">At 90% capacity</option>
                   </select>
+                  <ChevronDown className="w-3.5 h-3.5 text-text-tertiary absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
+            </div>
 
-              <div className="pt-2 flex justify-end">
-                <PrimaryButton size="sm" onClick={handleSaveWorkspace}>
-                  Save workspace
-                </PrimaryButton>
-              </div>
-            </GlassCard>
+            <div className="pt-2 flex justify-end">
+              <button
+                type="button"
+                onClick={handleSaveWorkspace}
+                className="bg-text-primary text-text-inverse font-semibold text-xs px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity shadow-sm cursor-pointer"
+              >
+                Save workspace
+              </button>
+            </div>
           </div>
-
-          {/* Working Hours & Capacity */}
-          <GlassCard className="p-6 rounded-2xl bg-surface border border-border space-y-4 shadow-card">
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-accent-strong" />
-              <h3 className="font-headline font-bold text-base text-text-primary">Working Hours & Capacity Rules</h3>
-            </div>
-            <p className="text-xs text-text-secondary">
-              The deterministic scheduler uses these capacity ceilings to compute task durations, buffer slack, and resource collisions.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
-              <div className="p-3.5 rounded-xl bg-surface-inset border border-border space-y-1">
-                <span className="text-[11px] font-mono text-text-secondary uppercase">Creator Hours</span>
-                <p className="text-lg font-bold font-headline text-text-primary">8.0 hrs / day</p>
-                <span className="text-[10px] text-text-tertiary">Mon–Fri (40 hrs/wk)</span>
-              </div>
-              <div className="p-3.5 rounded-xl bg-surface-inset border border-border space-y-1">
-                <span className="text-[11px] font-mono text-text-secondary uppercase">Editor Maya</span>
-                <p className="text-lg font-bold font-headline text-text-primary">8.0 hrs / day</p>
-                <span className="text-[10px] text-status-done-text font-semibold">Full Availability</span>
-              </div>
-              <div className="p-3.5 rounded-xl bg-surface-inset border border-border space-y-1">
-                <span className="text-[11px] font-mono text-text-secondary uppercase">Editor Sam</span>
-                <p className="text-lg font-bold font-headline text-text-primary">4.0 hrs / day</p>
-                <span className="text-[10px] text-status-risk-text font-semibold">Limited Next Week</span>
-              </div>
-            </div>
-          </GlassCard>
-
-          {/* Notifications Toggle List */}
-          <GlassCard className="p-6 rounded-2xl bg-surface border border-border space-y-4 shadow-card">
-            <div className="flex items-center gap-2">
-              <Bell className="w-4 h-4 text-accent-strong" />
-              <h3 className="font-headline font-bold text-base text-text-primary">Notification Preferences</h3>
-            </div>
-            <div className="divide-y divide-border pt-1">
-              <div className="py-3 flex items-center justify-between">
-                <div>
-                  <h4 className="text-xs font-bold text-text-primary">Deadline Approaching Reminders</h4>
-                  <p className="text-xs text-text-secondary">Notify when deliverables are due within 48 hours.</p>
-                </div>
-                <Toggle checked={deadlineReminders} onChange={setDeadlineReminders} />
-              </div>
-
-              <div className="py-3 flex items-center justify-between">
-                <div>
-                  <h4 className="text-xs font-bold text-text-primary">Overdue Brand Approval Alerts</h4>
-                  <p className="text-xs text-text-secondary">Alert when sponsor review exceeds agreed contract SLA turnaround.</p>
-                </div>
-                <Toggle checked={approvalAlerts} onChange={setApprovalAlerts} />
-              </div>
-
-              <div className="py-3 flex items-center justify-between">
-                <div>
-                  <h4 className="text-xs font-bold text-text-primary">Weekly Financial Cash Flow Digest</h4>
-                  <p className="text-xs text-text-secondary">Summary of incoming payments, waiting invoices, and expected receivables.</p>
-                </div>
-                <Toggle checked={cashFlowDigest} onChange={setCashFlowDigest} />
-              </div>
-            </div>
-          </GlassCard>
-
-          {/* Reset Demo Data Card */}
-          <GlassCard className="p-6 rounded-2xl bg-surface border border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-card">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <ShieldAlert className="w-4 h-4 text-status-risk-text" />
-                <h3 className="font-headline font-bold text-base text-text-primary">Reset Demo Data</h3>
-              </div>
-              <p className="text-xs text-text-secondary">
-                Restore Marcus Vance’s demo workspace to the initial benchmark scenario (Nova Audio, Pixel & Co, Lumen Skincare).
-              </p>
-            </div>
-
-            <SecondaryButton
-              size="sm"
-              icon={<RotateCcw className="w-3.5 h-3.5" />}
-              onClick={() => setResetModalOpen(true)}
-            >
-              Reset demo data
-            </SecondaryButton>
-          </GlassCard>
         </div>
       )}
 
-      {activeTab === 'integrations' && (
-        <div className="space-y-4">
-          <GlassCard className="p-6 rounded-2xl bg-surface border border-border space-y-4 shadow-card">
-            <div className="flex items-center gap-2">
-              <Plug className="w-4 h-4 text-accent-strong" />
-              <h3 className="font-headline font-bold text-base text-text-primary">Connected Integrations</h3>
+      {/* TAB 2: ACCOUNT */}
+      {activeTab === 'account' && (
+        <div className="max-w-2xl space-y-6 pt-1">
+          <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 shadow-card space-y-5">
+            <h3 className="font-sans font-bold text-base text-text-primary">
+              Account Profile
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-1">
+                <label className="text-xs text-text-secondary">Creator Name</label>
+                <input
+                  type="text"
+                  defaultValue="Marcus Vance"
+                  className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none"
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="text-xs text-text-secondary">Email</label>
+                <input
+                  type="email"
+                  defaultValue="marcus@apexcreators.com"
+                  className="w-full bg-surface-inset border border-border rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none"
+                />
+              </div>
             </div>
-            <p className="text-xs text-text-secondary">
-              Third-party APIs for automated invoice syncing and platform analytics.
-            </p>
+          </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              {['YouTube Partner API', 'Instagram Graph API', 'Stripe Payments', 'QuickBooks / Xero'].map((intg) => (
-                <div key={intg} className="p-4 rounded-xl bg-surface-inset border border-border flex items-center justify-between">
-                  <span className="text-xs font-bold text-text-primary">{intg}</span>
-                  <span className="text-[10px] font-mono text-text-tertiary bg-surface px-2.5 py-0.5 rounded-full border border-border">
-                    Not configured
+          <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 shadow-card space-y-3">
+            <h3 className="font-sans font-bold text-base text-text-primary">
+              Reset Demo Sandbox
+            </h3>
+            <p className="text-xs text-text-secondary leading-relaxed">
+              Restore all campaigns, tasks, and editor schedules back to day-zero baseline.
+            </p>
+            <button
+              type="button"
+              onClick={() => setResetModalOpen(true)}
+              className="bg-surface-inset text-status-overdue-text border border-status-overdue-border hover:bg-status-overdue-bg px-4 py-2 rounded-full text-xs font-semibold transition-colors cursor-pointer flex items-center gap-2"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              Reset Demo Data
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* TAB 3: BILLING */}
+      {activeTab === 'billing' && (
+        <div className="max-w-2xl space-y-6 pt-1">
+          <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 shadow-card space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="font-sans font-bold text-base text-text-primary">Harbor Plan</h3>
+                <p className="text-xs text-text-secondary">Professional Creator Tier</p>
+              </div>
+              <span className="text-xs font-bold text-accent-strong bg-accent-tint px-3 py-1 rounded-full border border-accent/20">
+                ACTIVE
+              </span>
+            </div>
+            <div className="p-4 rounded-2xl bg-surface-inset border border-border space-y-2">
+              <div className="flex justify-between text-xs">
+                <span className="text-text-secondary">Monthly Orders / Deals</span>
+                <span className="font-mono font-semibold text-text-primary">1,284 / 2,000</span>
+              </div>
+              <div className="w-full h-2 rounded-full bg-border overflow-hidden">
+                <div className="h-full bg-accent rounded-full w-[64%]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* TAB 4: INTEGRATIONS */}
+      {activeTab === 'integrations' && (
+        <div className="max-w-2xl space-y-4 pt-1">
+          <div className="bg-surface border border-border rounded-3xl p-6 sm:p-7 shadow-card space-y-4">
+            <h3 className="font-sans font-bold text-base text-text-primary">
+              External Connections
+            </h3>
+            <div className="space-y-3">
+              {[
+                { name: 'YouTube Studio API', desc: 'Auto-detect uploaded sponsor videos', status: 'Connected' },
+                { name: 'Instagram Creator Graph', desc: 'Sync Reels & Story analytics', status: 'Not configured' },
+                { name: 'QuickBooks Online', desc: 'Export sponsor invoices & track payouts', status: 'Not configured' },
+              ].map((integ) => (
+                <div key={integ.name} className="p-3.5 rounded-2xl bg-surface-inset border border-border flex items-center justify-between">
+                  <div>
+                    <p className="text-xs font-semibold text-text-primary">{integ.name}</p>
+                    <p className="text-[11px] text-text-secondary">{integ.desc}</p>
+                  </div>
+                  <span className={`text-[10px] font-mono px-2.5 py-0.5 rounded-full border ${
+                    integ.status === 'Connected'
+                      ? 'bg-status-done-bg text-status-done-text border-status-done-border font-semibold'
+                      : 'bg-surface text-text-tertiary border-border'
+                  }`}>
+                    {integ.status}
                   </span>
                 </div>
               ))}
             </div>
-          </GlassCard>
+          </div>
         </div>
       )}
 
-      {(activeTab === 'account' || activeTab === 'billing') && (
-        <GlassCard className="p-8 rounded-2xl bg-surface border border-border text-center space-y-2 shadow-card">
-          <h3 className="font-headline font-bold text-base text-text-primary capitalize">{activeTab} Details</h3>
-          <p className="text-xs text-text-secondary max-w-sm mx-auto">
-            Marcus Vance • Executive Creator Account on Harbor Pro Tier ($49/month).
-          </p>
-        </GlassCard>
-      )}
-
-      {/* Confirm Modal for Demo Reset */}
+      {/* Reset Demo Confirmation Modal */}
       <ConfirmModal
         isOpen={resetModalOpen}
         onClose={() => setResetModalOpen(false)}
         onConfirm={handleResetDemo}
-        title="Reset Demo Scenario?"
-        description="This will restore all brand contracts, tasks, and editor schedules to the initial Code Meet 2026 hackathon demo state. Any simulated shifts will be reset."
+        title="Reset Demo Data?"
+        description="Are you sure you want to reset all brands, tasks, and editor schedules back to baseline?"
         confirmLabel="Reset Everything"
-        variant="warning"
+        cancelLabel="Cancel"
+        variant="danger"
       />
     </div>
   );
