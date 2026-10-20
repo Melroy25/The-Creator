@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 
 export type ThemeMode = 'light' | 'system' | 'dark';
-export type AccentHue = 'amber' | 'mint' | 'pink' | 'blue';
+export type AccentHue = 'yellow' | 'amber' | 'mint' | 'pink' | 'blue';
 
 interface ThemeContextType {
   theme: ThemeMode;
@@ -18,14 +18,15 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<ThemeMode>('light');
   const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light');
-  const [accent, setAccentState] = useState<AccentHue>('amber');
+  const [accent, setAccentState] = useState<AccentHue>('yellow');
   const [mounted, setMounted] = useState(false);
 
   // Sync with DOM & localStorage on mount
   useEffect(() => {
     try {
       const storedTheme = (localStorage.getItem('creator_flow_theme') as ThemeMode) || 'light';
-      const storedAccent = (localStorage.getItem('creator_flow_accent') as AccentHue) || 'amber';
+      let storedAccent = (localStorage.getItem('creator_flow_accent') as AccentHue) || 'yellow';
+      if (storedAccent === 'amber') storedAccent = 'yellow';
       
       setThemeState(storedTheme);
       setAccentState(storedAccent);

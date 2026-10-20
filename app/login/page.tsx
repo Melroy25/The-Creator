@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { GlassCard } from '@/components/shared/GlassCard';
+import { BackgroundGlow } from '@/components/shared/BackgroundGlow';
 import { PrimaryButton } from '@/components/shared/PrimaryButton';
 import { SecondaryButton } from '@/components/shared/SecondaryButton';
 import { Zap, Mail, ArrowRight, UserCheck } from 'lucide-react';
@@ -44,6 +45,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-canvas text-text-primary flex flex-col items-center justify-center p-4 relative overflow-hidden font-body">
+      <BackgroundGlow isWorkspace={false} />
       <div className="w-full max-w-md relative z-10 space-y-6">
         {/* Brand Header */}
         <div className="text-center space-y-2">

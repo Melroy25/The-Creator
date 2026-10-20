@@ -3,6 +3,7 @@
 import React from 'react';
 import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
+import { BackgroundGlow } from './BackgroundGlow';
 import { PageTransition } from './motion/PageTransition';
 
 export interface AppShellProps {
@@ -14,6 +15,9 @@ export function AppShell({ children }: AppShellProps) {
     <div className="min-h-screen bg-canvas text-text-primary relative overflow-x-hidden font-sans">
       {/* Desktop Sidebar (Wharf Operations, Records, Account structure - never animates) */}
       <Sidebar />
+
+      {/* Background Glow (Behind content, not sidebar) */}
+      <BackgroundGlow isWorkspace={true} />
 
       {/* Main Content Area */}
       <div className="lg:pl-60 flex flex-col min-h-screen relative z-10">

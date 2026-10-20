@@ -24,7 +24,7 @@ export function Topbar() {
             <Menu className="w-5 h-5" />
           </button>
           <Link href="/dashboard" className="flex items-center gap-2">
-            <Waves className="w-5 h-5 text-accent" />
+            <Waves className="w-5 h-5 text-[var(--accent)] transition-colors duration-400" />
             <span className="font-sans font-bold text-base tracking-tight text-text-primary">Wharf</span>
           </Link>
         </div>

@@ -12,7 +12,8 @@ const themeInitScript = `
 (function() {
   try {
     var storedTheme = localStorage.getItem('creator_flow_theme') || 'light';
-    var storedAccent = localStorage.getItem('creator_flow_accent') || 'amber';
+    var storedAccent = localStorage.getItem('creator_flow_accent') || 'yellow';
+    if (storedAccent === 'amber') storedAccent = 'yellow';
     
     var resolvedTheme = storedTheme;
     if (storedTheme === 'system') {

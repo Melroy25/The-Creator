@@ -23,6 +23,7 @@ import {
   LoadingSkeleton,
   useToast,
   useTheme,
+  BackgroundGlow,
 } from '@/components/shared';
 import {
   Calendar,
@@ -53,7 +54,8 @@ export default function DevComponentsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-canvas text-text-primary p-6 sm:p-10 space-y-12 max-w-6xl mx-auto font-body">
+    <div className="min-h-screen bg-canvas text-text-primary p-6 sm:p-10 space-y-12 max-w-6xl mx-auto font-body relative overflow-hidden">
+      <BackgroundGlow isWorkspace={false} />
       {/* Dev Header & Live Theme / Accent Switcher */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-border pb-6">
         <div>

@@ -102,8 +102,8 @@ export function RevenueChartCard() {
           <AreaChart data={currentData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
             <defs>
               <linearGradient id="accentGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="var(--accent-base)" stopOpacity={0.35} />
-                <stop offset="95%" stopColor="var(--accent-base)" stopOpacity={0.0} />
+                <stop offset="5%" stopColor="var(--accent)" stopOpacity={0.4} />
+                <stop offset="95%" stopColor="var(--accent)" stopOpacity={0.0} />
               </linearGradient>
             </defs>
             <XAxis
@@ -144,7 +144,7 @@ export function RevenueChartCard() {
               isAnimationActive={true}
               animationDuration={1000}
               animationEasing="ease-out"
-              activeDot={{ r: 6, fill: 'var(--accent-base)', stroke: 'var(--text-primary)', strokeWidth: 2 }}
+              activeDot={{ r: 6, fill: 'var(--accent)', stroke: 'var(--text-primary)', strokeWidth: 2 }}
             />
           </AreaChart>
         </ResponsiveContainer>

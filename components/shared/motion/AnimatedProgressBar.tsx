@@ -32,7 +32,7 @@ export function AnimatedProgressBar({
           delay: shouldReduceMotion ? 0 : delay,
           ease: [0.22, 1, 0.36, 1] as const,
         }}
-        className={cn('h-full bg-accent rounded-full', barClassName)}
+        className={cn('h-full bg-[var(--accent)] rounded-full transition-colors duration-400', barClassName)}
       />
     </div>
   );

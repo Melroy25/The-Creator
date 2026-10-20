@@ -89,13 +89,13 @@ export function Sidebar() {
 
   return (
     <>
-      <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-60 bg-surface z-50 flex-col justify-between border-r border-border select-none">
+      <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-60 bg-surface-elevated z-50 flex-col justify-between border-r border-border select-none transition-colors duration-400">
         <div className="flex flex-col flex-1 overflow-hidden">
           {/* Wharf Brand Logo */}
           <div className="pt-5 px-5 pb-4 flex items-center justify-between">
             <Link href="/dashboard" className="flex items-center gap-2.5 group">
               <div className="w-7 h-7 rounded-lg flex items-center justify-center text-text-primary">
-                <Waves className="w-5 h-5 text-accent" />
+                <Waves className="w-5 h-5 text-[var(--accent)] transition-colors duration-400" />
               </div>
               <span className="font-sans font-bold text-lg tracking-tight text-text-primary">
                 Wharf
@@ -159,12 +159,11 @@ export function Sidebar() {
 
                       {item.badge && (
                         <span
-                          className={cn(
-                            'relative z-10 text-[10px] font-bold px-2 py-0.2 rounded-full min-w-[18px] text-center',
-                            active
-                              ? 'bg-accent text-accent-contrast'
-                              : 'bg-accent text-accent-contrast shadow-sm'
-                          )}
+                          className="relative z-10 text-[10px] font-bold px-2 py-0.5 rounded-full min-w-[18px] text-center transition-colors duration-400 shadow-xs"
+                          style={{
+                            backgroundColor: 'var(--accent-soft)',
+                            color: 'var(--accent-text)',
+                          }}
                         >
                           {item.badge}
                         </span>
@@ -258,9 +257,12 @@ export function Sidebar() {
         </div>
 
         {/* Bottom Section */}
-        <div className="p-3 space-y-2.5 bg-surface">
+        <div className="p-3 space-y-2.5 bg-surface-elevated transition-colors duration-400">
           {/* Plan Card per Wharf Image: "Harbor plan" with accent progress fill */}
-          <div className="p-3.5 rounded-2xl bg-surface-inset border border-border space-y-2 shadow-inset">
+          <div 
+            className="p-3.5 rounded-2xl space-y-2 border border-black/[0.04] dark:border-white/[0.06] shadow-xs transition-colors duration-400"
+            style={{ backgroundColor: 'var(--accent-soft)' }}
+          >
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-text-primary">Harbor plan</span>
               <button
@@ -272,7 +274,7 @@ export function Sidebar() {
               </button>
             </div>
             <div className="space-y-1.5">
-              <AnimatedProgressBar value={64} duration={0.7} />
+              <AnimatedProgressBar value={64} duration={0.7} barClassName="bg-[var(--accent)]" />
               <span className="text-[10px] text-text-tertiary block">
                 1,284 of 2,000 orders this month
               </span>

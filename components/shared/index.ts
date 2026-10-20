@@ -26,4 +26,5 @@ export * from './RevenueChartCard';
 export * from './DataTable';
 export * from './Avatar';
 export * from './ThemeProvider';
+export * from './BackgroundGlow';
 export * from './motion';

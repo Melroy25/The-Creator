@@ -1,5 +1,6 @@
 'use client';
 
+import { BackgroundGlow } from '@/components/shared/BackgroundGlow';
 import { PrimaryButton } from '@/components/shared/PrimaryButton';
 import { SecondaryButton } from '@/components/shared/SecondaryButton';
 import { GlassCard } from '@/components/shared/GlassCard';
@@ -11,6 +12,9 @@ import Link from 'next/link';
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-canvas text-text-primary relative overflow-hidden flex flex-col justify-between font-sans">
+      {/* Background Glow */}
+      <BackgroundGlow isWorkspace={false} />
+
       {/* Top Header */}
       <header className="relative z-10 max-w-7xl mx-auto w-full px-6 py-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
