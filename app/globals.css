@@ -142,8 +142,8 @@ html[data-accent="amber"],
 html:not([data-accent]) {
   --accent: #F59E0B;
   --accent-soft: #FEF3C7;
-  --accent-glow: rgba(245, 158, 11, 0.65);
-  --accent-glow-2: rgba(252, 211, 77, 0.45);
+  --accent-glow: rgba(245, 185, 58, 0.28);
+  --accent-glow-2: rgba(251, 227, 166, 0.16);
   --accent-text: #92400E;
   --accent-contrast: #18181B;
   --focus-ring: #F59E0B;
@@ -157,8 +157,8 @@ html[data-accent="mint"],
 [data-accent="mint"] {
   --accent: #10B981;
   --accent-soft: #D1FAE5;
-  --accent-glow: rgba(52, 211, 153, 0.65);
-  --accent-glow-2: rgba(167, 243, 208, 0.45);
+  --accent-glow: rgba(52, 211, 153, 0.25);
+  --accent-glow-2: rgba(167, 243, 208, 0.14);
   --accent-text: #065F46;
   --accent-contrast: #18181B;
   --focus-ring: #10B981;
@@ -172,8 +172,8 @@ html[data-accent="pink"],
 [data-accent="pink"] {
   --accent: #EC4899;
   --accent-soft: #FCE7F3;
-  --accent-glow: rgba(244, 114, 182, 0.65);
-  --accent-glow-2: rgba(251, 207, 232, 0.45);
+  --accent-glow: rgba(244, 114, 182, 0.25);
+  --accent-glow-2: rgba(251, 207, 232, 0.14);
   --accent-text: #9D174D;
   --accent-contrast: #18181B;
   --focus-ring: #EC4899;
@@ -187,8 +187,8 @@ html[data-accent="blue"],
 [data-accent="blue"] {
   --accent: #3B82F6;
   --accent-soft: #DBEAFE;
-  --accent-glow: rgba(96, 165, 250, 0.65);
-  --accent-glow-2: rgba(191, 219, 254, 0.45);
+  --accent-glow: rgba(96, 165, 250, 0.25);
+  --accent-glow-2: rgba(191, 219, 254, 0.14);
   --accent-text: #1E40AF;
   --accent-contrast: #18181B;
   --focus-ring: #3B82F6;
@@ -268,8 +268,8 @@ html.dark[data-accent="amber"],
 html.dark:not([data-accent]) {
   --accent: #F59E0B;
   --accent-soft: rgba(245, 158, 11, 0.22);
-  --accent-glow: rgba(245, 158, 11, 0.40);
-  --accent-glow-2: rgba(251, 191, 36, 0.25);
+  --accent-glow: rgba(245, 158, 11, 0.16);
+  --accent-glow-2: rgba(251, 191, 36, 0.08);
   --accent-text: #FCD34D;
   --accent-contrast: #19191D;
   --focus-ring: #F59E0B;
@@ -282,8 +282,8 @@ html[data-theme="dark"][data-accent="mint"],
 html.dark[data-accent="mint"] {
   --accent: #34D399;
   --accent-soft: rgba(52, 211, 153, 0.22);
-  --accent-glow: rgba(52, 211, 153, 0.40);
-  --accent-glow-2: rgba(110, 231, 183, 0.25);
+  --accent-glow: rgba(52, 211, 153, 0.14);
+  --accent-glow-2: rgba(110, 231, 183, 0.07);
   --accent-text: #6EE7B7;
   --accent-contrast: #19191D;
   --focus-ring: #34D399;
@@ -296,8 +296,8 @@ html[data-theme="dark"][data-accent="pink"],
 html.dark[data-accent="pink"] {
   --accent: #F472B6;
   --accent-soft: rgba(244, 114, 182, 0.22);
-  --accent-glow: rgba(244, 114, 182, 0.40);
-  --accent-glow-2: rgba(249, 168, 212, 0.25);
+  --accent-glow: rgba(244, 114, 182, 0.14);
+  --accent-glow-2: rgba(249, 168, 212, 0.07);
   --accent-text: #F9A8D4;
   --accent-contrast: #19191D;
   --focus-ring: #F472B6;
@@ -310,8 +310,8 @@ html[data-theme="dark"][data-accent="blue"],
 html.dark[data-accent="blue"] {
   --accent: #60A5FA;
   --accent-soft: rgba(96, 165, 250, 0.22);
-  --accent-glow: rgba(96, 165, 250, 0.40);
-  --accent-glow-2: rgba(147, 197, 253, 0.25);
+  --accent-glow: rgba(96, 165, 250, 0.14);
+  --accent-glow-2: rgba(147, 197, 253, 0.07);
   --accent-text: #93C5FD;
   --accent-contrast: #19191D;
   --focus-ring: #60A5FA;
@@ -321,64 +321,44 @@ html.dark[data-accent="blue"] {
 }
 
 /* ==========================================================================
-   CORNER ACCENT GLOW SYSTEM & DRIFT ANIMATION
+   CORNER ACCENT GLOW SYSTEM (Two Corners: Top-Right & Bottom-Left)
+   Soft, atmospheric radial gradient fading from corners into clean canvas
    ========================================================================== */
 
 .glow-orb {
   position: absolute;
   pointer-events: none;
-  border-radius: 9999px;
-  filter: blur(48px);
-  -webkit-filter: blur(48px);
-  will-change: transform;
+  filter: blur(60px);
+  -webkit-filter: blur(60px);
+  transition: opacity 600ms ease;
 }
 
 .glow-orb-tr {
   top: 0;
   right: 0;
-  width: 60vw;
-  height: 60vw;
+  width: 65vw;
+  height: 65vh;
   max-width: 900px;
-  max-height: 900px;
-  background: radial-gradient(circle at 100% 0%, var(--accent-glow) 0%, var(--accent-glow-2) 35%, transparent 70%);
-  animation: glowDriftTR 20s ease-in-out infinite alternate;
-  transition: opacity 600ms ease;
+  max-height: 800px;
+  background: radial-gradient(circle at 100% 0%, var(--accent-glow) 0%, var(--accent-glow-2) 30%, transparent 68%);
 }
 
 .glow-orb-bl {
   bottom: 0;
   left: 0;
-  width: 50vw;
-  height: 50vw;
-  max-width: 750px;
-  max-height: 750px;
-  background: radial-gradient(circle at 0% 100%, var(--accent-glow-2) 0%, transparent 60%);
-  animation: glowDriftBL 20s ease-in-out infinite alternate;
-  transition: opacity 600ms ease;
+  width: 55vw;
+  height: 55vh;
+  max-width: 800px;
+  max-height: 700px;
+  background: radial-gradient(circle at 0% 100%, var(--accent-glow-2) 0%, transparent 65%);
 }
 
-/* In dark mode, scale glow opacity */
+/* In dark mode, maintain delicate atmospheric visibility */
 html[data-theme="dark"] .glow-orb-tr,
-html[data-theme="dark"] .glow-orb-bl {
-  opacity: 0.65;
-}
-
-@keyframes glowDriftTR {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-3%, 3%, 0);
-  }
-}
-
-@keyframes glowDriftBL {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(3%, -3%, 0);
-  }
+html.dark .glow-orb-tr,
+html[data-theme="dark"] .glow-orb-bl,
+html.dark .glow-orb-bl {
+  opacity: 0.9;
 }
 
 @media (prefers-reduced-motion: reduce) {
