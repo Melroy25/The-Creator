@@ -201,20 +201,21 @@ html[data-accent="blue"],
    DARK THEME OVERRIDES (Exact Wharf Slate Charcoal Foundation #19191D)
    ========================================================================== */
 
-html[data-theme="dark"] {
-  --bg-canvas: #19191D;
-  --bg-surface: rgba(35, 35, 40, 0.78);
-  --bg-surface-elevated: rgba(42, 42, 48, 0.90);
-  --bg-surface-solid: #232328;
+html[data-theme="dark"],
+html.dark {
+  --bg-canvas: #16161A;
+  --bg-surface: #1E1E24;
+  --bg-surface-elevated: #1F1F23;
+  --bg-surface-solid: #1E1E24;
   --bg-inset: rgba(25, 25, 31, 0.75);
   --bg-inset-deep: rgba(20, 20, 24, 0.75);
-  --border-color: #2C2C34;
-  --border-subtle: #24242A;
-  --border-strong: #3C3C46;
+  --border-color: #2E2E36;
+  --border-subtle: #24242B;
+  --border-strong: #3E3E4A;
 
   --text-primary: #FFFFFF;
-  --text-secondary: #8E8E98;
-  --text-tertiary: #656570;
+  --text-secondary: #A1A1AA;
+  --text-tertiary: #71717A;
   --text-inverse: #19191D;
 
   --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.35);
@@ -261,7 +262,10 @@ html[data-theme="dark"] {
 /* Dark Accents */
 html[data-theme="dark"][data-accent="yellow"], 
 html[data-theme="dark"][data-accent="amber"], 
-html[data-theme="dark"]:not([data-accent]) {
+html[data-theme="dark"]:not([data-accent]),
+html.dark[data-accent="yellow"],
+html.dark[data-accent="amber"],
+html.dark:not([data-accent]) {
   --accent: #F59E0B;
   --accent-soft: rgba(245, 158, 11, 0.22);
   --accent-glow: rgba(245, 158, 11, 0.40);
@@ -274,7 +278,8 @@ html[data-theme="dark"]:not([data-accent]) {
   --border-color: #3D3628;
 }
 
-html[data-theme="dark"][data-accent="mint"] {
+html[data-theme="dark"][data-accent="mint"],
+html.dark[data-accent="mint"] {
   --accent: #34D399;
   --accent-soft: rgba(52, 211, 153, 0.22);
   --accent-glow: rgba(52, 211, 153, 0.40);
@@ -287,7 +292,8 @@ html[data-theme="dark"][data-accent="mint"] {
   --border-color: #1E4237;
 }
 
-html[data-theme="dark"][data-accent="pink"] {
+html[data-theme="dark"][data-accent="pink"],
+html.dark[data-accent="pink"] {
   --accent: #F472B6;
   --accent-soft: rgba(244, 114, 182, 0.22);
   --accent-glow: rgba(244, 114, 182, 0.40);
@@ -300,7 +306,8 @@ html[data-theme="dark"][data-accent="pink"] {
   --border-color: #4A2739;
 }
 
-html[data-theme="dark"][data-accent="blue"] {
+html[data-theme="dark"][data-accent="blue"],
+html.dark[data-accent="blue"] {
   --accent: #60A5FA;
   --accent-soft: rgba(96, 165, 250, 0.22);
   --accent-glow: rgba(96, 165, 250, 0.40);

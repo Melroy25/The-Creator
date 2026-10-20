@@ -42,11 +42,11 @@ export function SegmentedControl<T extends string = string>({
             aria-checked={isSelected}
             onClick={() => onChange(option.value)}
             className={cn(
-              'relative z-10 flex items-center justify-center gap-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer text-center text-xs',
+              'relative z-10 flex items-center justify-center gap-1.5 rounded-xl transition-all duration-200 cursor-pointer text-center text-xs font-bold',
               size === 'sm' ? 'px-2.5 py-1' : 'px-3.5 py-1.5',
               isSelected
-                ? 'bg-[#18181B] text-white shadow-sm font-semibold'
-                : 'text-[#52525B] dark:text-[#A1A1AA] hover:text-[#09090B] dark:hover:text-white'
+                ? 'bg-[#18181B] dark:bg-[#F1F0EA] text-white dark:text-[#18181B] shadow-sm'
+                : 'text-[#52525B] dark:text-[#A1A1AA] hover:text-[#09090B] dark:hover:text-white font-medium'
             )}
           >
             {option.icon}

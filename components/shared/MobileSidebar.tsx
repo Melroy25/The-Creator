@@ -92,7 +92,7 @@ export function MobileSidebar({ isOpen, onClose, onOpenHelp }: MobileSidebarProp
 
           {/* Operations */}
           <div className="space-y-1">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-text-tertiary font-semibold px-3">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#71717A] dark:text-[#A1A1AA] px-3">
               Operations
             </span>
             <nav className="space-y-1 pt-1">
@@ -102,10 +102,10 @@ export function MobileSidebar({ isOpen, onClose, onOpenHelp }: MobileSidebarProp
                   href={item.href}
                   onClick={onClose}
                   className={cn(
-                    'flex items-center gap-3 px-3 py-2 rounded-full text-xs font-semibold transition-colors',
+                    'flex items-center gap-3 px-3 py-2 rounded-full text-xs font-bold transition-colors',
                     isActive(item.href)
                       ? 'bg-text-primary text-text-inverse shadow-sm'
-                      : 'text-text-secondary hover:text-text-primary hover:bg-surface-inset'
+                      : 'text-[#27272A] dark:text-[#F4F4F5] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset'
                   )}
                 >
                   {item.icon}
@@ -117,7 +117,7 @@ export function MobileSidebar({ isOpen, onClose, onOpenHelp }: MobileSidebarProp
 
           {/* Records */}
           <div className="space-y-1">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-text-tertiary font-semibold px-3">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#71717A] dark:text-[#A1A1AA] px-3">
               Records
             </span>
             <nav className="space-y-1 pt-1">
@@ -127,10 +127,10 @@ export function MobileSidebar({ isOpen, onClose, onOpenHelp }: MobileSidebarProp
                   href={item.href}
                   onClick={onClose}
                   className={cn(
-                    'flex items-center gap-3 px-3 py-2 rounded-full text-xs font-semibold transition-colors',
+                    'flex items-center gap-3 px-3 py-2 rounded-full text-xs font-bold transition-colors',
                     isActive(item.href)
                       ? 'bg-text-primary text-text-inverse shadow-sm'
-                      : 'text-text-secondary hover:text-text-primary hover:bg-surface-inset'
+                      : 'text-[#27272A] dark:text-[#F4F4F5] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset'
                   )}
                 >
                   {item.icon}
@@ -142,7 +142,7 @@ export function MobileSidebar({ isOpen, onClose, onOpenHelp }: MobileSidebarProp
 
           {/* Account */}
           <div className="space-y-1">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-text-tertiary font-semibold px-3">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#71717A] dark:text-[#A1A1AA] px-3">
               Account
             </span>
             <nav className="space-y-1 pt-1">
@@ -150,10 +150,10 @@ export function MobileSidebar({ isOpen, onClose, onOpenHelp }: MobileSidebarProp
                 href="/settings"
                 onClick={onClose}
                 className={cn(
-                  'flex items-center gap-3 px-3 py-2 rounded-full text-xs font-semibold transition-colors',
+                  'flex items-center gap-3 px-3 py-2 rounded-full text-xs font-bold transition-colors',
                   isActive('/settings')
                     ? 'bg-text-primary text-text-inverse shadow-sm'
-                    : 'text-text-secondary hover:text-text-primary hover:bg-surface-inset'
+                    : 'text-[#27272A] dark:text-[#F4F4F5] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset'
                 )}
               >
                 <Settings className="w-4 h-4" />
@@ -164,7 +164,7 @@ export function MobileSidebar({ isOpen, onClose, onOpenHelp }: MobileSidebarProp
                   onClose();
                   onOpenHelp();
                 }}
-                className="w-full flex items-center gap-3 px-3 py-2 rounded-full text-xs font-semibold text-text-secondary hover:text-text-primary hover:bg-surface-inset transition-colors"
+                className="w-full flex items-center gap-3 px-3 py-2 rounded-full text-xs font-bold text-[#27272A] dark:text-[#F4F4F5] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset transition-colors"
               >
                 <HelpCircle className="w-4 h-4" />
                 <span>Help & Guides</span>

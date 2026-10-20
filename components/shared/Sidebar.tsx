@@ -114,9 +114,9 @@ export function Sidebar() {
             >
               <div className="flex items-center gap-2.5">
                 <Search className="w-4 h-4 text-text-tertiary shrink-0" />
-                <span className="font-normal text-text-secondary">Search orders</span>
+                <span className="font-semibold text-[#27272A] dark:text-[#E4E4E7]">Search orders</span>
               </div>
-              <kbd className="text-[10px] font-mono font-medium bg-surface border border-border px-1.5 py-0.5 rounded-md text-text-tertiary">
+              <kbd className="text-[10px] font-mono font-bold bg-surface border border-border px-1.5 py-0.5 rounded-md text-text-tertiary">
                 CtrlK
               </kbd>
             </div>
@@ -126,7 +126,7 @@ export function Sidebar() {
           <div className="flex-1 overflow-y-auto px-3 py-1 space-y-6">
             {/* OPERATIONS */}
             <div>
-              <div className="px-3.5 pb-2 text-[#8E8E93] dark:text-[#71717A] text-[11px] font-semibold tracking-normal uppercase">
+              <div className="px-3.5 pb-2 text-[#71717A] dark:text-[#A1A1AA] text-[11px] font-bold tracking-wider uppercase">
                 Operations
               </div>
               <nav className="space-y-1">
@@ -137,21 +137,21 @@ export function Sidebar() {
                       key={item.name}
                       href={item.href}
                       className={cn(
-                        'group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-colors text-[13px] font-medium',
+                        'group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-colors text-[13px] font-bold',
                         active
-                          ? 'text-white font-semibold'
-                          : 'text-[#27272A] dark:text-[#D4D4D8] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset'
+                          ? 'text-white dark:text-[#18181B]'
+                          : 'text-[#27272A] dark:text-[#F4F4F5] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset'
                       )}
                     >
                       {active && (
                         <motion.div
                           layoutId="active-sidebar-pill"
-                          className="absolute inset-0 bg-[#18181B] rounded-2xl shadow-sm z-0"
+                          className="absolute inset-0 bg-[#18181B] dark:bg-[#F1F0EA] rounded-2xl shadow-sm z-0"
                           transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                         />
                       )}
                       <div className="relative z-10 flex items-center gap-2.5">
-                        <div className={cn(active ? 'text-white' : 'text-[#52525B] dark:text-[#A1A1AA] group-hover:text-[#09090B] dark:group-hover:text-white transition-colors')}>
+                        <div className={cn(active ? 'text-white dark:text-[#18181B]' : 'text-[#52525B] dark:text-[#E4E4E7] group-hover:text-[#09090B] dark:group-hover:text-white transition-colors')}>
                           {item.icon}
                         </div>
                         <span>{item.name}</span>
@@ -162,7 +162,7 @@ export function Sidebar() {
                           className={cn(
                             'relative z-10 text-[11px] font-bold px-2 py-0.5 rounded-full min-w-[20px] text-center transition-colors duration-400 shadow-xs',
                             item.name === 'Stock'
-                              ? 'bg-[#FEF3C7] text-[#92400E] dark:bg-[#78350F]/40 dark:text-[#FCD34D]'
+                              ? 'bg-[#FEF3C7] text-[#92400E] dark:bg-[#78350F]/50 dark:text-[#FCD34D]'
                               : ''
                           )}
                           style={
@@ -185,7 +185,7 @@ export function Sidebar() {
 
             {/* RECORDS */}
             <div>
-              <div className="px-3.5 pb-2 text-[#8E8E93] dark:text-[#71717A] text-[11px] font-semibold tracking-normal uppercase">
+              <div className="px-3.5 pb-2 text-[#71717A] dark:text-[#A1A1AA] text-[11px] font-bold tracking-wider uppercase">
                 Records
               </div>
               <nav className="space-y-1">
@@ -196,21 +196,21 @@ export function Sidebar() {
                       key={item.name}
                       href={item.href}
                       className={cn(
-                        'group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-colors text-[13px] font-medium',
+                        'group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-colors text-[13px] font-bold',
                         active
-                          ? 'text-white font-semibold'
-                          : 'text-[#27272A] dark:text-[#D4D4D8] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset'
+                          ? 'text-white dark:text-[#18181B]'
+                          : 'text-[#27272A] dark:text-[#F4F4F5] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset'
                       )}
                     >
                       {active && (
                         <motion.div
                           layoutId="active-sidebar-pill"
-                          className="absolute inset-0 bg-[#18181B] rounded-2xl shadow-sm z-0"
+                          className="absolute inset-0 bg-[#18181B] dark:bg-[#F1F0EA] rounded-2xl shadow-sm z-0"
                           transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                         />
                       )}
                       <div className="relative z-10 flex items-center gap-2.5">
-                        <div className={cn(active ? 'text-white' : 'text-[#52525B] dark:text-[#A1A1AA] group-hover:text-[#09090B] dark:group-hover:text-white transition-colors')}>
+                        <div className={cn(active ? 'text-white dark:text-[#18181B]' : 'text-[#52525B] dark:text-[#E4E4E7] group-hover:text-[#09090B] dark:group-hover:text-white transition-colors')}>
                           {item.icon}
                         </div>
                         <span>{item.name}</span>
@@ -223,28 +223,28 @@ export function Sidebar() {
 
             {/* ACCOUNT */}
             <div>
-              <div className="px-3.5 pb-2 text-[#8E8E93] dark:text-[#71717A] text-[11px] font-semibold tracking-normal uppercase">
+              <div className="px-3.5 pb-2 text-[#71717A] dark:text-[#A1A1AA] text-[11px] font-bold tracking-wider uppercase">
                 Account
               </div>
               <nav className="space-y-1">
                 <Link
                   href="/settings"
                   className={cn(
-                    'group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-colors text-[13px] font-medium',
+                    'group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-colors text-[13px] font-bold',
                     isActive('/settings')
-                      ? 'text-white font-semibold'
-                      : 'text-[#27272A] dark:text-[#D4D4D8] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset'
+                      ? 'text-white dark:text-[#18181B]'
+                      : 'text-[#27272A] dark:text-[#F4F4F5] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset'
                   )}
                 >
                   {isActive('/settings') && (
                     <motion.div
                       layoutId="active-sidebar-pill"
-                      className="absolute inset-0 bg-[#18181B] rounded-2xl shadow-sm z-0"
+                      className="absolute inset-0 bg-[#18181B] dark:bg-[#F1F0EA] rounded-2xl shadow-sm z-0"
                       transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                     />
                   )}
                   <div className="relative z-10 flex items-center gap-2.5">
-                    <Settings className="w-4 h-4" />
+                    <Settings className={cn('w-4 h-4', isActive('/settings') ? 'text-white dark:text-[#18181B]' : 'text-[#52525B] dark:text-[#E4E4E7]')} />
                     <span>Settings</span>
                   </div>
                 </Link>
@@ -252,13 +252,13 @@ export function Sidebar() {
                 <button
                   type="button"
                   onClick={() => setHelpOpen(true)}
-                  className="w-full group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-all text-[13px] font-medium text-[#27272A] dark:text-[#D4D4D8] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset cursor-pointer"
+                  className="w-full group relative flex items-center justify-between px-3.5 py-2.5 rounded-2xl transition-all text-[13px] font-bold text-[#27272A] dark:text-[#F4F4F5] hover:text-[#09090B] dark:hover:text-white hover:bg-surface-inset cursor-pointer"
                 >
                   <div className="flex items-center gap-2.5">
-                    <HelpCircle className="w-4 h-4 text-[#52525B] dark:text-[#A1A1AA] group-hover:text-[#09090B] dark:group-hover:text-white transition-colors" />
+                    <HelpCircle className="w-4 h-4 text-[#52525B] dark:text-[#E4E4E7] group-hover:text-[#09090B] dark:group-hover:text-white transition-colors" />
                     <span>Help</span>
                   </div>
-                  <span className="text-xs text-[#71717A]">4 tips</span>
+                  <span className="text-xs font-semibold text-[#71717A] dark:text-[#A1A1AA]">4 tips</span>
                 </button>
               </nav>
             </div>
@@ -269,7 +269,7 @@ export function Sidebar() {
         <div className="p-3 space-y-2.5 bg-surface-elevated transition-colors duration-400">
           {/* Plan Card per Wharf Image: "Harbor plan" with accent progress fill */}
           <div 
-            className="p-3.5 rounded-2xl space-y-2 border border-black/[0.04] dark:border-white/[0.06] shadow-xs transition-colors duration-400"
+            className="p-3.5 rounded-2xl space-y-2 border border-black/[0.04] dark:border-white/[0.08] shadow-xs transition-colors duration-400"
             style={{ backgroundColor: 'var(--accent-soft)' }}
           >
             <div className="flex items-center justify-between">
@@ -277,14 +277,14 @@ export function Sidebar() {
               <button
                 type="button"
                 onClick={() => alert('Plan management')}
-                className="text-xs text-[#52525B] dark:text-[#A1A1AA] hover:text-[#09090B] dark:hover:text-white transition-colors cursor-pointer font-semibold"
+                className="text-xs text-[#52525B] dark:text-white/80 hover:text-[#09090B] dark:hover:text-white transition-colors cursor-pointer font-bold"
               >
                 Manage
               </button>
             </div>
             <div className="space-y-1.5">
               <AnimatedProgressBar value={64} duration={0.7} barClassName="bg-[var(--accent)]" />
-              <span className="text-[11px] text-[#71717A] dark:text-[#A1A1AA] block">
+              <span className="text-[11px] font-medium text-[#71717A] dark:text-[#D4D4D8] block">
                 1,284 of 2,000 orders this month
               </span>
             </div>
@@ -296,15 +296,15 @@ export function Sidebar() {
             className="flex items-center justify-between p-2 rounded-xl hover:bg-surface-inset transition-colors group cursor-pointer"
           >
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-full bg-white dark:bg-[#2A2A30] border border-border flex items-center justify-center font-bold text-xs text-[#09090B] dark:text-white shadow-xs">
+              <div className="w-7 h-7 rounded-full bg-white text-[#09090B] border border-border flex items-center justify-center font-bold text-xs shadow-xs">
                 NH
               </div>
               <div className="space-y-0.5">
                 <p className="text-[13px] font-bold text-[#09090B] dark:text-white leading-none">Noor Haddad</p>
-                <p className="text-[11px] text-[#71717A] dark:text-[#A1A1AA] leading-none">Operations lead</p>
+                <p className="text-[11px] font-medium text-[#71717A] dark:text-[#A1A1AA] leading-none">Operations lead</p>
               </div>
             </div>
-            <span className="text-[#A1A1AA] group-hover:text-[#09090B] dark:group-hover:text-white text-sm font-mono">
+            <span className="text-[#A1A1AA] group-hover:text-[#09090B] dark:group-hover:text-white text-sm font-mono font-bold">
               ›
             </span>
           </Link>

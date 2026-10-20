@@ -242,7 +242,7 @@ export default function SettingsPage() {
                 <button
                   type="button"
                   onClick={handleSaveWorkspace}
-                  className="bg-[#18181B] text-white font-semibold text-sm px-6 py-2.5 rounded-xl hover:bg-black transition-all shadow-sm cursor-pointer active:scale-97"
+                  className="bg-[#18181B] dark:bg-[#F1F0EA] text-white dark:text-[#18181B] font-bold text-sm px-6 py-2.5 rounded-xl hover:bg-black dark:hover:bg-white transition-all shadow-sm cursor-pointer active:scale-97"
                 >
                   Save workspace
                 </button>
